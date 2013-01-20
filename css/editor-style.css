@@ -1,0 +1,11 @@
+html .mceContentBody {
+    max-width: 628px;
+	border-right: 1px dashed #bbb;
+	padding-right: 9px;
+}
+
+.alignnone {margin: 10px 0;}
+.aligncenter {display:block; margin:0 auto }
+.alignleft {float:left; margin: 3px 10px 10px 0; }
+.alignright {float:right; margin: 3px 0 10px 10px; }
+

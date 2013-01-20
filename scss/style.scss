@@ -1,0 +1,70 @@
+/*!
+Theme Name: CONTROL
+Description: Custom theme design by Astronaut Web Co
+Author: Tim Holt
+Author URI: http://astronautweb.co/
+
+*/
+
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+@import 'bourbon/bourbon';
+
+@import 'variables';
+@import 'mixins';
+
+	
+/* #GLOBAL
+================================================== */
+
+@import 'default';
+
+/* #TYPOGRAPHY
+================================================== */
+
+@import 'typography';
+
+/* #IMAGES
+================================================== */
+
+@import 'images';
+
+/* HEADER & NAV
+======================================================= */
+
+@import 'header_nav';
+
+/* PAGE
+======================================================= */
+
+@import 'page';
+
+/* POST
+======================================================= */
+
+@import 'post';
+
+/* COMMENTS
+======================================================= */
+
+@import 'comments';
+
+/* SIDEBAR
+======================================================= */
+
+@import 'sidebar';
+
+/* FORMS
+======================================================= */
+
+@import 'forms';
+
+/* FOOTER
+======================================================= */
+
+@import 'footer';
+
+/* MEDIA QUERIES
+======================================================= */
+
+@import 'media_queries';

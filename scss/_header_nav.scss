@@ -1,0 +1,22 @@
+	/* dropdown 
+	------------------------------------------------------- */
+
+.dropdown:hover ul.dropdown-menu {
+    display: block;    
+}
+.dropdown-menu {
+	display: none;
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-top: none;
+	z-index: 9;
+	
+	&:hover {
+		cursor: pointer;
+	}
+
+	li a {
+		font-weight: normal;
+	}
+}
+
