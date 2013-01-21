@@ -50,6 +50,10 @@
 		<h2 id="tagline"><?php bloginfo('description'); ?></h2>
 	</hgroup>
 
+	<div id="search">
+		<?php get_search_form(); ?>
+	</div>
+
 	<nav id="nav" class="navbar navbar-static" role="navigation">
 	  <div class="navbar-inner">
 	    <div class="container">

@@ -8,6 +8,7 @@ define( "RESPONSIVE"	, 	true 	);
 define( "FLEXSLIDER"	, 	true 	);
 define( "THEMEOPTIONS"	, 	false 	);
 define( "GOOGLEMAP"		, 	true 	);
+define( "SEARCH"		, 	true 	);
 
 	// test for constant
 	function theme_has($test) {
