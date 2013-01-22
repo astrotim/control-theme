@@ -1,0 +1,32 @@
+
+.tags {
+
+	display: block;
+
+	a {
+		font-size: $tinyFontSize;
+		line-height: 1;
+		display: inline-block;
+		background: #fff8ba;
+		border: 1px solid #e5dc8a;
+		text-decoration: none;
+		color: #666;
+		padding: 3px 5px 3px 12px;
+		border-radius: 12px 0 0 12px;
+		position: relative;
+		margin-right: 5px;
+
+		&:before {
+			content: '';
+			display: block;
+			background: #fff;
+			width: 4px;
+			height: 4px;
+			border-radius: 2px;
+			position: absolute;
+			left: 3px;
+			top: 5px;
+			border: 1px solid #e5dc8a;		
+		}
+	}
+}

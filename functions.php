@@ -163,7 +163,9 @@
 		$output = apply_filters('convert_chars', $output);
 		$output = '<p class="excerpt">'.$output.'</p>';
 		echo $output;
-	} 
+	}
+
+	// template usage: astro_excerpt('astro_excerptlength_post', 'astro_excerpt_readmore', ' ');
 
 
 // SHORTCODES -------------------------------------------------------------------------------- //
