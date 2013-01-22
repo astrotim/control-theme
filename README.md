@@ -6,7 +6,9 @@ Control: WordPress Theme
 A free WordPress theme for developers
 -------------------------------------
 
-This theme is designed as a vanilla styled collection of common website features and WordPress tools.
+This theme is a vanilla styled collection of common website features and WordPress tools. It is designed to be used with Compass for compiling the SCSS into CSS.
+
+*This is a work in progress to which I will continue to commit updates.*
 
 Style features
 --------------
