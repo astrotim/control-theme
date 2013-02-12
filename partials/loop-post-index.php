@@ -39,7 +39,10 @@
 
 			<?php the_excerpt(); ?>
 
-			<a href="<?php the_permalink(); ?>">Read Full Story</a> &bull; <a href="#">Comments {Make this dynamic}</a>
+			<a href="<?php the_permalink(); ?>">Read Full Story</a> &bull; 
+			<?php if (get_comments_number() > 0 ) : ?>
+				<?php comments_number( 'No comments', '1 comment', '% comments' ); ?>
+			<?php endif; ?>
 
 		</div><!-- .post-excerpt -->
 

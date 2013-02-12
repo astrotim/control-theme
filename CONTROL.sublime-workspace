@@ -1,0 +1,1465 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get_tem",
+				"get_template_part"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"template",
+				"template_directory"
+			],
+			[
+				"get",
+				"getItem"
+			],
+			[
+				"the",
+				"theList"
+			],
+			[
+				"ready",
+				"ready	document ready (safe)"
+			],
+			[
+				"re",
+				"ready	document-ready"
+			],
+			[
+				"backgr",
+				"background-size"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"a",
+				"text-align"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"text-",
+				"text-indent"
+			],
+			[
+				"abs",
+				"absolute"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"border-bot",
+				"border-bottom-color"
+			],
+			[
+				"border-rig",
+				"border-right-color"
+			],
+			[
+				"resl",
+				"result_array"
+			],
+			[
+				"obje",
+				"object_array"
+			],
+			[
+				"fora",
+				"foreach	foreach …"
+			],
+			[
+				"first",
+				"first_name"
+			],
+			[
+				"find",
+				"find_by_id"
+			],
+			[
+				"result",
+				"result_set"
+			],
+			[
+				"mysql_re",
+				"mysql_real_escape_string"
+			],
+			[
+				"real_es",
+				"mysql_real_escape_string"
+			],
+			[
+				"magic",
+				"magic_quotes_active"
+			],
+			[
+				"last",
+				"last_query"
+			],
+			[
+				"res",
+				"result_set"
+			],
+			[
+				"item",
+				"item_rank"
+			],
+			[
+				"paddin",
+				"padding-bottom"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"pading",
+				"padding-right"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"found",
+				"found_user"
+			],
+			[
+				"mysql_num",
+				"mysql_num_rows"
+			],
+			[
+				"hashed",
+				"hashed_password"
+			],
+			[
+				"req",
+				"required_fields"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"block",
+				"inline-block"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"padin",
+				"padding-left"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"over",
+				"overflow-wrap"
+			],
+			[
+				"te",
+				"text-overflow"
+			],
+			[
+				"border-",
+				"border-radius"
+			],
+			[
+				"hel",
+				"helveticaLight"
+			],
+			[
+				"body",
+				"body_class"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"mag",
+				"margin-bottom"
+			],
+			[
+				"the_per",
+				"the_permalink"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"enter",
+				"enter-draw-button"
+			],
+			[
+				"cat",
+				"catID"
+			],
+			[
+				"button",
+				"button_text"
+			],
+			[
+				"stj_",
+				"stj_doc_button"
+			],
+			[
+				"he",
+				"Arial, Helvetica, sans-serif"
+			],
+			[
+				"date",
+				"datepicker"
+			],
+			[
+				"the_post",
+				"the_post_thumbnail"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"singe",
+				"single_cat_title"
+			],
+			[
+				"icon",
+				"iconHeight"
+			],
+			[
+				"form",
+				"form-signin"
+			],
+			[
+				"Total",
+				"total_pages"
+			],
+			[
+				"align",
+				"aligncenter"
+			],
+			[
+				"short",
+				"shortcode_atts"
+			],
+			[
+				"bann",
+				"bannerHeight"
+			],
+			[
+				"ba",
+				"bannerHeight"
+			],
+			[
+				"clear",
+				"clearfix"
+			],
+			[
+				"paddi",
+				"padding-top"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"rel",
+				"relative"
+			],
+			[
+				"wp_login",
+				"wp_login_form"
+			],
+			[
+				"wp_logi",
+				"wp_login_form"
+			],
+			[
+				"home",
+				"home_url"
+			],
+			[
+				"bac",
+				"background-position"
+			],
+			[
+				"buy",
+				"buy_button_link"
+			],
+			[
+				"trans",
+				"transparent"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"prent",
+				"preventDefault"
+			],
+			[
+				"doc",
+				"document"
+			],
+			[
+				"mo",
+				"modal"
+			],
+			[
+				"jquery",
+				"jquery	<script> (jQuery google ajax api)"
+			],
+			[
+				"search",
+				"search-query"
+			],
+			[
+				"thum",
+				"thumb_size"
+			],
+			[
+				"thumb",
+				"thumb-medium"
+			],
+			[
+				"eve",
+				"event_date"
+			],
+			[
+				"sub",
+				"sub_cat"
+			],
+			[
+				"categories",
+				"sub_categories"
+			],
+			[
+				"ca",
+				"category"
+			],
+			[
+				"the_categ",
+				"the_category_ID"
+			],
+			[
+				"sing",
+				"single_cat_title"
+			],
+			[
+				"wp_list",
+				"wp_list_categories"
+			],
+			[
+				"row",
+				"row-of-three"
+			],
+			[
+				"list",
+				"listUL"
+			],
+			[
+				"rowO",
+				"rowOfThree"
+			],
+			[
+				"read",
+				"ready	document ready - jQuery"
+			],
+			[
+				"nth-c",
+				":nth-child(|)"
+			],
+			[
+				"gal",
+				"galleryThree"
+			],
+			[
+				"ga",
+				"galleryTwo"
+			],
+			[
+				"imag",
+				"imageCaption"
+			],
+			[
+				"galler",
+				"galleryImage"
+			],
+			[
+				"ar",
+				"Arial, Helvetica, sans-serif"
+			],
+			[
+				"doc_cat",
+				"doc_cats"
+			],
+			[
+				"do",
+				"doctags"
+			],
+			[
+				"ico",
+				"icon_type"
+			],
+			[
+				"ic",
+				"icon_url"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"thu",
+				"thumb_size_url"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"price",
+				"priceTableRow"
+			],
+			[
+				"select",
+				"selected"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"ta",
+				"targetMore"
+			],
+			[
+				"bra",
+				"bracket"
+			],
+			[
+				"si",
+				"siblingSwitch"
+			],
+			[
+				"sibl",
+				"siblingMore"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Compass/Compass.sublime-build",
+	"command_palette":
+	{
+		"height": 196.0,
+		"selected_items":
+		[
+			[
+				"paclis",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"snippnav",
+				"Snippet: wordpress-nav-menu"
+			],
+			[
+				"snipmenu",
+				"Snippet: wordpress-nav-menu"
+			],
+			[
+				"codex",
+				"WordPress Codex: Search from Input"
+			],
+			[
+				"proje",
+				"Project: Save As"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"snipp",
+				"Snippet: basic-html"
+			],
+			[
+				"snip",
+				"Snippet: helvetica-neue"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"pacdis",
+				"Package Control: Disable Package"
+			],
+			[
+				"snipp html",
+				"Snippet: html"
+			],
+			[
+				"snip sc",
+				"Snippet: script-src"
+			],
+			[
+				"snipp sc",
+				"Snippet: script-src"
+			],
+			[
+				"snip scr",
+				"Snippet: script-src"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package li",
+				"Package Control: List Packages"
+			],
+			[
+				"snippet",
+				"Snippet: basic-html"
+			],
+			[
+				"enabl",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"snipp wpna",
+				"Snippet: wordpress-nav-menu"
+			],
+			[
+				"snipp wor",
+				"Snippet: wordpress-stylesheet"
+			],
+			[
+				"snipp media",
+				"Snippet: CSS - @media {}"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"anon",
+				"Snippet: Anonymous Function"
+			],
+			[
+				"snippet bas",
+				"Snippet: basic-html"
+			],
+			[
+				"snippet jquer",
+				"Snippet: <script> (jQuery google ajax api)"
+			],
+			[
+				"snippet: wp",
+				"Snippet: wordpress-stylesheet"
+			],
+			[
+				"zen ",
+				"Set Syntax: ZenCoding"
+			],
+			[
+				"zen",
+				"Set Syntax: ZenCoding"
+			],
+			[
+				"Snippet: siv",
+				"Snippet: jQuery self-invoking function"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"set syn",
+				"Set Syntax: PHP"
+			],
+			[
+				"set sy",
+				"Set Syntax: HTML (Erlang)"
+			],
+			[
+				"jquery",
+				"Set Syntax: jQuery (JavaScript)"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: jq",
+				"Snippet: <script> (jQuery google ajax api)"
+			],
+			[
+				"Snippet: ",
+				"Snippet: <?php if (…) ?> … <?php endif ?>"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 469.0
+	},
+	"console":
+	{
+		"height": 98.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/wamp/www/git/control/wp-content/themes/control/functions.php",
+		"/D/wamp/www/git/control/wp-includes/general-template.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/page.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/index.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/single.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/includes/whitelabel.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/partials/loop-post-index.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/scss/_images.scss",
+		"/D/wamp/www/git/control/wp-content/themes/control/CONTROL.sublime-project",
+		"/D/wamp/www/wp3/wp-content/themes/_control/CONTROL.sublime-project",
+		"/D/wamp/www/1.projects/_CONTROL.sublime-project",
+		"/D/wamp/www/git/control/wp-content/themes/control/scss/_mixins.scss",
+		"/D/wamp/www/yqme/MPRT5/www/Design/scss/_mixins.scss",
+		"/D/wamp/www/git/control/wp-content/themes/control/README.md",
+		"/D/wamp/www/git/control/wp-content/themes/control/COMPASS.bat",
+		"/D/wamp/www/git/control/wp-content/themes/control/scss/_post.scss",
+		"/D/wamp/www/stjohn/wp-content/themes/stjohn/search.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/js/project.js",
+		"/D/wamp/www/git/control/wp-content/themes/control/scss/_header_nav.scss",
+		"/D/wamp/www/git/control/wp-content/themes/control/search.php",
+		"/D/wamp/www/stjohn/wp-content/themes/stjohn/functions.php",
+		"/D/wamp/www/stjohn/wp-content/themes/stjohn/scss/_typography.scss",
+		"/D/wamp/www/wp3/wp-content/themes/_control/.gitignore",
+		"/D/wamp/www/git/control/wp-content/themes/control/header.php",
+		"/D/wamp/www/stjohn/wp-content/themes/stjohn/header.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/includes/constants.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/index.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/backup/posts.xml",
+		"/D/wamp/www/wp3/wp-content/themes/z. archive/stjohn/draft/import.xml",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/draft/events.xml",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/draft/import.xml",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/draft/content.xml",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/draft/docs.xml",
+		"/D/wamp/www/git/control/wp-content/themes/control/includes/google-map.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_page.scss",
+		"/D/wamp/www/git/control/wp-content/themes/control/partials/loop-page.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_images.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/page.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/scss/_default.scss",
+		"/D/wamp/www/git/control/wp-content/themes/control/scss/_variables.scss",
+		"/D/wamp/www/git/control/wp-content/themes/control/footer.php",
+		"/D/wamp/www/demo/css/bootstrap/dropdown.html",
+		"/D/wamp/www/demo/gallery/multi-thumbnail/index.html",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/js/project.js",
+		"/D/wamp/www/listermania/includes/constants.php",
+		"/D/wamp/www/git/listermania/includes/constants.php",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/includes/whitelabel.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/scss/style.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/functions.php",
+		"/D/wamp/www/wp3/wp-content/themes/nextgig/style.css",
+		"/D/wamp/www/wp3/wp-content/themes/nextgig/scss/_images.scss",
+		"/D/wamp/bin/apache/Apache2.2.11/conf/extra/httpd-vhosts.conf",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/wamp/www/git/listermania/.git/config",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/loop-document.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/includes/cpt-document.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/page-downloads.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/loop-page.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/page-home.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/header.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_header_nav.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_post.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/single-document.php",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/functions.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_default.scss",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/parts/child-category.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_typography.scss",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/single-document.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/loop-default.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/single.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_variables.scss",
+		"/D/wamp/www/wp3/wp-content/themes/stjohn/category.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/loop-post-index.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/slider.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/includes/whitelabel.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/page-loop.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_footer.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_mixins.scss",
+		"/D/wamp/www/wp3/wp-content/themes/includes/slider.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/css/flexslider.css",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/index.html",
+		"/D/wamp/www/stjohn/wp-content/themes/stjohn/page-home.php",
+		"/D/wamp/www/wp3/wp-content/themes/form.html",
+		"/D/wamp/www/wp3/wp-content/themes/index.html",
+		"/D/wamp/www/stjohn/wp-content/themes/stjohn/includes/whitelabel.php",
+		"/D/wamp/www/wp3/wp-content/themes/index.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/footer.php",
+		"/D/wamp/www/wp3/wp-content/themes/modaunica/page-contact.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/includes/google-map.php",
+		"/D/wamp/www/wp3/wp-content/themes/includes/google-map.php",
+		"/D/wamp/www/wp3/wp-content/themes/modaunica/footer.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_comments.scss",
+		"/D/wamp/www/wp3/wp-content/themes/modaunica/includes/google-map.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/editor-style.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/blog-index.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_forms.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/style.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/comments.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/default.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/scss/_pagination.scss",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/partials/blog-single.php",
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/partials/post-excerpt.php",
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/partials/posts-index.php",
+		"/D/wamp/www/wp3/wp-content/plugins/ultimate-coming-soon-page/inc/template/template-coming-soon.php",
+		"/D/wamp/www/wp3/wp-content/themes/ridewiser/coming-soon/index.html",
+		"/D/wamp/www/wp3/wp-content/themes/z. archive/ridewiser/index.html",
+		"/D/wamp/www/wp3/wp-content/themes/badsanta/functions.php",
+		"/D/wamp/www/wp3/wp-content/themes/badsanta/includes/whitelabel.php",
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/functions.php",
+		"/D/wamp/www/1.projects/RIDEWISER.sublime-project",
+		"/D/wamp/www/git/utopia/lib/templates/products_panel.php",
+		"/D/wamp/www/git/utopia/templates/utopia/Snippets/CategoryProductsItem.html",
+		"/D/wamp/www/git/utopia/lib/templates/products_panel_20130116_bak.php",
+		"/D/wamp/www/git/utopia/includes/display/ProductDetails.php",
+		"/D/wamp/www/git/utopia/config/config.php",
+		"/D/wamp/www/git/utopia/includes/display/ProductDetails_bak.php",
+		"/D/wamp/www/1.projects/UTOPIA.sublime-project",
+		"/D/wamp/www/1.projects/LISTERMANIA.sublime-project",
+		"/D/wamp/www/git/listermania/test.php",
+		"/D/wamp/www/scaffold/templates/scaffold/Styles/bootstrap.css",
+		"/D/wamp/www/1.projects/scaffold.sublime-project",
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/scss/_media_queries.scss",
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/scss/_header_nav.scss",
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/header.php",
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/style.css",
+		"/D/wamp/www/1.projects/RTN-2013.sublime-project",
+		"/D/wamp/www/healthcare/wp-content/themes/healthcare/style.css",
+		"/D/wamp/www/healthcare/wp-content/themes/healthcare/header.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"tags",
+			".post-tags",
+			"theme_has_",
+			"custom_pages_columns",
+			"clearfix",
+			"tags",
+			"'",
+			"echo",
+			"$shadow",
+			"box-shadow",
+			"ProductOptionRequired",
+			"IsOptionRequired",
+			"onlyOneVariation",
+			"panel-head",
+			"2012",
+			"textC",
+			"font-short",
+			"form {",
+			"Forms",
+			"shortcode",
+			"guardian",
+			".ie",
+			"greyHover",
+			"price-gr",
+			"Sort",
+			"normal",
+			"bold",
+			"user",
+			"</li>",
+			"<li>",
+			"#1F2A5A",
+			"tabs-con",
+			"ProductList strong",
+			"{background",
+			".icon-",
+			"WWW",
+			"180x216",
+			"187x",
+			"li-left.png",
+			"placeholder=\"Password\" ",
+			"Username",
+			".gform_wrapper ",
+			"clearfix",
+			"bonestheme",
+			"comments",
+			"wpe_",
+			"00707b",
+			"width=\"108\" ",
+			"#ffffff",
+			"locate_template",
+			"include('",
+			"template_directory()",
+			"alert",
+			" <a href=\"#\">read more</a> ...",
+			"0 1px 4px rgba(0,0,0,.2)",
+			"0 1px 4px rgba(0, 0, 0, .2)",
+			"<article id=\"featured-article\" class=\"hero-unit\">",
+			"http://localhost:8888/elitedentist",
+			"http://blog.bonappetee.com",
+			"blog.bonappetee.com",
+			"100x100",
+			"Omigari",
+			"link",
+			"/75x75&text=headshot",
+			"/75x75",
+			".btn-inverse",
+			"thumbnail",
+			" hrs",
+			"id=\"basket",
+			"header-content",
+			"ccc",
+			"&lt;",
+			"&gt;",
+			"QuickView",
+			"btn",
+			"box",
+			"button.blue.flat",
+			"../font/",
+			"#fullsize",
+			"center",
+			"..navbar",
+			"btn-primary",
+			".btn-info",
+			".btn-inverse",
+			"Awesome",
+			"logo",
+			".btn-info",
+			"0.3s",
+			"grad",
+			"305",
+			".nav",
+			" style=\"background-color: #f2f2f2;\"",
+			" style=\"text-align: left;\"",
+			"stjohn",
+			"Username",
+			"Username/Member No.",
+			"login-action-lostpassword",
+			"Invalid username or e-mail.",
+			"wp_authe",
+			"#login-form",
+			"wp_add_dashboard_widget",
+			"box",
+			"-34",
+			"Import 2",
+			"Import 1",
+			"Import 0",
+			"		<wp:post_password></wp:post_password>\n		<wp:is_sticky>0</wp:is_sticky>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_linkdex</wp:meta_key>\n			<wp:meta_value><![CDATA[0]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_edit_last</wp:meta_key>\n			<wp:meta_value><![CDATA[1]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>buy_button_link</wp:meta_key>\n			<wp:meta_value><![CDATA[#]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_buy_button_link</wp:meta_key>\n			<wp:meta_value><![CDATA[field_50926d576aa4e]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>product_variations</wp:meta_key>\n			<wp:meta_value><![CDATA[a:1:{i:0;s:5:\"print\";}]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_product_variations</wp:meta_key>\n			<wp:meta_value><![CDATA[field_50926d5772011]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_focuskw</wp:meta_key>\n			<wp:meta_value><![CDATA[]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_title</wp:meta_key>\n			<wp:meta_value><![CDATA[]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_metadesc</wp:meta_key>\n			<wp:meta_value><![CDATA[]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_meta-robots-noindex</wp:meta_key>\n			<wp:meta_value><![CDATA[0]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_meta-robots-nofollow</wp:meta_key>\n			<wp:meta_value><![CDATA[0]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_meta-robots-adv</wp:meta_key>\n			<wp:meta_value><![CDATA[none]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_bctitle</wp:meta_key>\n			<wp:meta_value><![CDATA[]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_canonical</wp:meta_key>\n			<wp:meta_value><![CDATA[]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_yoast_wpseo_redirect</wp:meta_key>\n			<wp:meta_value><![CDATA[]]></wp:meta_value>\n		</wp:postmeta>\n		<wp:postmeta>\n			<wp:meta_key>_thumbnail_id</wp:meta_key>\n			<wp:meta_value><![CDATA[3031]]></wp:meta_value>\n		</wp:postmeta>",
+			"</title>",
+			"prize",
+			"#info",
+			"icon-dow",
+			"#single .post",
+			"editor_link",
+			"#dc002e",
+			"#DC002E",
+			"page",
+			"$query",
+			"defer=\"defer\" ",
+			"<td></td></tr>",
+			"$my",
+			"td>",
+			"B5",
+			"\"",
+			"btn-primary",
+			"View details",
+			"indent",
+			"class=\"btn\"",
+			"defer=\"defer\" "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"theme_has",
+			"\"",
+			"$output .=",
+			"bold",
+			"normal",
+			"object",
+			"</td></tr>",
+			"object",
+			"</td></tr>",
+			"<tr><td>",
+			"tr><td>",
+			"$yellow",
+			"",
+			"260x300",
+			"180x",
+			"",
+			"group",
+			"",
+			"astro_",
+			"9a2537",
+			"",
+			"include(TEMPLATEPATH . '",
+			"bloginfo('template_directory')",
+			"... <a class=\"readmore\" href=\"#\">read more</a>",
+			"none",
+			"<article class=\"featured-article hero-unit\">",
+			"http://www.elitedentalnewtown.com.au",
+			"http://dear-dylan.bonappetee.com",
+			"dear-dylan.bonappetee.com",
+			"90x90",
+			"Omagari",
+			"/75x75&text=photo",
+			"/75x75&text=headshot",
+			".navbar .btn-navbar",
+			"img-polaroid",
+			"",
+			"ddd",
+			"<",
+			">",
+			"btn.btn-darkblue",
+			"font/",
+			"left",
+			".navbar",
+			".navbar .btn-navbar",
+			"banner",
+			".navbar .btn-navbar",
+			"0.15s",
+			"#socials",
+			"",
+			"Member No. / Username",
+			"-44",
+			"Import 3",
+			"Import 2",
+			"Import 1",
+			"",
+			"panel",
+			".panel",
+			"$red",
+			"$page_content_query",
+			"",
+			"</tr>",
+			"$",
+			"th>",
+			"",
+			"btn-info",
+			"Go",
+			"class=\"btn btn-primary\"",
+			"",
+			"stj_",
+			".nggallery",
+			"]:focus,",
+			"-inactive",
+			"-inact",
+			"-inactive",
+			"&lsquo;",
+			"&lquo;",
+			"&rdquo;",
+			"&ldquo;",
+			"Artwork",
+			"artwork",
+			"tattoo",
+			"Tattoo",
+			"tattoo",
+			"li",
+			"dev.stjohnnsw.com.au",
+			"$modal",
+			"$overlay",
+			"\"",
+			"close-buttons-sprite.png",
+			"Lunar Cafe",
+			"<wp:post_type>post</wp:post_type>",
+			".search-wrapper ",
+			"#mobile-nav.navbar ",
+			"#mobile-nav.navbar",
+			"query",
+			"#gallery-wrapper ",
+			"#gallery-wrapper  ",
+			"query",
+			"this_query",
+			"_index",
+			"_home",
+			"excerpt_length",
+			"astro_",
+			"doctag",
+			"doc_tag",
+			"doctag",
+			"Document Tag",
+			"document_type",
+			"Document Tag",
+			"doc_tag",
+			"doccat",
+			"Doc Category",
+			"Doc Categories",
+			"doc_category",
+			"Document",
+			"document",
+			"src=\"<?php bloginfo('template_directory'); ?>/images/",
+			"Q&amp;A",
+			"<span class=\"switch\"></span>",
+			"sub-menu",
+			"darkblue",
+			"1f2a5a",
+			"384ca6",
+			"h3",
+			"</h2>",
+			"<h2",
+			"<li>",
+			"<li class=\"icon-file\">"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.sftp":
+	{
+		"height": 234.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"header",
+				"scss/_header_nav.scss"
+			],
+			[
+				"loop",
+				"partials/loop-page.php"
+			],
+			[
+				"goo",
+				"includes/google-map.php"
+			],
+			[
+				"goog",
+				"includes/google-map.php"
+			],
+			[
+				"cons",
+				"includes/constants.php"
+			],
+			[
+				"post",
+				"scss/_post.scss"
+			],
+			[
+				"page",
+				"scss/_page.scss"
+			],
+			[
+				"head",
+				"scss/_header_nav.scss"
+			],
+			[
+				"pag",
+				"page-home.php"
+			],
+			[
+				"loo",
+				"partials/loop-page.php"
+			],
+			[
+				"pro",
+				"js/project.js"
+			],
+			[
+				"cpt-",
+				"includes/cpt-document.php"
+			],
+			[
+				"posts",
+				"scss/_post.scss"
+			],
+			[
+				"si",
+				"single-document.php"
+			],
+			[
+				"def",
+				"scss/_default.scss"
+			],
+			[
+				"typ",
+				"scss/_typography.scss"
+			],
+			[
+				"func",
+				"functions.php"
+			],
+			[
+				"sin",
+				"single.php"
+			],
+			[
+				"sing",
+				"single.php"
+			],
+			[
+				"var",
+				"scss/_variables.scss"
+			],
+			[
+				"foo",
+				"scss/_footer.scss"
+			],
+			[
+				"white",
+				"includes/whitelabel.php"
+			],
+			[
+				"footer",
+				"scss/_footer.scss"
+			],
+			[
+				"mixi",
+				"scss/_mixins.scss"
+			],
+			[
+				"va",
+				"scss/_variables.scss"
+			],
+			[
+				"slider",
+				"partials/slider.php"
+			],
+			[
+				"pagelo",
+				"partials/page-loop.php"
+			],
+			[
+				"flex",
+				"css/flexslider.css"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"pageloo",
+				"partials/page-loop.php"
+			],
+			[
+				"proje",
+				"js/project.js"
+			],
+			[
+				"defa",
+				"partials/default.php"
+			],
+			[
+				"comm",
+				"scss/_comments.scss"
+			],
+			[
+				"editor",
+				"css/editor-style.css"
+			],
+			[
+				"funct",
+				"functions.php"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"varia",
+				"scss/_variables.scss"
+			],
+			[
+				"blog",
+				"partials/blog-index.php"
+			],
+			[
+				"default",
+				"partials/default.php"
+			],
+			[
+				"yp",
+				"scss/_typography.scss"
+			],
+			[
+				"styl",
+				"scss/style.scss"
+			],
+			[
+				"style",
+				"scss/style.scss"
+			],
+			[
+				"foot",
+				"scss/_footer.scss"
+			],
+			[
+				"inde",
+				"index.php"
+			],
+			[
+				"ty",
+				"scss/_typography.scss"
+			],
+			[
+				"mixin",
+				"scss/_mixins.scss"
+			],
+			[
+				"form",
+				"scss/_forms.scss"
+			],
+			[
+				"sty",
+				"scss/style.scss"
+			],
+			[
+				"vari",
+				"scss/_variables.scss"
+			],
+			[
+				"heade",
+				"scss/_header_nav.scss"
+			],
+			[
+				"stylsc",
+				"scss/style.scss"
+			],
+			[
+				"vara",
+				"scss/_variables.scss"
+			],
+			[
+				"scssnav",
+				"scss/_header_nav.scss"
+			],
+			[
+				"scsssi",
+				"scss/_sidebar.scss"
+			],
+			[
+				"scsspage",
+				"scss/_page.scss"
+			],
+			[
+				"scssde",
+				"scss/_default.scss"
+			],
+			[
+				"scssform",
+				"scss/_forms.scss"
+			],
+			[
+				"scss/meda",
+				"scss/_media_queries.scss"
+			],
+			[
+				"functio",
+				"functions.php"
+			],
+			[
+				"child",
+				"parts/child-category.php"
+			],
+			[
+				"funci",
+				"functions.php"
+			],
+			[
+				"me",
+				"Design/css/merchant5.css"
+			],
+			[
+				"",
+				"header.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227.0,
+	"status_bar_visible": true
+}

@@ -48,6 +48,18 @@
 		echo '<link rel="Shortcut Icon" type="image/x-icon" href="'.get_bloginfo('template_directory').'/images/favicon.ico" />';
 	}
 	add_action('admin_head', 'admin_favicon');
+
+
+// hide plugin ads ** NSP Post Types Order
+	function hide_plugin_ads() { ?>
+		<style>
+		.posts_page_to-interface-post #cpt_info_box,
+		.settings_page_cpto-options #cpt_info_box {
+			display: none;
+		}		
+		</style> <?php 
+	}
+	add_action("admin_head", "hide_plugin_ads");
 	
 
 // remove unnecessary menus
@@ -130,17 +142,6 @@
 	}
 	// add_filter('admin_head','remove_admin_bar_style_backend'); // Original version
 	add_action('init','disableAdminBar'); // New version
-
-
-// hide plugin ads -- for Post Types Order plugin
-	function hide_plugin_ads() { ?>
-		<style>
-		.posts_page_to-interface-post #cpt_info_box {
-			display: none;
-		}		
-		</style> <?php 
-	}
-	add_action("admin_head", "hide_plugin_ads");
 
 
 // PAGES & POSTS -----------------------------------------------------------------------------

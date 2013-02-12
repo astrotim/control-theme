@@ -2,7 +2,7 @@
 
 <div id="body-content">
 
-	<?php astro_load_partial('loop-post-index'); ?>
+	<?php astro_locate_partial('loop-post-index'); ?>
 
 </div> <!-- #body-content -->
 

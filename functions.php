@@ -2,7 +2,7 @@
 
 
 // import stuff
-	include('includes/constants.php');
+	require_once('includes/constants.php');
 	include('includes/whitelabel.php');
 	if(theme_has(GOOGLEMAP)) { include('includes/google-map.php'); }
 	// include('includes/custom-post-type-[basic].php');
@@ -81,7 +81,7 @@
 		s.parentNode.insertBefore(tk, s);
 	})(); </script>
 		";
-		return $script;
+		echo $script;
 	}
 
 	// google fonts
@@ -101,15 +101,29 @@
     s.parentNode.insertBefore(wf, s);
   })(); </script>		
 		";
-		return $script;
+		echo $script;
 	}
 
 // TEMPLATE FEATURES -------------------------------------------------------------------------------- //
 
 
 	function astro_load_partial($filename) {
-		include(TEMPLATEPATH . '/partials/' . $filename . '.php');
+		$file = get_template_directory() . '/partials/' . $filename . '.php';
+		if (file_exists($file)) {
+			include($file);
+		} else {
+			echo 'Error: partial file cannot be found.';
+		}
 	}
+
+	function astro_locate_partial($filename) {
+		// $file = 'partials/' . $filename . '.php';
+		// locate_template( array($file), true, false );
+		$files = array();
+		$files[] = "partials/{$filename}.php";
+		locate_template($files, true, false);
+	}
+
 
 	// nav menus
 	register_nav_menus( array( 
@@ -136,6 +150,41 @@
 	//     post thumbnails
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 160, 130, true );
+
+
+	// remove 'Uncategorised' from category link list
+	function astro_cat_link() {
+		$exclude = array("Uncategorized");
+		$separator = " / ";
+		$new_the_category = '';
+		foreach((get_the_category()) as $category) {
+			if ($category->category_parent == 0) {
+				if (!in_array($category->cat_name, $exclude)) {
+					$new_the_category .= '<a href="'.get_bloginfo(url).'/'.get_option('category_base').'/'.$category->slug.'">'.$category->name.'</a>'.$separator;
+				}
+			}
+		}
+		return substr($new_the_category, 0, strrpos($new_the_category, $separator));
+	} 
+
+
+	// create a slug from post title
+	function slugify($text) { 
+		// replace non letter or digits by -
+		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+		// trim
+		$text = trim($text, '-');
+		// transliterate
+		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+		// lowercase
+		$text = strtolower($text);
+		// remove unwanted characters
+		$text = preg_replace('~[^-\w]+~', '', $text);
+		if (empty($text)) {
+			return 'n-a';
+		}
+		return $text;
+	}
 
 
 // EXCERPTS -------------------------------------------------------------------------------- //
@@ -199,9 +248,18 @@
 			'text' => ''
 		), $atts));
 
-		return '<a class="button '. $colour . '" href="' . $link . '">' . $text . '</a>';		
+		return '<a class="btn '. $colour . '" href="' . $link . '">' . $text . '</a>';		
 	}
 	add_shortcode('button', 'astro_button_code');
+
+
+// add HR button to tinyMCE
+	function enable_more_buttons($buttons) {
+	  $buttons[] = 'hr';
+	 
+	  return $buttons;
+	}
+	add_filter("mce_buttons", "enable_more_buttons");
 
 
 // CLASSES -------------------------------------------------------------------------------- //
@@ -323,7 +381,7 @@ if(theme_has(SEARCH)) {
 				'total' => $total_pages,  
 	 	    );
 
-		    echo '<div class="pagination m-left">';
+		    echo '<div class="pagination">';
 			    echo paginate_links( $args );
 		    echo '</div>';
 	    }  

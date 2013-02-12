@@ -6,4 +6,23 @@
      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity*100})";
      filter: alpha(opacity=$opacity*100);         
 }
+
+@mixin imageReplace ($file, $width, $height) {
+     display: block;
+     text-indent: -9999em;
+     background: url($file) no-repeat;
+     width: $width;
+     height: $height;
+}
+
+@mixin fontAwesome ($icon, $size, $color) {
+    content: "#{$icon}";
+    font-family: FontAwesome;
+    font-size: $size;
+    font-style: normal;
+    font-weight: normal;
+    color: $color;
+    position: absolute;
+    text-decoration: inherit;
+}
 	
