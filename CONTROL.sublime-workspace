@@ -519,6 +519,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "functions.php",
+			"settings":
+			{
+				"buffer_size": 11397,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "Packages/Compass/Compass.sublime-build",
 	"command_palette":
@@ -720,6 +728,7 @@
 	},
 	"file_history":
 	[
+		"/D/wamp/www/git/control/wp-config.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/functions.php",
 		"/D/wamp/www/git/control/wp-includes/general-template.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/page.php",
@@ -846,8 +855,7 @@
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/header.php",
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/style.css",
 		"/D/wamp/www/1.projects/RTN-2013.sublime-project",
-		"/D/wamp/www/healthcare/wp-content/themes/healthcare/style.css",
-		"/D/wamp/www/healthcare/wp-content/themes/healthcare/header.php"
+		"/D/wamp/www/healthcare/wp-content/themes/healthcare/style.css"
 	],
 	"find":
 	{
@@ -1141,6 +1149,36 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "functions.php",
+					"settings":
+					{
+						"buffer_size": 11397,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1583,
+								1643
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"is_xml": false,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 224.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

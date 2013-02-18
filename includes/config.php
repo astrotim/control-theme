@@ -7,15 +7,9 @@ define( "BOOTSTRAP"		, 	true 	);
 define( "RESPONSIVE"	, 	true 	);
 define( "FLEXSLIDER"	, 	true 	);
 define( "THEMEOPTIONS"	, 	false 	);
-define( "GOOGLEMAP"		, 	true 	);
 define( "SEARCH"		, 	true 	);
 
-	// test for constant
-	function theme_has($test) {
-		if($test === true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+// PATHS -------------------------------------------------------------------------------- //
 
+define( "CSSPATH"	, 	get_bloginfo('template_directory') . '/css/'	);
+define( "JSPATH"	, 	get_bloginfo('template_directory') . '/js/' 	);

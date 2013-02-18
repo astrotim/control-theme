@@ -1,44 +1,61 @@
 <?php 
 
+// CONFIG -------------------------------------------------------------------------------- //
 
-// import stuff
-	require_once('includes/constants.php');
+	require_once('includes/config.php');
+
+// INCLUDES -------------------------------------------------------------------------------- //
+
 	include('includes/whitelabel.php');
-	if(theme_has(GOOGLEMAP)) { include('includes/google-map.php'); }
+	// include('includes/google-map.php');
 	// include('includes/custom-post-type-[basic].php');
 	
-// css for back end
-	// add_editor_style('css/editor-style.css');
-
 
 // <head> FEATURES -------------------------------------------------------------------------------- //
 
+	// css for back end
+	// add_editor_style('css/editor-style.css');
 
 	// JS 
-	if (!is_admin()) {
-		if (PRODUCTION === true) {
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"), false);
-		}		
-		wp_enqueue_script('jquery'); // **WP default is no-conflict**
+	function astro_enqueue_scripts() {
+		if (!is_admin()) {
+			if (PRODUCTION) {
+			wp_deregister_script('jquery');
+			wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"), false);
+			}		
+			wp_enqueue_script('jquery'); // **WP default is no-conflict**
+			wp_enqueue_script('jquery-ui-core');
 
-		wp_register_script('bootstrap', get_bloginfo('template_directory') . '/js/bootstrap.min.js', jquery, 2.22, false);
-		if (BOOTSTRAP === true) {wp_enqueue_script('bootstrap');}
+			wp_register_script('bootstrap', 	JSPATH . 'bootstrap.min.js', array('jquery'),'2.22', 	true);
+			if (BOOTSTRAP) {wp_enqueue_script('bootstrap');}
 
-		wp_register_script('modernizr', get_bloginfo('template_directory') . '/js/modernizr.min.js', null, null, false);
-		wp_enqueue_script('modernizr');
+			wp_enqueue_script('modernizr', 		JSPATH . 'modernizr.min.js', 		null, 	'2.6.2', 	true);
+			wp_enqueue_script('conditionizr', 	JSPATH . 'conditionizr.min.js', 	null, 	'1.0.0', 	true);
+			wp_enqueue_script('project', 		JSPATH . 'project.js', array('jquery'), 	'1', 		true);
 
-		wp_register_script('conditionizr', get_bloginfo('template_directory') . '/js/conditionizr.min.js', null, null, false);
-		wp_enqueue_script('conditionizr');
+			wp_register_script('flexslider', 	JSPATH . 'jquery.flexslider-min.js', array('jquery'), null, true);
+			if (FLEXSLIDER) {wp_enqueue_script('flexslider');}
 
-		wp_register_script('project', get_bloginfo('template_directory') . '/js/project.js', jquery, 1, false);
-		wp_enqueue_script('project');
-
-		wp_register_script('flexslider', get_bloginfo('template_directory') . '/js/jquery.flexslider-min.js', jquery, null, false);
-		if (FLEXSLIDER === true) {wp_enqueue_script('flexslider');}
-
-		// wp_enqueue_script('jquery-ui-core');
+			wp_register_script('googlemaps', 'http://maps.google.com/maps/api/js?sensor=false', null, null, false);
+			if (is_page('contact')) {wp_enqueue_script('googlemaps');}
+		}
 	}
+	add_action('wp_enqueue_scripts', 'astro_enqueue_scripts');
+
+	// GRAVITYFORMS
+	function astro_enqueue_forms_css() {
+		echo '<link rel="stylesheet" type="text/css" href="' . plugins_url( "gravityforms/css/") . 'forms.css" />
+';
+	}
+
+
+	function astro_gravity_forms_css() {
+	    if(!wp_style_is("gforms_css", "queue")){
+	        wp_enqueue_style("gforms_css", plugins_url( 'gravityforms' ) . "/css/forms.css", null, '1.6.5.1');
+	        wp_print_styles(array("gforms_css"));
+	    }
+	}
+	add_action( 'gravitycss', 'astro_gravity_forms_css');
 
 
 	// auto version CSS file	
@@ -83,6 +100,7 @@
 		";
 		echo $script;
 	}
+	add_action( 'typekit', 'astro_load_typekit', 10, 1 );
 
 	// google fonts
 	function astro_load_googlefonts($families) {
@@ -103,6 +121,9 @@
 		";
 		echo $script;
 	}
+	add_action( 'googlefont', 'astro_load_googlefonts', 10, 1 );
+
+
 
 // TEMPLATE FEATURES -------------------------------------------------------------------------------- //
 
@@ -265,7 +286,7 @@
 // CLASSES -------------------------------------------------------------------------------- //
 
 
-	// body class
+	// body class **** TODO add 404 condition for error 'trying to get property of non-object'
 	function astro_title_class( $classes ){
 		global $post;
 		array_push( $classes, "{$post->post_name}" );
@@ -287,7 +308,7 @@
 
 // THEME OPTIONS --------------------------------------------------------------------------- //
 
-if (THEMEOPTIONS === true) {
+if (THEMEOPTIONS) {
 
 	//header image
 	$args = array(
@@ -310,7 +331,7 @@ if (THEMEOPTIONS === true) {
 
 // SEARCH  --------------------------------------------------------------------------- //
 
-if(theme_has(SEARCH)) {
+if(SEARCH) {
 
      function astro_search_form( $form ) {
 
