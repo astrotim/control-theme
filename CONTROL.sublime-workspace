@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"astro_enq",
+				"astro_enqueue_forms_css"
+			],
+			[
+				"wp_enque",
+				"wp_enqueue_style"
+			],
+			[
+				"astro_load",
+				"astro_load_typekit"
+			],
+			[
 				"get_tem",
 				"get_template_part"
 			],
@@ -502,31 +514,11 @@
 			[
 				"ta",
 				"targetMore"
-			],
-			[
-				"bra",
-				"bracket"
-			],
-			[
-				"si",
-				"siblingSwitch"
-			],
-			[
-				"sibl",
-				"siblingMore"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "functions.php",
-			"settings":
-			{
-				"buffer_size": 11397,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "Packages/Compass/Compass.sublime-build",
 	"command_palette":
@@ -728,8 +720,10 @@
 	},
 	"file_history":
 	[
-		"/D/wamp/www/git/control/wp-config.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/functions.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/includes/config.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/header.php",
+		"/D/wamp/www/git/control/wp-config.php",
 		"/D/wamp/www/git/control/wp-includes/general-template.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/page.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/index.php",
@@ -752,7 +746,6 @@
 		"/D/wamp/www/stjohn/wp-content/themes/stjohn/functions.php",
 		"/D/wamp/www/stjohn/wp-content/themes/stjohn/scss/_typography.scss",
 		"/D/wamp/www/wp3/wp-content/themes/_control/.gitignore",
-		"/D/wamp/www/git/control/wp-content/themes/control/header.php",
 		"/D/wamp/www/stjohn/wp-content/themes/stjohn/header.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/includes/constants.php",
 		"/D/wamp/www/wp3/wp-content/themes/ridewiser/index.php",
@@ -854,8 +847,7 @@
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/scss/_header_nav.scss",
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/header.php",
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/style.css",
-		"/D/wamp/www/1.projects/RTN-2013.sublime-project",
-		"/D/wamp/www/healthcare/wp-content/themes/healthcare/style.css"
+		"/D/wamp/www/1.projects/RTN-2013.sublime-project"
 	],
 	"find":
 	{
@@ -874,6 +866,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"terms",
 			"tags",
 			".post-tags",
 			"theme_has_",
@@ -1000,8 +993,7 @@
 			"btn-primary",
 			"View details",
 			"indent",
-			"class=\"btn\"",
-			"defer=\"defer\" "
+			"class=\"btn\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1149,36 +1141,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "functions.php",
-					"settings":
-					{
-						"buffer_size": 11397,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1583,
-								1643
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"is_xml": false,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

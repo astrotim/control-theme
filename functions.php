@@ -411,3 +411,53 @@ if(SEARCH) {
 
 
 //--end functions
+
+
+// -- PRE GET POSTS --------------------------------------------------------------------------- //
+
+
+	function astro_get_post_types( $query ) {
+		if (is_admin())
+		return;         
+
+		// where query runs
+		if ( is_front_page() && $query->is_main_query() )
+			$query->set( 'post_type', array( 'post', 'page' ) );    
+		return $query;
+	}
+	// add_action( 'pre_get_posts', 'astro_get_post_types' );
+
+	function astro_exclude_category_query( $query ) {
+		if (is_admin())
+		return;         
+
+		// where query runs
+		if ( is_front_page() && $query->is_main_query() )
+			$query->set( 'cat', '-1,-2' );    
+		return $query;
+	}
+	// add_action( 'pre_get_posts', 'astro_exclude_category_query' );	
+
+	function astro_posts_per_page( $query ) {
+		if (is_admin())
+		return;         
+
+		// where query runs
+		if ( is_front_page() && $query->is_main_query() )
+			$query->set( 'posts_per_page', '5' );
+		return $query;
+	}
+	// add_action( 'pre_get_posts', 'astro_posts_per_page' );	
+
+	function astro_query_vars( $query ) {
+		if (is_admin())
+		return;         
+
+		// where query runs
+		if ( is_front_page() && $query->is_main_query() )
+			$query->query_vars['orderby'] = 'title';
+			$query->query_vars['order'] = 'desc';
+		return $query;
+	}
+	// add_action( 'pre_get_posts', 'astro_query_vars' );	
+
