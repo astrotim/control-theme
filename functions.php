@@ -2,13 +2,19 @@
 
 // CONFIG -------------------------------------------------------------------------------- //
 
-	require_once('includes/config.php');
+	require_once(get_template_directory() . '/includes/config.php');
 
 // INCLUDES -------------------------------------------------------------------------------- //
 
-	include('includes/whitelabel.php');
-	// include('includes/google-map.php');
-	// include('includes/custom-post-type-[basic].php');
+	if ( ! function_exists('astro_control_setup') ) :
+	function astro_control_setup() {
+		include(get_template_directory() . '/includes/whitelabel.php');
+		include(get_template_directory() . '/includes/google-map.php');
+		// include('includes/custom-post-type-[basic].php');
+	}
+	endif;
+	// runs before 'init' hook
+	add_action( 'after_setup_theme', 'astro_control_setup' );
 	
 
 // <head> FEATURES -------------------------------------------------------------------------------- //
@@ -16,15 +22,16 @@
 	// css for back end
 	// add_editor_style('css/editor-style.css');
 
-	// JS 
+	// JS
 	function astro_enqueue_scripts() {
 		if (!is_admin()) {
+
 			if (PRODUCTION) {
 			wp_deregister_script('jquery');
 			wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"), false);
 			}		
 			wp_enqueue_script('jquery'); // **WP default is no-conflict**
-			wp_enqueue_script('jquery-ui-core');
+			// wp_enqueue_script('jquery-ui-core');
 
 			wp_register_script('bootstrap', 	JSPATH . 'bootstrap.min.js', array('jquery'),'2.22', 	true);
 			if (BOOTSTRAP) {wp_enqueue_script('bootstrap');}
@@ -42,31 +49,20 @@
 	}
 	add_action('wp_enqueue_scripts', 'astro_enqueue_scripts');
 
-	// GRAVITYFORMS
-	function astro_enqueue_forms_css() {
-		echo '<link rel="stylesheet" type="text/css" href="' . plugins_url( "gravityforms/css/") . 'forms.css" />
-';
+	function astro_enqueue_styles() {
+		if (!is_admin()) {
+
+			wp_register_style( 'bootstrap', CSSPATH . 'bootstrap/bootstrap.css', null, '2.2.2' );
+			if (BOOTSTRAP) {wp_enqueue_style('bootstrap');}
+			wp_register_style( 'bootstrap-responsive', CSSPATH . 'bootstrap/responsive.css', null, '2.2.2' );
+			if (RESPONSIVE) {wp_enqueue_style('bootstrap-responsive');}
+
+			// auto versioning of file by last modified timestamp
+			wp_enqueue_style( 'style', get_stylesheet_uri(), null, filemtime( dirname( __FILE__ ) . '/style.css' ) );			
+		}
 	}
-
-
-	function astro_gravity_forms_css() {
-	    if(!wp_style_is("gforms_css", "queue")){
-	        wp_enqueue_style("gforms_css", plugins_url( 'gravityforms' ) . "/css/forms.css", null, '1.6.5.1');
-	        wp_print_styles(array("gforms_css"));
-	    }
-	}
-	add_action( 'gravitycss', 'astro_gravity_forms_css');
-
-
-	// auto version CSS file	
-	function fileVersion($filename) {
-	    $pathToFile = TEMPLATEPATH.'/'.$filename;
-	    if (file_exists($pathToFile)) {
-	        echo filemtime($pathToFile); 
-	    } else {
-	        echo 'FileNotFound';
-	    }
-	}
+	// run with priority 1 to load after Gravity Forms forms.css			
+	add_action('wp_head', 'astro_enqueue_styles', 1);
 
 
 	// typekit
@@ -164,8 +160,9 @@
 	    if ($has_children > 0) array_push($classes,'dropdown');
 	    return $classes;
 	}
-	 
-	add_filter( 'nav_menu_css_class', 'astro_add_dropdown_class', 10, 2);
+	if(BOOTSTRAP) { 
+		add_filter( 'nav_menu_css_class', 'astro_add_dropdown_class', 10, 2);
+	}
 
 
 	//     post thumbnails
@@ -289,7 +286,9 @@
 	// body class **** TODO add 404 condition for error 'trying to get property of non-object'
 	function astro_title_class( $classes ){
 		global $post;
-		array_push( $classes, "{$post->post_name}" );
+		if (is_singular()) {
+			array_push( $classes, "{$post->post_name}" );
+		}
 		return $classes;
 	}
 	
@@ -346,7 +345,8 @@ if(SEARCH) {
      add_filter( 'get_search_form', 'astro_search_form' );
 
 
-	// search all taxonomies, based on: http://projects.jesseheap.com/all-projects/wordpress-plugin-tag-search-in-wordpress-23
+	// search all taxonomies, based on: 
+	// http://projects.jesseheap.com/all-projects/wordpress-plugin-tag-search-in-wordpress-23
 	function atom_search_where($where){
 	  global $wpdb;
 	  if (is_search())

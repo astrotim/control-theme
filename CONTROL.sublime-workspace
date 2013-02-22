@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"style",
+				"style_dep"
+			],
+			[
+				"func",
+				"function_exists"
+			],
+			[
 				"astro_enq",
 				"astro_enqueue_forms_css"
 			],
@@ -506,14 +514,6 @@
 			[
 				"inl",
 				"inline-block"
-			],
-			[
-				"op",
-				"opacity"
-			],
-			[
-				"ta",
-				"targetMore"
 			]
 		]
 	},
@@ -721,8 +721,9 @@
 	"file_history":
 	[
 		"/D/wamp/www/git/control/wp-content/themes/control/functions.php",
-		"/D/wamp/www/git/control/wp-content/themes/control/includes/config.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/header.php",
+		"/D/wamp/www/git/control/wp-content/themes/control/.git/config",
+		"/D/wamp/www/git/control/wp-content/themes/control/includes/config.php",
 		"/D/wamp/www/git/control/wp-config.php",
 		"/D/wamp/www/git/control/wp-includes/general-template.php",
 		"/D/wamp/www/git/control/wp-content/themes/control/page.php",
@@ -846,8 +847,7 @@
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/scss/_media_queries.scss",
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/scss/_header_nav.scss",
 		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/header.php",
-		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/style.css",
-		"/D/wamp/www/1.projects/RTN-2013.sublime-project"
+		"/D/wamp/www/git/rebuildingthenation/wp-content/themes/rtn2013/style.css"
 	],
 	"find":
 	{

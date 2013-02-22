@@ -7,33 +7,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php endif; ?>	
 
-<title><?php if (wp_title()) { wp_title(); } else { echo bloginfo('name'); } ?></title>
+<title><?php wp_title( ' ', true, 'right' ); ?></title>
 
 <!--[if lt IE 9]> 
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-
-<?php if(BOOTSTRAP) : ?>
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap/bootstrap.css" />
-<?php endif; ?>	
-
-<?php if(RESPONSIVE) : ?>
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap/responsive.css" />	
-<?php endif; ?>	
-
-<?php if(is_page('contact')) : 
-do_action( 'gravitycss' );
-endif; ?>
-
-<link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=<?php fileVersion('style.css'); ?>" />
-
-<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico" type="image/x-icon">
 
 <?php wp_head(); ?>
 
+<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico" type="image/x-icon">
+<!-- Google +
+<link rel="author" href="https://plus.google.com/XXXXXXXXX"> -->
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+
 <?php // do_action('typekit', 'XXXXXX'); ?>
-<?php // do_action('googlefont', 'Francois+One::latin'); ?>
+<?php // do_action('googlefont', 'Name_Of+Font::style'); ?>
 
 </head>
 <body <?php body_class(); ?>>
