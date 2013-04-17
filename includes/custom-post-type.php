@@ -339,10 +339,10 @@ CPtag
 		?>
 		<style type="text/css" media="screen">
 			#menu-posts-custompost .wp-menu-image {
-				background: url(<?php bloginfo('template_url') ?>/images/custompost-icon.png) no-repeat 6px 6px !important;
+				background: url(<?php bloginfo('template_url') ?>/images/custompost-icon.png) no-repeat 6px -16px !important;
 			}
 		#menu-posts-custompost:hover .wp-menu-image, #menu-posts-custompost.wp-has-current-submenu .wp-menu-image {
-				background-position:6px -16px !important;
+				background-position:6px 8px !important;
 			}
 		#icon-edit.icon32-posts-custompost {background: url(<?php bloginfo('template_url') ?>/images/custompost-32x32.png) no-repeat;}
 		</style>

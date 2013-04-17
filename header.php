@@ -34,7 +34,7 @@
 <header id="site-header" class="group">
 	
 	<hgroup>
-		<h1 id="logo"><a href="<?php home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
+		<h1 id="logo"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
 		<h2 id="tagline"><?php bloginfo('description'); ?></h2>
 	</hgroup>
 

@@ -6,21 +6,21 @@
 		if ( get_query_var('paged') ) $paged = get_query_var('paged');  
 		if ( get_query_var('page') ) $paged = get_query_var('page');
 
-		// SET UP POST QUERY
-		$original_query = $query;
-		$query = null;
+		// store post query if using more than one loop on a page (need to test!)
+		// $original_query = $wp_query;
+		// $wp_query = null;
 
 		$args = array (
 			'paged' => $paged,
 			'post_type' => 'post',			
 		);
 
-		$query = new WP_Query( $args );
+		$wp_query = new WP_Query( $args );
 
-		if( $query->have_posts() ): 
+		if( have_posts() ): 
 
 		// continue with loop					
-		while( $query->have_posts() ): $query->the_post();
+		while( have_posts() ): the_post();
 
 ?>
 
@@ -56,6 +56,7 @@
 
 		endif; 
 
-		$query = $original_query;
-		wp_reset_postdata();
+		// reset post query if using more than one loop on a page (need to test!)
+		// $wp_query = $original_query;
+		// wp_reset_postdata();
 ?>

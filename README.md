@@ -46,9 +46,10 @@ Front End features
 functions.php features
 ----------------------
 
- - [youtube] shortcode (with video class for responsive resizing)
  - CSS auto-versioning. Automatically append timestamp of latest change to file as version number
- - Typekit & Google web fonts async loading scripts
+ - Load style.css after plugin CSS via wp_head action priority
+ - [youtube] shortcode (with video class for responsive resizing)
+ - Typekit & Google web fonts async loading scripts with load action
  - add 'dropdown' class to nav menu for Bootstrap
  - custom excerpt length and 'read more' function
  - [button] shortcode for Bootstrap buttons

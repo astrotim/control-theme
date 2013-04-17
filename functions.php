@@ -408,7 +408,33 @@ if(SEARCH) {
 	    }  
     }
 
+    function astro_cpt_pagination() {
+    	
+    	global $wp_query;
+	    $total_pages = $wp_query->max_num_pages;
 
+	    if ($total_pages > 1) {  
+		    // test for current page
+		    ($wp_query->query_vars['paged'] > 1) ? $current = $wp_query->query_vars['paged'] : $current = 1;
+
+		    $big = 999999999;
+
+		    $pagination = array (
+		    	'type' => 'list',
+		    	'show_all' => true,
+		    	'prev_text'    => __('&lt;'),
+			    'next_text'    => __('&gt;'),
+				'base' => @add_query_arg('page','%#%'),
+				'format' => '',
+				'current' => $current,  
+				'total' => $total_pages,  
+	 	    );
+
+		    echo '<div class="pagination">';
+			    echo paginate_links( $pagination );
+		    echo '</div>';
+	    }
+	}
 
 //--end functions
 
