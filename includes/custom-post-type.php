@@ -280,14 +280,14 @@ CPtag
 
 	//	hook columns
 	add_filter("manage_edit-custompost_columns", "edit_columns"); 
-	add_action("manage_posts_custom_column", "custom_columns", 10, 2); // need the 10,2 here for columns output to work (2 of 2)
+	add_action("manage_custompost_posts_custom_column", "custom_columns", 10, 2); // need the 10,2 here for columns output to work (2 of 2)
 
 
 
 
 //	8. taxonomy dropdown filter
 	function taxonomy_filter_restrict_manage_posts() { //build drop down
-		global $typenow;
+		global $typenow, $wp_query;
 	
 		$post_types = get_post_types( array( '_builtin' => false ) );
 	
@@ -296,39 +296,63 @@ CPtag
 	
 			foreach ( $filters as $tax_slug ) {
 				$tax_obj = get_taxonomy( $tax_slug );
+
+				// check if anything has been selected, else set selected to null
+				$selected = isset($wp_query->query[$tax_slug]) ? $wp_query->query[$tax_slug] : null;
+				
 				wp_dropdown_categories( array(
-					'show_option_all' => __('Show All ' . $tax_obj->label . '&nbsp;'),
-					'taxonomy' 	  => $tax_slug,
-					'name' 		  => $tax_obj->name,
-					'orderby' 	  => 'name',
-					'selected' 	  => $_GET[$tax_slug],
-					'hierarchical' 	  => $tax_obj->hierarchical,
-					'show_count' 	  => false,
-					'hide_empty' 	  => true
+					'show_option_all'	=> __('Show All ' . $tax_obj->label . '&nbsp;'),
+					'taxonomy' 	  		=> $tax_slug,
+					'name' 		  		=> $tax_obj->name,
+					'orderby' 	  		=> 'name',
+					'selected' 			=> $selected,
+					'hierarchical' 		=> $tax_obj->hierarchical,
+					'show_count' 		=> false,
+					'hide_empty' 		=> false
 				) );
 			}
+			// debug -------------------
+			// echo '<pre>';
+			// print_r($wp_query->query);
+			// echo '</pre>';
 		}
-	}//--end taxonomy_filter_restrict_manage_posts
-	
-	// hook action
+	}
 	add_action( 'restrict_manage_posts', 'taxonomy_filter_restrict_manage_posts' );
+
 	
 	function taxonomy_filter_post_type_request( $query ) { //add filter to query so dropdown will work
-	  global $pagenow, $typenow;
-	
-	  if ( 'edit.php' == $pagenow ) {
+		global $pagenow, $typenow;
+
+		if ( 'edit.php' != $pagenow ) 
+			return;
+
 		$filters = get_object_taxonomies( $typenow );
 		foreach ( $filters as $tax_slug ) {
-		  $var = &$query->query_vars[$tax_slug];
-		  if ( isset( $var ) ) {
-			$term = get_term_by( 'id', $var, $tax_slug );
-			$var = $term->slug;
-		  }
+			$var = &$query->query_vars[$tax_slug];
+			if ( $var != 0 )  { // query string has value of 0 if no term is selected
+				$term = get_term_by( 'id', $var, $tax_slug );
+				$var = $term->slug;
+			}
 		}
-	  }
-	}//--taxonomy_filter_post_type_request
-	
-	// hook filter
+		// echo '<pre>';
+		// print_r($filters);
+		// echo '</pre>';
+
+		// foreach ( $filters as $tax_slug ) {
+		// 	echo 'taxonomy: ' . $tax_slug . '<br>';
+		// 	$var = &$query->query_vars[$tax_slug];
+		// 	if ( $var != 0 )  {
+		// 		$term = get_term_by( 'id', $var, $tax_slug );
+		// 		echo '<pre>';
+		// 		print_r($term);
+		// 		echo '</pre>';
+		// 		$slug = $term->slug;
+		// 		echo '[slug]: ' . $slug . '<br><br>';	
+		// 	} else {
+		// 		echo 'no term selected<br><br>';
+		// 	}
+		// }
+	}
 	add_filter( 'parse_query', 'taxonomy_filter_post_type_request' );
 
 

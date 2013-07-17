@@ -487,3 +487,204 @@ if(SEARCH) {
 	}
 	// add_action( 'pre_get_posts', 'astro_query_vars' );	
 
+
+
+/*  
+Project custom post type definition
+*/
+
+//  CPT
+	function create_post_type_project() {
+		$labels = array (
+			'name' => _x('Projects', 'post type general name'),
+			'singular_name' => _x('Project', 'post type singular name'),
+			'add_new' => _x('Add New', 'project'),
+			'add_new_item' => __('Add New Project'),
+			'edit' => __('Edit'),
+			'edit_item' => __('Edit Project'),
+			'new_item' => __('New Project'),
+			'view_item' => __('View Project Page'),
+			'search_items' => __('Search Projects'),
+			'not_found' =>  __('No project found'),
+			'not_found_in_trash' => __('No project found in Trash'), 
+			'parent_item_colon' => ''
+		);
+		$args = array (
+			'labels' => $labels,
+			'public' => true,
+			'show_ui' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'_builtin' => false, 
+			'_edit_link' => 'post.php?post=%d',
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			'rewrite' => array('slug' => "project" , 'with_front' => true), // Permalinks
+			'query_var' => "project",
+			'menu_position' => 5,
+			'taxonomies' => array( 'category' ),
+			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
+		);
+	register_post_type( 'project', $args); 
+	
+		flush_rewrite_rules( false );
+
+}//--end create_post_type_project
+	
+	//--hook CPT to init
+	add_action('init', 'create_post_type_project');
+
+
+
+
+//	Custom icon	 
+	function wpt_project_icons() {
+		?>
+		<style type="text/css" media="screen">
+			#menu-posts-project .wp-menu-image {
+				background: url(<?php bloginfo('template_url') ?>/images/project-icon.png) no-repeat 6px 6px !important;
+			}
+		#menu-posts-project:hover .wp-menu-image, #menu-posts-project.wp-has-current-submenu .wp-menu-image {
+				background-position: 6px -16px !important;
+			}
+		#icon-edit.icon32-posts-project {background: url(<?php bloginfo('template_url') ?>/images/project-32x32.png) no-repeat;}
+		</style>
+	<?php } //--end wpt_project_icons
+
+	add_action( 'admin_head', 'wpt_project_icons' );
+
+
+
+
+//--end CPT plugin
+
+/*  
+People custom post type definition
+*/
+
+//  CPT
+	function create_post_type_people() {
+		$labels = array (
+			'name' => _x('People', 'post type general name'),
+			'singular_name' => _x('People', 'post type singular name'),
+			'add_new' => _x('Add New', 'people'),
+			'add_new_item' => __('Add New People'),
+			'edit' => __('Edit'),
+			'edit_item' => __('Edit People'),
+			'new_item' => __('New People'),
+			'view_item' => __('View People Page'),
+			'search_items' => __('Search Peoples'),
+			'not_found' =>  __('No people found'),
+			'not_found_in_trash' => __('No people found in Trash'), 
+			'parent_item_colon' => ''
+		);
+		$args = array (
+			'labels' => $labels,
+			'public' => true,
+			'show_ui' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'_builtin' => false, 
+			'_edit_link' => 'post.php?post=%d',
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			'rewrite' => array('slug' => "people" , 'with_front' => true), // Permalinks
+			'query_var' => "people",
+			'menu_position' => 5,
+			'taxonomies' => array( 'post_tag', 'category' ),
+			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
+		);
+	register_post_type( 'people', $args); 
+	
+		flush_rewrite_rules( false );
+
+}//--end create_post_type_people
+	
+	//--hook CPT to init
+	add_action('init', 'create_post_type_people');
+
+
+
+//	Custom icon	 
+	function wpt_people_icons() {
+		?>
+		<style type="text/css" media="screen">
+			#menu-posts-people .wp-menu-image {
+				background: url(<?php bloginfo('template_url') ?>/images/people-icon.png) no-repeat 6px -18px !important;
+			}
+		#menu-posts-people:hover .wp-menu-image, #menu-posts-people.wp-has-current-submenu .wp-menu-image {
+				background-position: 6px 8px !important;
+			}
+		#icon-edit.icon32-posts-people {background: url(<?php bloginfo('template_url') ?>/images/folder-32x32.png) no-repeat;}
+		</style>
+	<?php } //--end wpt_people_icons
+
+	add_action( 'admin_head', 'wpt_people_icons' );
+
+
+
+/*  
+Testimonial custom post type definition
+*/
+
+//  CPT
+	function create_post_type_testimonial() {
+		$labels = array (
+			'name' => _x('Testimonials', 'post type general name'),
+			'singular_name' => _x('Testimonial', 'post type singular name'),
+			'add_new' => _x('Add New', 'testimonial'),
+			'add_new_item' => __('Add New Testimonial'),
+			'edit' => __('Edit'),
+			'edit_item' => __('Edit Testimonial'),
+			'new_item' => __('New Testimonial'),
+			'view_item' => __('View Testimonial Page'),
+			'search_items' => __('Search Testimonials'),
+			'not_found' =>  __('No testimonial found'),
+			'not_found_in_trash' => __('No testimonial found in Trash'), 
+			'parent_item_colon' => ''
+		);
+		$args = array (
+			'labels' => $labels,
+			'public' => true,
+			'show_ui' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'_builtin' => false, 
+			'_edit_link' => 'post.php?post=%d',
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			'rewrite' => array('slug' => "testimonial" , 'with_front' => true), // Permalinks
+			'query_var' => "testimonial",
+			'menu_position' => 5,
+			'taxonomies' => array( 'post_tag', 'category' ),
+			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
+		);
+	register_post_type( 'testimonial', $args); 
+	
+		flush_rewrite_rules( false );
+
+}//--end create_post_type_testimonial
+	
+	//--hook CPT to init
+	add_action('init', 'create_post_type_testimonial');
+
+
+
+//	Custom icon	 
+	function wpt_testimonial_icons() {
+		?>
+		<style type="text/css" media="screen">
+			#menu-posts-testimonial .wp-menu-image {
+				background: url(<?php bloginfo('template_url') ?>/images/testimonial-icon.png) no-repeat 6px -18px !important;
+			}
+		#menu-posts-testimonial:hover .wp-menu-image, #menu-posts-testimonial.wp-has-current-submenu .wp-menu-image {
+				background-position: 6px 8px !important;
+			}
+		#icon-edit.icon32-posts-testimonial {background: url(<?php bloginfo('template_url') ?>/images/folder-32x32.png) no-repeat;}
+		</style>
+	<?php } //--end wpt_testimonial_icons
+
+	add_action( 'admin_head', 'wpt_testimonial_icons' );
+
+
+//--end CPT plugin

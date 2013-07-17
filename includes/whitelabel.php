@@ -4,6 +4,12 @@
 // define('TRIBE_DISABLE_TOOLBAR_ITEMS', true);
 
 
+// remove WP SEO options
+	// hides drop down on all posts admin page 
+	add_filter( 'wpseo_use_page_analysis', '__return_false' ); 
+	// not sure what this one does ??
+	// add_filter( 'wpseo_options', '__return_false' );
+
 // remove upgrade notification
 	function no_update_notification() {
 		remove_action('admin_notices', 'update_nag', 3);
@@ -66,7 +72,7 @@
 		function remove_admin_menus () {
 		global $menu;
 		// all users
-		$restrict = explode(',', '');
+		$restrict = explode(',', 'Links');
 		
 		// non-administrator users
 		$restrict_user = explode(',', 'Links,Plugins,Users,Tools,Settings');

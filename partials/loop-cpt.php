@@ -7,20 +7,20 @@
 		if ( get_query_var('page') ) $paged = get_query_var('page');
 
 		// SET UP POST QUERY
-		$original_query = $query;
-		$query = null;
+		$original_query = $wp_query;
+		$wp_query = null;
 
 		$args = array (
 			'paged' => $paged,
 			'post_type' => 'document',			
 		);
 
-		$query = new WP_Query( $args );
+		$wp_query = new WP_Query( $args );
 
-		if( $query->have_posts() ): 
+		if( $wp_query->have_posts() ): 
 
 		// continue with loop					
-		while( $query->have_posts() ): $query->the_post();
+		while( $wp_query->have_posts() ): $wp_query->the_post();
 
 ?>
 
@@ -47,6 +47,6 @@
 
 		endif; 
 
-		$query = $original_query;
+		$wp_query = $original_query;
 		wp_reset_postdata();
 ?>

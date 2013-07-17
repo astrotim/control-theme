@@ -38,14 +38,14 @@
 
 .pagination ul > li > a,
 .pagination ul > li > span {
-	color: $darkBlue;
+	// color: $darkBlue;
 	padding: 0 12px;
 	line-height: 30px;	
 }
 
 .pagination ul > li > a.prev:before, 
 .pagination ul > li > a.next:before {
-    color: $darkBlue;
+    // color: $darkBlue;
     font-family: FontAwesome;
     font-size: 16px;
     line-height: 16px;
@@ -65,6 +65,6 @@
 }
 
 .pagination ul li .current {
-	color: $darkBlue;
-	background: lighten($lightBlue, 30%);
+	// color: $darkBlue;
+	// background: lighten($lightBlue, 30%);
 }
