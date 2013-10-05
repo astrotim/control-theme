@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<div id="body-content">
+<main class="body-content" role="main">
 
-	<?php astro_locate_partial('loop-post-index'); ?>
+	<?php astro_load_partial('loop-post-index'); ?>
 
-</div> <!-- #body-content -->
+</main> <!-- .body-content[role="main"] -->
 
 <?php get_footer(); ?>

@@ -6,7 +6,7 @@
 		// astro_load_partial('loop-page');
 		// get_template_part( 'partials/loop-page' );
 		// locate_template( array('partials/loop-page.php'), true, false );
-		astro_locate_partial('loop-page');
+		astro_load_partial('loop-page');
 	?>
 
 </div> <!-- #body-content -->

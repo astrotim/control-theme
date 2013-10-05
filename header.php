@@ -3,9 +3,7 @@
 <head>
 <meta charset="utf-8">
 
-<?php if(RESPONSIVE) : ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<?php endif; ?>	
 
 <title><?php wp_title( ' ', true, 'right' ); ?></title>
 
@@ -22,27 +20,24 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-
 <?php // do_action('typekit', 'XXXXXX'); ?>
 <?php // do_action('googlefont', 'Name_Of+Font::style'); ?>
 
 </head>
 <body <?php body_class(); ?>>
 
-<div id="wrapper">
+<div class="wrapper">
 
-<header id="site-header" class="group">
+<header class="site-header" class="group" role="banner">
 	
-	<hgroup>
-		<h1 id="logo"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
-		<h2 id="tagline"><?php bloginfo('description'); ?></h2>
-	</hgroup>
+		<h1 class="logo"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
+		<h2 class="tagline"><?php bloginfo('description'); ?></h2>
 
-	<div id="search">
+	<div id="search" class="search" role="search">
 		<?php get_search_form(); ?>
 	</div>
 
-	<nav id="nav" class="navbar navbar-static" role="navigation">
+	<nav class="nav navbar navbar-static" role="navigation">
 	  <div class="navbar-inner">
 	    <div class="container">
 			<?php wp_nav_menu( array(
@@ -52,6 +47,6 @@
 			) ); ?>
 	    </div> <!-- .container -->
 	  </div> <!-- .navbar-inner -->
-	</nav> <!-- #nav -->
+	</nav> <!-- nav -->
 
 </header>
