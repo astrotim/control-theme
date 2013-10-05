@@ -130,30 +130,30 @@ p.wp-caption-text {
 	/* gallery
 	------------------------------------------------------- */
 
-ul.nggallery {
-	margin: -$gallerySpacing;
-	font-size: 0;
-	text-align: left;
-}
+// ul.nggallery {
+// 	margin: -$gallerySpacing;
+// 	font-size: 0;
+// 	text-align: left;
+// }
 
-ul.nggallery li {
-	@include inline-block;
-	vertical-align: top;
-	margin: $gallerySpacing;
-	width: 30%;
-}
+// ul.nggallery li {
+// 	@include inline-block;
+// 	vertical-align: top;
+// 	margin: $gallerySpacing;
+// 	width: 30%;
+// }
 
-ul.nggallery li a {
-	display: block;
-	text-align: center;
-	border: 2px solid #fff;
-	@include opacity(1);
-}
+// ul.nggallery li a {
+// 	display: block;
+// 	text-align: center;
+// 	border: 2px solid #fff;
+// 	@include opacity(1);
+// }
 
-ul.nggallery li a:hover {
-	@include opacity(.9);
-	border-color: $blue;
-}
+// ul.nggallery li a:hover {
+// 	@include opacity(.9);
+// 	border-color: $blue;
+// }
 
 	/* map
 	------------------------------------------------------- */

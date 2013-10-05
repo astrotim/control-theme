@@ -1,5 +1,5 @@
 /*!
-Theme Name: CONTROL
+Theme Name: CONTROL 
 Description: Custom theme design by Astronaut Web Co
 Author: Tim Holt
 Author URI: http://astronautweb.co/
@@ -14,6 +14,11 @@ Author URI: http://astronautweb.co/
 @import 'mixins';
 
 	
+/* #RESET
+================================================== */
+
+@import 'html5-reset';
+
 /* #GLOBAL
 ================================================== */
 
@@ -32,7 +37,8 @@ Author URI: http://astronautweb.co/
 /* HEADER & NAV
 ======================================================= */
 
-@import 'header_nav';
+@import 'header';
+@import 'nav';
 
 /* PAGE
 ======================================================= */
