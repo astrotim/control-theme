@@ -133,21 +133,23 @@
 
 
  // disable admin bar
-	if (!function_exists('disableAdminBar')) {
-		function disableAdminBar() {
-			remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 ); // for the front end
+	// if (!function_exists('disableAdminBar')) {
+	// 	function disableAdminBar() {
+	// 		remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 ); // for the front end
 
-			function remove_admin_bar_style_frontend() { // css override for the frontend
-			  echo '<style type="text/css" media="screen">
-			  html { margin-top: 0px !important; }
-			  * html body { margin-top: 0px !important; }
-			  </style>';
-			}
-			add_filter('wp_head','remove_admin_bar_style_frontend', 99);
-		}
-	}
+	// 		function remove_admin_bar_style_frontend() { // css override for the frontend
+	// 		  echo '<style type="text/css" media="screen">
+	// 		  html { margin-top: 0px !important; }
+	// 		  * html body { margin-top: 0px !important; }
+	// 		  </style>';
+	// 		}
+	// 		add_filter('wp_head','remove_admin_bar_style_frontend', 99);
+	// 	}
+	// }
 	// add_filter('admin_head','remove_admin_bar_style_backend'); // Original version
-	add_action('init','disableAdminBar'); // New version
+	// add_action('init','disableAdminBar'); // New version
+
+	add_filter( 'show_admin_bar', '__return_false' );
 
 
 // PAGES & POSTS -----------------------------------------------------------------------------
@@ -162,6 +164,18 @@
 		return $columns;
 	}
 	add_filter( 'manage_pages_columns', 'astro_custom_pages_columns' ) ;
+
+	// remove author column and comments column from posts
+	function astro_custom_posts_columns( $columns ) {
+		unset(
+			$columns['author'],
+			$columns['comments'],
+			$columns['categories'],
+			$columns['tags']
+		);
+		return $columns;
+	}
+	// add_filter( 'manage_posts_columns', 'astro_custom_posts_columns' ) ;
 
 	// remove page/post meta boxes, except for full admins
 	function customize_page_meta_boxes() {
