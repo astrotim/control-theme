@@ -3,6 +3,9 @@
 // CONFIG -------------------------------------------------------------------------------- //
 
 	require_once(get_template_directory() . '/includes/config.php');
+	// define( "CSSPATH"	, 	get_bloginfo('template_directory') . '/css/'	);
+	// define( "JSPATH"	, 	get_bloginfo('template_directory') . '/js/' 	);
+
 
 // INCLUDES -------------------------------------------------------------------------------- //
 
@@ -124,20 +127,35 @@
 // TEMPLATE FEATURES -------------------------------------------------------------------------------- //
 
 
-	function astro_load_partial($filename) {
-		$file = get_template_directory() . '/partials/' . $filename . '.php';
-		if (file_exists($file)) {
-			include($file);
-		} else {
-			echo 'Error: partial file cannot be found.';
-		}
-	}
+	// function astro_load_partial($filename) {
+	// 	$file = get_template_directory() . '/partials/' . $filename . '.php';
+	// 	if (file_exists($file)) {
+	// 		include($file);
+	// 	} else {
+	// 		echo 'Error: partial file cannot be found.';
+	// 	}
+	// }
 
-	function astro_locate_partial($filename) {
-		// $file = 'partials/' . $filename . '.php';
-		// locate_template( array($file), true, false );
+	// function astro_load_partial($filename, $dir = '/partials/') {
+	// 	$file = get_template_directory() . $dir . $filename . '.php';
+	// 	if (file_exists($file)) {
+	// 		include($file);
+	// 	} else {
+	// 		echo 'Error: partial file cannot be found.';
+	// 	}
+	// }
+
+	// function astro_locate_partial($filename) {
+	// 	// $file = 'partials/' . $filename . '.php';
+	// 	// locate_template( array($file), true, false );
+	// 	$files = array();
+	// 	$files[] = "partials/{$filename}.php";
+	// 	locate_template($files, true, false);
+	// }
+
+	function astro_load_partial($filename, $dir = 'partials') {
 		$files = array();
-		$files[] = "partials/{$filename}.php";
+		$files[] = "{$dir}/{$filename}.php";
 		locate_template($files, true, false);
 	}
 
@@ -147,6 +165,64 @@
 		'primary' => __( 'Primary Navigation', '' ),
 	));
 
+
+	// sub menu items hook
+	add_filter( 'wp_nav_menu_objects', 'my_wp_nav_menu_objects_sub_menu', 10, 2 );
+
+	// filter_hook function to react on sub_menu flag
+	function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
+	  if ( isset( $args->sub_menu ) ) {
+	    $root_id = 0;
+	    
+	    // find the current menu item
+	    foreach ( $sorted_menu_items as $menu_item ) {
+	      if ( $menu_item->current ) {
+	        // set the root id based on whether the current menu item has a parent or not
+	        $root_id = ( $menu_item->menu_item_parent ) ? $menu_item->menu_item_parent : $menu_item->ID;
+	        break;
+	      }
+	    }
+	    
+	    // find the top level parent
+	    if ( ! isset( $args->direct_parent ) ) {
+	      $prev_root_id = $root_id;
+	      while ( $prev_root_id != 0 ) {
+	        foreach ( $sorted_menu_items as $menu_item ) {
+	          if ( $menu_item->ID == $prev_root_id ) {
+	            $prev_root_id = $menu_item->menu_item_parent;
+	            // don't set the root_id to 0 if we've reached the top of the menu
+	            if ( $prev_root_id != 0 ) $root_id = $menu_item->menu_item_parent;
+	            break;
+	          } 
+	        }
+	      }
+	    }
+
+	    $menu_item_parents = array();
+	    foreach ( $sorted_menu_items as $key => $item ) {
+	      // init menu_item_parents
+	      if ( $item->ID == $root_id ) $menu_item_parents[] = $item->ID;
+
+	      if ( in_array( $item->menu_item_parent, $menu_item_parents ) ) {
+	        // part of sub-tree: keep!
+	        $menu_item_parents[] = $item->ID;
+	      } else {
+	        // not part of sub-tree: away with it!
+	        unset( $sorted_menu_items[$key] );
+	      }
+	    }
+	    
+	    return $sorted_menu_items;
+	  } else {
+	    return $sorted_menu_items;
+	  }
+	}
+	/*
+	** credit: http://christianvarga.com/2012/12/how-to-get-submenu-items-from-a-wordpress-menu-based-on-parent-or-sibling/
+	*/
+
+
+	// use walker instead ***
 	// add dropdown class for bootstrap
 	function astro_add_dropdown_class($classes, $item) {
 	    global $wpdb;
@@ -165,10 +241,45 @@
 	}
 
 
+
+	// sidebar widgets - template usage: dynamic_sidebar('Widget');
+	function sidebars_init() {		
+		register_sidebar( array(
+			'name' => __( 'Widget', '' ), 'id' => 'widget',
+			'before_widget' => '', 'after_widget' => '', 
+			'before_title' => '<h3>', 'after_title' => '</h3>',
+		) );
+	}	
+	add_action( 'widgets_init', 'sidebars_init' );
+
+	// allow shortcodes in text widgets
+	add_filter('widget_text', 'do_shortcode');
+
+
+
 	//     post thumbnails
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 160, 130, true );
 
+
+	// additional thumbnail size
+	if ( function_exists( 'add_image_size' ) ) {
+	    add_image_size( 'logo', 180, null );
+	    add_image_size( 'medium-portrait', 200 );
+	    add_image_size( 'slider', 636, 320, true );
+	}
+	 
+	function astro_extra_image_sizes($sizes) {
+        $addsizes = array(
+            "logo" => __( "Logo"),
+            "medium-portrait" => __( "Medium Portrait"),
+            "slider" => __( "Slider Full Width")
+        );
+        $newsizes = array_merge($sizes, $addsizes);
+        return $newsizes;
+	}
+	add_filter('image_size_names_choose', 'astro_extra_image_sizes');
+	
 
 	// remove 'Uncategorised' from category link list
 	function astro_cat_link() {
@@ -204,6 +315,9 @@
 		return $text;
 	}
 
+	// check out sanitize_file_name
+	// http://codex.wordpress.org/Function_Reference/sanitize_file_name
+
 
 // EXCERPTS -------------------------------------------------------------------------------- //
 
@@ -233,6 +347,31 @@
 	}
 
 	// template usage: astro_excerpt('astro_excerptlength_post', 'astro_excerpt_readmore', ' ');
+
+
+	// credit: http://goo.gl/dcgMHK
+	function get_excerpt_by_id($post_id){
+		// gets post ID
+	    $the_post = get_post($post_id); 
+	    // gets post_content to be used as a basis for the excerpt
+	    $the_excerpt = $the_post->post_content; 
+	    // sets excerpt length by word count
+	    $excerpt_length = 35; 
+	    // strips tags and images
+	    $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); 
+	    $words = explode(' ', $the_excerpt, $excerpt_length + 1);
+
+	    if(count($words) > $excerpt_length) :
+	        array_pop($words);
+	        array_push($words, '…');
+	        $the_excerpt = implode(' ', $words);
+	    endif;
+
+	    $the_excerpt = '<p>' . $the_excerpt . '</p>';
+
+	    return $the_excerpt;
+	}
+
 
 
 // SHORTCODES -------------------------------------------------------------------------------- //
@@ -489,202 +628,58 @@ if(SEARCH) {
 
 
 
-/*  
-Project custom post type definition
-*/
+// gets the current post type in the WordPress Admin
+	function get_current_post_type() {
+	global $post, $typenow, $current_screen;
 
-//  CPT
-	function create_post_type_project() {
-		$labels = array (
-			'name' => _x('Projects', 'post type general name'),
-			'singular_name' => _x('Project', 'post type singular name'),
-			'add_new' => _x('Add New', 'project'),
-			'add_new_item' => __('Add New Project'),
-			'edit' => __('Edit'),
-			'edit_item' => __('Edit Project'),
-			'new_item' => __('New Project'),
-			'view_item' => __('View Project Page'),
-			'search_items' => __('Search Projects'),
-			'not_found' =>  __('No project found'),
-			'not_found_in_trash' => __('No project found in Trash'), 
-			'parent_item_colon' => ''
-		);
-		$args = array (
-			'labels' => $labels,
-			'public' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'_builtin' => false, 
-			'_edit_link' => 'post.php?post=%d',
-			'capability_type' => 'post',
-			'hierarchical' => false,
-			'rewrite' => array('slug' => "project" , 'with_front' => true), // Permalinks
-			'query_var' => "project",
-			'menu_position' => 5,
-			'taxonomies' => array( 'category' ),
-			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
-		);
-	register_post_type( 'project', $args); 
-	
-		flush_rewrite_rules( false );
+		//we have a post so we can just get the post type from that
+		if ( $post && $post->post_type )
+			return $post->post_type;
 
-}//--end create_post_type_project
-	
-	//--hook CPT to init
-	add_action('init', 'create_post_type_project');
+		//check the global $typenow - set in admin.php
+		elseif( $typenow )
+			return $typenow;
+
+		//check the global $current_screen object - set in screen.php
+		elseif( $current_screen && $current_screen->post_type )
+			return $current_screen->post_type;
+
+		//lastly check the post_type querystring
+		elseif( isset( $_REQUEST['post_type'] ) )
+			return sanitize_key( $_REQUEST['post_type'] );
+
+		//we do not know the post type!
+		return null;
+	}
 
 
+// reduce height of content editor for [cpt] only
+	function cpt_tinymce_height() { 
+		if (get_current_post_type() == 'cpt') {
+	?>
+		<style>
+			#content_ifr {
+				height: 120px !important;
+			}			
+		</style> 
+	<?php 
+		}
+	}
 
+	add_action("admin_head", "cpt_tinymce_height");
 
-//	Custom icon	 
-	function wpt_project_icons() {
-		?>
-		<style type="text/css" media="screen">
-			#menu-posts-project .wp-menu-image {
-				background: url(<?php bloginfo('template_url') ?>/images/project-icon.png) no-repeat 6px 6px !important;
-			}
-		#menu-posts-project:hover .wp-menu-image, #menu-posts-project.wp-has-current-submenu .wp-menu-image {
-				background-position: 6px -16px !important;
-			}
-		#icon-edit.icon32-posts-project {background: url(<?php bloginfo('template_url') ?>/images/project-32x32.png) no-repeat;}
-		</style>
-	<?php } //--end wpt_project_icons
+	// hide date dropdown for [cpt] only
+	function cpt_hide_date_dropdown() { 
+		if (get_current_post_type() == 'cpt') {
+	?>
+		<style>
+			.tablenav select[name=m] {
+				display: none;
+			}		
+		</style> 
+	<?php 
+		}
+	}
 
-	add_action( 'admin_head', 'wpt_project_icons' );
+	add_action("admin_head", "cpt_hide_date_dropdown");
 
-
-
-
-//--end CPT plugin
-
-/*  
-People custom post type definition
-*/
-
-//  CPT
-	function create_post_type_people() {
-		$labels = array (
-			'name' => _x('People', 'post type general name'),
-			'singular_name' => _x('People', 'post type singular name'),
-			'add_new' => _x('Add New', 'people'),
-			'add_new_item' => __('Add New People'),
-			'edit' => __('Edit'),
-			'edit_item' => __('Edit People'),
-			'new_item' => __('New People'),
-			'view_item' => __('View People Page'),
-			'search_items' => __('Search Peoples'),
-			'not_found' =>  __('No people found'),
-			'not_found_in_trash' => __('No people found in Trash'), 
-			'parent_item_colon' => ''
-		);
-		$args = array (
-			'labels' => $labels,
-			'public' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'_builtin' => false, 
-			'_edit_link' => 'post.php?post=%d',
-			'capability_type' => 'post',
-			'hierarchical' => false,
-			'rewrite' => array('slug' => "people" , 'with_front' => true), // Permalinks
-			'query_var' => "people",
-			'menu_position' => 5,
-			'taxonomies' => array( 'post_tag', 'category' ),
-			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
-		);
-	register_post_type( 'people', $args); 
-	
-		flush_rewrite_rules( false );
-
-}//--end create_post_type_people
-	
-	//--hook CPT to init
-	add_action('init', 'create_post_type_people');
-
-
-
-//	Custom icon	 
-	function wpt_people_icons() {
-		?>
-		<style type="text/css" media="screen">
-			#menu-posts-people .wp-menu-image {
-				background: url(<?php bloginfo('template_url') ?>/images/people-icon.png) no-repeat 6px -18px !important;
-			}
-		#menu-posts-people:hover .wp-menu-image, #menu-posts-people.wp-has-current-submenu .wp-menu-image {
-				background-position: 6px 8px !important;
-			}
-		#icon-edit.icon32-posts-people {background: url(<?php bloginfo('template_url') ?>/images/folder-32x32.png) no-repeat;}
-		</style>
-	<?php } //--end wpt_people_icons
-
-	add_action( 'admin_head', 'wpt_people_icons' );
-
-
-
-/*  
-Testimonial custom post type definition
-*/
-
-//  CPT
-	function create_post_type_testimonial() {
-		$labels = array (
-			'name' => _x('Testimonials', 'post type general name'),
-			'singular_name' => _x('Testimonial', 'post type singular name'),
-			'add_new' => _x('Add New', 'testimonial'),
-			'add_new_item' => __('Add New Testimonial'),
-			'edit' => __('Edit'),
-			'edit_item' => __('Edit Testimonial'),
-			'new_item' => __('New Testimonial'),
-			'view_item' => __('View Testimonial Page'),
-			'search_items' => __('Search Testimonials'),
-			'not_found' =>  __('No testimonial found'),
-			'not_found_in_trash' => __('No testimonial found in Trash'), 
-			'parent_item_colon' => ''
-		);
-		$args = array (
-			'labels' => $labels,
-			'public' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'_builtin' => false, 
-			'_edit_link' => 'post.php?post=%d',
-			'capability_type' => 'post',
-			'hierarchical' => false,
-			'rewrite' => array('slug' => "testimonial" , 'with_front' => true), // Permalinks
-			'query_var' => "testimonial",
-			'menu_position' => 5,
-			'taxonomies' => array( 'post_tag', 'category' ),
-			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
-		);
-	register_post_type( 'testimonial', $args); 
-	
-		flush_rewrite_rules( false );
-
-}//--end create_post_type_testimonial
-	
-	//--hook CPT to init
-	add_action('init', 'create_post_type_testimonial');
-
-
-
-//	Custom icon	 
-	function wpt_testimonial_icons() {
-		?>
-		<style type="text/css" media="screen">
-			#menu-posts-testimonial .wp-menu-image {
-				background: url(<?php bloginfo('template_url') ?>/images/testimonial-icon.png) no-repeat 6px -18px !important;
-			}
-		#menu-posts-testimonial:hover .wp-menu-image, #menu-posts-testimonial.wp-has-current-submenu .wp-menu-image {
-				background-position: 6px 8px !important;
-			}
-		#icon-edit.icon32-posts-testimonial {background: url(<?php bloginfo('template_url') ?>/images/folder-32x32.png) no-repeat;}
-		</style>
-	<?php } //--end wpt_testimonial_icons
-
-	add_action( 'admin_head', 'wpt_testimonial_icons' );
-
-
-//--end CPT plugin
