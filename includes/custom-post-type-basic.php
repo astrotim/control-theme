@@ -1,22 +1,22 @@
 <?php
 /*  
-Document custom post type definition
+CustomPost custom post type definition
 */
 
 //  CPT
-	function create_post_type_document() {
+	function create_post_type_custompost() {
 		$labels = array (
-			'name' => _x('Documents', 'post type general name'),
-			'singular_name' => _x('Document', 'post type singular name'),
-			'add_new' => _x('Add New', 'document'),
-			'add_new_item' => __('Add New Document'),
+			'name' => _x('CustomPosts', 'post type general name'),
+			'singular_name' => _x('CustomPost', 'post type singular name'),
+			'add_new' => _x('Add New', 'custompost'),
+			'add_new_item' => __('Add New CustomPost'),
 			'edit' => __('Edit'),
-			'edit_item' => __('Edit Document'),
-			'new_item' => __('New Document'),
-			'view_item' => __('View Document Page'),
-			'search_items' => __('Search Documents'),
-			'not_found' =>  __('No document found'),
-			'not_found_in_trash' => __('No document found in Trash'), 
+			'edit_item' => __('Edit CustomPost'),
+			'new_item' => __('New CustomPost'),
+			'view_item' => __('View CustomPost Page'),
+			'search_items' => __('Search CustomPosts'),
+			'not_found' =>  __('No custompost found'),
+			'not_found_in_trash' => __('No custompost found in Trash'), 
 			'parent_item_colon' => ''
 		);
 		$args = array (
@@ -29,56 +29,62 @@ Document custom post type definition
 			'_edit_link' => 'post.php?post=%d',
 			'capability_type' => 'post',
 			'hierarchical' => false,
-			'rewrite' => array('slug' => "document" , 'with_front' => true), // Permalinks
-			'query_var' => "document",
+			'rewrite' => array('slug' => "custompost" , 'with_front' => true), // Permalinks
+			'has_archive' => false, // true for archive-custompost.php file
+			'query_var' => "custompost",
 			'menu_position' => 20,
 			'taxonomies' => array( 'post_tag', 'category' ),
 			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
 		);
-	register_post_type( 'document', $args); 
+	register_post_type( 'custompost', $args); 
 	
-		flush_rewrite_rules( false );
-
-}//--end create_post_type_document
+}//--end create_post_type_custompost
 	
 	//--hook CPT to init
-	add_action('init', 'create_post_type_document');
+	add_action('init', 'create_post_type_custompost');
+
+
+	//--flush on theme switch
+	function flush_rewrite_rules_custompost() {
+		flush_rewrite_rules( false );
+	}
+	add_action('after_switch_theme', 'flush_rewrite_rules_custompost');
 
 
 
 
 //	Title prompt
-	function change_document_title( $title ){
+	function change_custompost_title( $title ){
 		 $screen = get_current_screen();
 	 
-		 if  ( 'document' == $screen->post_type ) {
-			  $title = 'Enter Document Name';
+		 if  ( 'custompost' == $screen->post_type ) {
+			  $title = 'Enter CustomPost Name';
 		 }
 	 
 		 return $title;
 	}
 	
 	// hook filter
-	add_filter( 'enter_title_here', 'change_document_title' );
+	add_filter( 'enter_title_here', 'change_custompost_title' );
 
 
 
 
 //	Custom icon	 
-	function wpt_document_icons() {
+	function wpt_custompost_icons() {
 		?>
 		<style type="text/css" media="screen">
-			#menu-posts-document .wp-menu-image {
-				background: url(<?php bloginfo('template_url') ?>/images/document-icon.png) no-repeat 6px -16px !important;
+			#menu-posts-custompost .wp-menu-image {
+				background: url(<?php bloginfo('template_url') ?>/images/custompost-icon.png) no-repeat 6px -16px !important;
 			}
-		#menu-posts-document:hover .wp-menu-image, #menu-posts-document.wp-has-current-submenu .wp-menu-image {
+		#menu-posts-custompost:hover .wp-menu-image, #menu-posts-custompost.wp-has-current-submenu .wp-menu-image {
 				background-position: 6px 8px !important;
 			}
-		#icon-edit.icon32-posts-document {background: url(<?php bloginfo('template_url') ?>/images/folder-32x32.png) no-repeat;}
+		#icon-edit.icon32-posts-custompost {background: url(<?php bloginfo('template_url') ?>/images/folder-32x32.png) no-repeat;}
 		</style>
-	<?php } //--end wpt_document_icons
+	<?php } //--end wpt_custompost_icons
 
-	add_action( 'admin_head', 'wpt_document_icons' );
+	add_action( 'admin_head', 'wpt_custompost_icons' );
 
 
 

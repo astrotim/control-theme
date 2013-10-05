@@ -63,18 +63,25 @@ CPtag
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			'rewrite' => array('slug' => "custompost" , 'with_front' => true), // Permalinks
+			'has_archive' => false, // true for archive-custompost.php file
 			'query_var' => "custompost",
 			'menu_position' => 20,
 			'supports' => array('title' , 'editor', 'thumbnail', 'revisions'),
 		);
 	register_post_type( 'custompost', $args); 
 	
-		flush_rewrite_rules( false );
-
 }//--end create_post_type_custompost
 	
 	//--hook CPT to init
 	add_action('init', 'create_post_type_custompost');
+
+
+	//--flush on theme switch
+	function flush_rewrite_rules_custompost() {
+		flush_rewrite_rules( false );
+	}
+	add_action('after_switch_theme', 'flush_rewrite_rules_custompost');
+
 
 
 
