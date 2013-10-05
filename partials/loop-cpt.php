@@ -4,7 +4,7 @@
 		// Display posts from the current page or set the 'paged' parameter to 1 
 		$paged = 1;  
 		if ( get_query_var('paged') ) $paged = get_query_var('paged');  
-		if ( get_query_var('page') ) $paged = get_query_var('page');
+		if ( get_query_var('page') )  $paged = get_query_var('page');
 
 		// SET UP POST QUERY
 		$original_query = $wp_query;
@@ -12,15 +12,15 @@
 
 		$args = array (
 			'paged' => $paged,
-			'post_type' => 'document',			
+			'post_type' => 'custom_post_type',			
 		);
 
 		$wp_query = new WP_Query( $args );
 
-		if( $wp_query->have_posts() ): 
+		if( have_posts() ): 
 
 		// continue with loop					
-		while( $wp_query->have_posts() ): $wp_query->the_post();
+		while( have_posts() ): the_post();
 
 ?>
 
