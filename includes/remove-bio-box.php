@@ -1,5 +1,5 @@
 <?php # -*- coding: utf-8 -*-
-declare( encoding = 'UTF-8' );
+// declare( encoding = 'UTF-8' );
 /**
  * Plugin Name: Remove Bio Box
  * Description: Removes the user biography field.
@@ -66,5 +66,3 @@ class T5_Hide_Profile_Bio_Box
 		print $html;
 	}
 }
-
-?>
