@@ -1,30 +1,11 @@
 <?php
-
-		// SET UP PAGINATION
-		// Display posts from the current page or set the 'paged' parameter to 1 
-		$paged = 1;  
-		if ( get_query_var('paged') ) $paged = get_query_var('paged');  
-		if ( get_query_var('page') ) $paged = get_query_var('page');
-
-		// store post query if using more than one loop on a page (need to test!)
-		// $original_query = $wp_query;
-		// $wp_query = null;
-
-		$args = array (
-			'paged' => $paged,
-			'post_type' => 'post',			
-		);
-
-		$wp_query = new WP_Query( $args );
-
 		if( have_posts() ): 
 
 		// continue with loop					
 		while( have_posts() ): the_post();
-
 ?>
 
-<article class="post group">
+<article <?php post_class('group'); ?>>
 
 		<?php if(has_post_thumbnail()) : ?>
 		<div class="post-thumb">	
@@ -36,6 +17,10 @@
 
 			<h3><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 			<div class="date"><?php the_date('jS F Y'); ?></div>
+
+			<div class="tags">
+				<?php echo get_the_term_list( $post->ID, 'post_tag', '', ' &bull; ', '' ); ?>
+			</div>
 
 			<?php the_excerpt(); ?>
 
@@ -54,9 +39,10 @@
 		// pagination
 		astro_pagination();
 
+		else :
+
+			echo '<p>No posts found</p>';
+
 		endif; 
 
-		// reset post query if using more than one loop on a page (need to test!)
-		// $wp_query = $original_query;
-		// wp_reset_postdata();
 ?>
