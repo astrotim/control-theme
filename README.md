@@ -1,19 +1,31 @@
-![Control WordPress Theme](http://demo.astronautweb.co/control-theme-logo.png?v2)
-
 Control: WordPress Theme 
 ========================
 
-A free WordPress theme for developers
+A WordPress theme toolkit
 -------------------------------------
 
-This theme is a vanilla styled collection of common website features and WordPress tools. It is designed to be used with Compass for compiling the SCSS into CSS.
+This is a collection of theme development snippets, files and tools which I commonly reuse from project to project. I treat this theme as my 'control' sample from which take bits and pieces for use in building client sites. 
 
-*This is a work in progress to which I will continue to commit updates.*
+Use them, abuse them, criticise them, or not.
+
+I aim to keep the files structured in the most manageable way, and I have embraced the concept of 'partials' - breaking up larger files into smaller partial files which group together related code.
+
+ - /scss/ contains SASS partials
+ - /includes/ contains partials of the functions.php file
+ - /partials/ contains template partials
+
+
+Latest
+--------------
+
+ - Import functions for creating dummy posts
+ - Reference directory for storing documentation files
+ - functions.php split up into partial files
 
 Style features
 --------------
 
- - SCSS (with config.rb file for Compass)
+ - SASS/Compass
  - Bootstrap (in SCSS format)
  - Bourbon SCSS mixin library
  - Font Awesome for use with Bootstrap icons
@@ -22,8 +34,7 @@ Style features
 Utility features
 ----------------
 
- - Modernizr
- - Conditionizr
+ - Modernizr & Conditionizr
  - jQuery HoverIntent
  - jQuery Lazy Load
  - modal.js
