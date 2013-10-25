@@ -28,7 +28,7 @@ define( "JSPATH"	, 	get_bloginfo('template_directory') . '/js/' 	);
 		include(get_template_directory() . '/includes/functions-pagination.php');
 		include(get_template_directory() . '/includes/functions-admin.php');
 		include(get_template_directory() . '/includes/functions-whitelabel.php');
-		include(get_template_directory() . '/includes/plugin-google-map.php');
+		include(get_template_directory() . '/plugins/google-map.php');
 		// include(get_template_directory() . '/includes/custom-post-type-[basic].php');
 	}
 	endif;
