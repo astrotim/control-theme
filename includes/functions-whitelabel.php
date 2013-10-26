@@ -228,7 +228,7 @@
 
 
 // remove user profile bio box plugin
-	include('remove-bio-box.php');
+	include(get_template_directory() . '/plugins/remove-bio-box.php');
 
 	function hide_website_field() { ?>
 		<style>
