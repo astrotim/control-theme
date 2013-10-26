@@ -3,15 +3,15 @@
 // EXCERPTS -------------------------------------------------------------------------------- //
 
 
-	function astro_excerptlength_post($length) { return 40; }
-	function astro_excerptlength_home($length) { return 30; }
-	function astro_excerptlength_featured($length) { return 50; }
+	function control_excerptlength_post($length) { return 40; }
+	function control_excerptlength_home($length) { return 30; }
+	function control_excerptlength_featured($length) { return 50; }
 	
-	function astro_excerpt_readmore($more) {
+	function control_excerpt_readmore($more) {
 		return ' ... <a class="readmore" href="'. get_permalink() .'">' . __( 'read more', '' ) . '</a>';
 	}
 	
-	function astro_excerpt($length_callback='', $more_callback='') {
+	function control_excerpt($length_callback='', $more_callback='') {
 		global $post;
 		if(function_exists($length_callback)) {
 			add_filter('excerpt_length', $length_callback);
@@ -27,7 +27,7 @@
 		echo $output;
 	}
 
-	// template usage: astro_excerpt('astro_excerptlength_post', 'astro_excerpt_readmore', ' ');
+	// template usage: control_excerpt('control_excerptlength_post', 'control_excerpt_readmore', ' ');
 
 
 	// credit: http://goo.gl/dcgMHK

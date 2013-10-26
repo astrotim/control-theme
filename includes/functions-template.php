@@ -3,7 +3,7 @@
 // TEMPLATE FEATURES -------------------------------------------------------------------------------- //
 
 
-	// function astro_load_partial($filename) {
+	// function control_load_partial($filename) {
 	// 	$file = get_template_directory() . '/partials/' . $filename . '.php';
 	// 	if (file_exists($file)) {
 	// 		include($file);
@@ -12,7 +12,7 @@
 	// 	}
 	// }
 
-	// function astro_load_partial($filename, $dir = '/partials/') {
+	// function control_load_partial($filename, $dir = '/partials/') {
 	// 	$file = get_template_directory() . $dir . $filename . '.php';
 	// 	if (file_exists($file)) {
 	// 		include($file);
@@ -21,7 +21,7 @@
 	// 	}
 	// }
 
-	// function astro_locate_partial($filename) {
+	// function control_locate_partial($filename) {
 	// 	// $file = 'partials/' . $filename . '.php';
 	// 	// locate_template( array($file), true, false );
 	// 	$files = array();
@@ -29,7 +29,7 @@
 	// 	locate_template($files, true, false);
 	// }
 
-	function astro_load_partial($filename, $dir = 'partials') {
+	function control_load_partial($filename, $dir = 'partials') {
 		$files = array();
 		$files[] = "{$dir}/{$filename}.php";
 		locate_template($files, true, false);
@@ -100,7 +100,7 @@
 
 	// use walker instead ***
 	// add dropdown class for bootstrap
-	function astro_add_dropdown_class($classes, $item) {
+	function control_add_dropdown_class($classes, $item) {
 	    global $wpdb;
 	    $has_children = $wpdb->get_var("
 	            SELECT COUNT(meta_id)
@@ -113,7 +113,7 @@
 	    return $classes;
 	}
 	if(BOOTSTRAP) { 
-		add_filter( 'nav_menu_css_class', 'astro_add_dropdown_class', 10, 2);
+		add_filter( 'nav_menu_css_class', 'control_add_dropdown_class', 10, 2);
 	}
 
 
@@ -145,7 +145,7 @@
 	    add_image_size( 'slider', 636, 320, true );
 	}
 	 
-	function astro_extra_image_sizes($sizes) {
+	function control_extra_image_sizes($sizes) {
         $addsizes = array(
             "logo" => __( "Logo"),
             "medium-portrait" => __( "Medium Portrait"),
@@ -154,11 +154,11 @@
         $newsizes = array_merge($sizes, $addsizes);
         return $newsizes;
 	}
-	add_filter('image_size_names_choose', 'astro_extra_image_sizes');
+	add_filter('image_size_names_choose', 'control_extra_image_sizes');
 	
 
 	// remove 'Uncategorised' from category link list
-	function astro_cat_link() {
+	function control_cat_link() {
 		$exclude = array("Uncategorized");
 		$separator = " / ";
 		$new_the_category = '';
@@ -199,7 +199,7 @@
 
 
 	// body class **** TODO add 404 condition for error 'trying to get property of non-object'
-	function astro_title_class( $classes ){
+	function control_title_class( $classes ){
 		global $post;
 		if (is_singular()) {
 			array_push( $classes, "{$post->post_name}" );
@@ -207,21 +207,21 @@
 		return $classes;
 	}
 	
-	add_filter( 'body_class', 'astro_title_class' );
+	add_filter( 'body_class', 'control_title_class' );
 	
 	// post class
-	function astro_group_class( $classes ){
+	function control_group_class( $classes ){
 		global $post;
 		array_push( $classes, "group" );
 		return $classes;
 	}
 	
-	add_filter( 'post_class', 'astro_group_class' );
+	add_filter( 'post_class', 'control_group_class' );
 
 // -- PRE GET POSTS --------------------------------------------------------------------------- //
 
 
-	function astro_get_post_types( $query ) {
+	function control_get_post_types( $query ) {
 		if (is_admin())
 		return;         
 
@@ -230,9 +230,9 @@
 			$query->set( 'post_type', array( 'post', 'page' ) );    
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'astro_get_post_types' );
+	// add_action( 'pre_get_posts', 'control_get_post_types' );
 
-	function astro_exclude_category_query( $query ) {
+	function control_exclude_category_query( $query ) {
 		if (is_admin())
 		return;         
 
@@ -241,9 +241,9 @@
 			$query->set( 'cat', '-1,-2' );    
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'astro_exclude_category_query' );	
+	// add_action( 'pre_get_posts', 'control_exclude_category_query' );	
 
-	function astro_posts_per_page( $query ) {
+	function control_posts_per_page( $query ) {
 		if (is_admin())
 		return;         
 
@@ -252,9 +252,9 @@
 			$query->set( 'posts_per_page', '5' );
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'astro_posts_per_page' );	
+	// add_action( 'pre_get_posts', 'control_posts_per_page' );	
 
-	function astro_query_vars( $query ) {
+	function control_query_vars( $query ) {
 		if (is_admin())
 		return;         
 
@@ -264,7 +264,7 @@
 			$query->query_vars['order'] = 'desc';
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'astro_query_vars' );	
+	// add_action( 'pre_get_posts', 'control_query_vars' );	
 
 
 

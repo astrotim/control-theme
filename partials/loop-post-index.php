@@ -37,7 +37,7 @@
 		endwhile; 
 
 		// pagination
-		astro_pagination();
+		control_pagination();
 
 		else :
 

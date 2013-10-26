@@ -4,7 +4,7 @@
 
 if(SEARCH) {
 
-     function astro_search_form( $form ) {
+     function control_search_form( $form ) {
 
          $form = '<form class="navbar-search pull-right" role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
          <input type="search" name="s" id="s" class="search-query" placeholder="Search this site..." />
@@ -14,7 +14,7 @@ if(SEARCH) {
          return $form; // template usage: get_search_form()
      }
 
-     add_filter( 'get_search_form', 'astro_search_form' );
+     add_filter( 'get_search_form', 'control_search_form' );
 
 
 	// search all taxonomies, based on: 

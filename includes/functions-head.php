@@ -6,7 +6,7 @@
 	// add_editor_style('css/editor-style.css');
 
 	// JS
-	function astro_enqueue_scripts() {
+	function control_enqueue_scripts() {
 		if (!is_admin()) {
 
 			if (PRODUCTION) {
@@ -34,9 +34,9 @@
 			// }
 		}
 	}
-	add_action('wp_enqueue_scripts', 'astro_enqueue_scripts');
+	add_action('wp_enqueue_scripts', 'control_enqueue_scripts');
 
-	function astro_enqueue_styles() {
+	function control_enqueue_styles() {
 		if (!is_admin()) {
 
 			// wp_register_style( 'bootstrap', CSSPATH . 'bootstrap/bootstrap.css', null, '2.2.2' );
@@ -49,11 +49,11 @@
 		}
 	}
 	// run with priority 1 to load after Gravity Forms forms.css			
-	add_action('wp_head', 'astro_enqueue_styles', 1);
+	add_action('wp_head', 'control_enqueue_styles', 1);
 
 
 	// typekit
-	function astro_load_typekit($id) {
+	function control_load_typekit($id) {
 		$script = "
 <script>
 	TypekitConfig = {
@@ -83,10 +83,10 @@
 		";
 		echo $script;
 	}
-	add_action( 'typekit', 'astro_load_typekit', 10, 1 );
+	add_action( 'typekit', 'control_load_typekit', 10, 1 );
 
 	// google fonts
-	function astro_load_googlefonts($families) {
+	function control_load_googlefonts($families) {
 		$script = "
 <script>
   WebFontConfig = {
@@ -104,7 +104,7 @@
 		";
 		echo $script;
 	}
-	add_action( 'googlefont', 'astro_load_googlefonts', 10, 1 );
+	add_action( 'googlefont', 'control_load_googlefonts', 10, 1 );
 
 
 

@@ -3,7 +3,7 @@
 // -- PAGINATION --------------------------------------------------------------------------- //
 
 
-	function astro_pagination() {
+	function control_pagination() {
 
 	    global $wp_query;  
 	    $total_pages = $wp_query->max_num_pages;
@@ -28,7 +28,7 @@
 	    }  
     }
 
-    function astro_cpt_pagination() {
+    function control_cpt_pagination() {
     	
     	global $wp_query;
 	    $total_pages = $wp_query->max_num_pages;

@@ -11,7 +11,7 @@
 
 
 // youtube shortcode
-	function astro_youtube_embed($atts) {
+	function control_youtube_embed($atts) {
 		extract( shortcode_atts( array(
 			'id' => '0',
 			'width' => '560',
@@ -20,11 +20,11 @@
 
 		return '<div class="video"><iframe width="' . $width . '" height="' . $height . '" src="http://www.youtube.com/embed/'. $id .'?autohide=1&showinfo=0&wmode=opaque" frameborder="0" allowfullscreen></iframe></div>';
 	}
-	add_shortcode('youtube', 'astro_youtube_embed');
+	add_shortcode('youtube', 'control_youtube_embed');
 	
 
 // button shortcode 
-	function astro_button_code($atts) {
+	function control_button_code($atts) {
 		extract( shortcode_atts( array(
 			'colour' => 'blue',
 			'link' => '',
@@ -33,7 +33,7 @@
 
 		return '<a class="btn '. $colour . '" href="' . $link . '">' . $text . '</a>';		
 	}
-	add_shortcode('button', 'astro_button_code');
+	add_shortcode('button', 'control_button_code');
 
 
 // add HR button to tinyMCE

@@ -156,17 +156,17 @@
 
 
 	// remove author column and comments column from pages
-	function astro_custom_pages_columns( $columns ) {
+	function control_custom_pages_columns( $columns ) {
 		unset(
 			// $columns['author'],
 			$columns['comments']
 		);
 		return $columns;
 	}
-	add_filter( 'manage_pages_columns', 'astro_custom_pages_columns' ) ;
+	add_filter( 'manage_pages_columns', 'control_custom_pages_columns' ) ;
 
 	// remove author column and comments column from posts
-	function astro_custom_posts_columns( $columns ) {
+	function control_custom_posts_columns( $columns ) {
 		unset(
 			$columns['author'],
 			$columns['comments'],
@@ -175,7 +175,7 @@
 		);
 		return $columns;
 	}
-	// add_filter( 'manage_posts_columns', 'astro_custom_posts_columns' ) ;
+	// add_filter( 'manage_posts_columns', 'control_custom_posts_columns' ) ;
 
 	// remove page/post meta boxes, except for full admins
 	function customize_page_meta_boxes() {

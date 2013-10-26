@@ -2,7 +2,7 @@
 
 <div id="body-content">
 
-	<?php astro_load_partial('loop-default'); ?>
+	<?php control_load_partial('loop-single'); ?>
 
 </div> <!-- #body-content -->
 
