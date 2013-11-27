@@ -1,33 +1,30 @@
 	/* layout
 	------------------------------------------------------- */
 
+// Reset the box-sizing
+// *,
+// *:before,
+// *:after {
+//   @include box-sizing(border-box);
+// }
+
 .wrapper {
 	max-width: $siteWidth;
 	margin-left: auto;
 	margin-right: auto;
-	// @include suzy-grid-background();
 }
 
+.group {
+	zoom: 1; 
 
-	/* clear fix & group
-	------------------------------------------------------- */
+	&:before,  
+	&:after {
+		content:"";
+		display:table;
+	}
 
-.clearfix:before, .clearfix:after {
-	content: '\0020';
-	display: block;
-	overflow: hidden;
-	visibility: hidden;
-	width: 0;
-	height: 0;
-}
-.group:before,  .group:after {
-	content:"";
-	display:table;
-}
-.group:after {
-	clear:both;
-}
-.group, .clearfix {
-	zoom:1;
+	&:after {
+		clear:both;
+	}
 }
 
