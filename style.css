@@ -5864,16 +5864,7 @@ li.comment {
       transform: translateY(0); } }
 
   nav {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.75);
     -webkit-transform: translateY(-50px);
     -ms-transform: translateY(-50px);
     transform: translateY(-50px); }
@@ -5950,53 +5941,34 @@ li.comment {
     animation: none; } }
 
 @media only screen and (min-width: 37.5em) {
-  nav {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end; }
-    nav a {
-      margin-left: 5px;
-      font-family: 'museo-slab', georgia, serif;
-      font-weight: 500;
-      color: #404040;
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 2px;
-      width: 85px;
-      text-align: center;
-      background-color: transparent;
-      -webkit-transition: all 0.3s ease;
-      transition: all 0.3s ease; }
-      nav a:hover {
-        color: white;
+  nav a {
+    color: #404040;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-align: center;
+    background-color: transparent;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+    nav a:hover {
+      color: white;
+      background-color: #FF4136; }
+    nav a.current-page-item {
+      color: #FF4136; }
+    .page-home nav a {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.65);
+      box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.65); }
+      .page-home nav a:hover {
         background-color: #FF4136; }
-      nav a.current-page-item {
-        color: #FF4136; }
-      .page-home nav a {
-        color: white;
-        background-color: rgba(0, 0, 0, 0.75);
-        -webkit-box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.65);
-        box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.65); }
-        .page-home nav a:hover {
-          background-color: #FF4136; }
-    .no-flexbox nav {
-      float: right;
-      margin-top: 12px; }
+  .no-flexbox nav {
+    float: right;
+    margin-top: 12px; }
   .nav-toggle {
     display: none; } }
 
-@media only screen and (min-width: 50em) {
-  nav {
-    margin-right: 70px; } }
+@media only screen and (min-width: 50em) { }
 
 @media only screen and (max-width: 63.999em) {
   @-webkit-keyframes slideOpen {

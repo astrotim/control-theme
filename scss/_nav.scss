@@ -2,13 +2,7 @@
 @include breakpoint($bp-mobile - $bp001) {
 
     nav {
-        display: flex;
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background-color: black; //rgba(black, .75);
+        background-color: rgba(black, .75);
 
         a {
             display: flex;
@@ -77,20 +71,18 @@
 @include breakpoint($bp-mobile, min-width) {
 
     nav {
-        display: flex;
-        flex: 1;
-        justify-content: flex-end;
+        // display: flex;
+        // flex: 1;
+        // justify-content: flex-end;
 
         a {
-            margin-left: 5px;
             // text-transform: uppercase;
-            font-family: $museo;
-            font-weight: 500;
+            // font-family: $museo;
+            // font-weight: 500;
             color: $grey-logo;
             display: inline-block;
             padding: 2px 8px;
             border-radius: 2px;
-            width: 85px;
             text-align: center;
             background-color: transparent;
             transition: all .3s ease;
@@ -129,8 +121,5 @@
 
 @include breakpoint($bp-tablet, min-width) {
 
-    nav {
-        margin-right: $side-padding;
-    }
 
 }//>800px

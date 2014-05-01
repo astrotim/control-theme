@@ -47,7 +47,7 @@
       <div class="nav-bg">
         <nav class="main-nav" role="navigation">
         <?php wp_nav_menu( array(
-          'container_class' => null,
+          'container' => false,
           'menu_class' => null,
           'theme_location' => 'primary',
         ) ); ?>
