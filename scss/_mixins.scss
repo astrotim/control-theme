@@ -1,21 +1,31 @@
-	/* mixins
-	------------------------------------------------------- */
-
-@mixin opacity ($opacity) {
-     opacity: $opacity;
-     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity*100})";
-     filter: alpha(opacity=$opacity*100);         
+@mixin image-replace ($file, $width, $height) {
+    @include hide-text;
+    background: url($file) no-repeat;
+    width: $width;
+    height: $height;
 }
 
-@mixin imageReplace ($file, $width, $height) {
-     display: block;
-     text-indent: -9999em;
-     background: url($file) no-repeat;
-     width: $width;
-     height: $height;
+@mixin logo ($logo, $width, $height) {
+    @include hide-text;
+    display: block;
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-size: $width $height;
+    width: $width;
+    height: $height;
 }
 
-@mixin fontAwesome ($icon, $size, $color) {
+@mixin svg-logo ($logo, $width, $height) {
+    @include hide-text;
+    display: block;
+    @include background-image($logo, $width $height);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: $width;
+    height: $height;
+}
+
+@mixin font-awesome ($icon, $size, $color) {
     content: "#{$icon}";
     font-family: FontAwesome;
     font-size: $size;
@@ -25,4 +35,75 @@
     position: absolute;
     text-decoration: inherit;
 }
-	
+
+@mixin center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// responsive scalable box
+@mixin scale-box ($width, $height) {
+    position: relative;
+    padding-bottom: percentage($height/$width);
+    height: 0;
+    overflow: hidden;
+}
+
+// https://github.com/csswizardry/CSS-Guidelines#sizing-uis
+@mixin font-size($font-size){
+    font-size:$font-size;
+    font-size:$font-size / $font-size-base +rem;
+}
+
+@mixin offset-padding($padding: $grid-gutter-width / 2) {
+    margin-left: -($padding);
+    margin-right: -($padding);
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+@mixin vertical-align-middle($width, $height) {
+    display: table-cell;
+    vertical-align: middle;
+    width: $width;
+    height: $height;
+}
+
+
+@mixin custom-animation($name, $duration, $delay, $timing: ease-out, $fill-mode: forwards) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing;
+    animation-fill-mode: $fill-mode;
+    backface-visibility: hidden;
+    animation-delay: $delay;
+}
+
+// http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox //
+// usage: @include background-image('logo', $logo-w $logo-h); //
+$image-path: 'images' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+@mixin background-image-png($name, $size: false){
+    background-image: url(#{$image-path}/#{$name}.png);
+    background-size: $size;
+
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.png);
+    }
+}
