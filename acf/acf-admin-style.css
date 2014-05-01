@@ -1,0 +1,52 @@
+#acf-include_in_archive p.label {
+    display: none;
+}
+
+#acf-include_in_archive {
+    padding: 5px 10px 0 !important;
+}
+
+.save-reminder {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    background-color: #f2dede;
+    color: #a94442;
+    text-align: right;
+    font-size: 16px;
+}
+
+.save-reminder strong {
+    display: block;
+    padding-bottom: 5px;
+}
+
+#acf-sections tr td.label,
+#acf-sections .gform_media_link {
+    display: none;
+}
+
+#acf-brand_sections .field-repeater-toggle,
+#acf-content_blocks .field-repeater-toggle,
+#acf-sections .field-repeater-toggle {
+    display: none;
+}
+
+#acf-content_blocks tr td.label {
+    width: 50px;
+}
+
+#acf-analyst_ratings .add-row-end {
+    display: none;
+}
+
+/*#acf-brand_sections .add-row-end,*/
+#acf-brand_sections tr td.label {
+    display: none;
+}
+
+/*#acf-brand_sections table table tr td.label {
+    display: block;
+}*/
+
