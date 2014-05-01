@@ -26,7 +26,7 @@
 
 </head>
 <body <?php body_class('loading'); ?>>
-<!--[if lt IE 9]>
+<!--[if lte IE 9]>
     <div aria-hidden="true" class="browsehappy"><strong>Seriously?</strong> You're using a <em>terribly old</em>&nbsp; version of Internet Explorer.<br> You really should <a href="http://browsehappy.com/?locale=en">upgrade</a>, you'll find the web works much better in a modern browser.<br>
     I recommend Google Chrome, it's fast, secure and works on this PC. <strong><a href="https://www.google.com/chrome/">Do it!</a></strong> <button class="close">&times;</button></div>
 <![endif]-->
