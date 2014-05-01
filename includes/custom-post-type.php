@@ -1,27 +1,18 @@
 <?php
 /*
-Plugin Name: Custom Post Type base
-Description: Custom post type plugin
-Version: 1.0
-Author: Tim Holt
-*/
+Custom Post Type: CustomPost
 
-/*
+
 Contents:
 1.	custom post type
 2a.	taxonomy (hierarchical for category format)
 2b.	taxonomy (non-hierarchical for tag format)
-3.	create meta options box
-4.	hook meta box
-5.	save post
-6.	default title prompt
-7.	columns for post overview page
-8.	taxonomy dropdown filter
-9.	custom post icon
-10.	mulitple featured images
-*/
+3.	default title prompt
+4.	columns for post overview page
+5.	taxonomy dropdown filter
 
-/*
+
+
 checklist for deployment
 
 ****** find & replace labels, meta field names, etc
@@ -67,6 +58,7 @@ CPtag
 			'query_var' => "custompost",
 			'menu_position' => 20,
 			'supports' => array('title' , 'editor', 'thumbnail', 'revisions'),
+			'menu_icon' => 'dashicons-admin-users',
 		);
 	register_post_type( 'custompost', $args);
 
@@ -142,92 +134,9 @@ CPtag
 	add_action( 'init', 'create_custompost_taxonomies', 0 );
 
 
-//	3. create meta options box
-	function meta_options_custompost() {
-
-	// Use nonce for verification
-	wp_nonce_field( plugin_basename( __FILE__ ), 'custompost_noncename' );
-
-		global $post;
-		$custom = get_post_custom($post->ID);
-			  $meta_field_1 = $custom["_meta_field_1"][0];
-			  $meta_field_2 = $custom["_meta_field_2"][0];
-			  $meta_field_3 = $custom["_meta_field_3"][0];
-			  $meta_field_4 = $custom["_meta_field_4"][0];
-
-		if(isset($custom["_meta_field_1"])) $meta_field_1 = $custom["_meta_field_1"][0];else $meta_field_1 = '';
-		if(isset($custom["_meta_field_2"])) $meta_field_2 = $custom["_meta_field_2"][0];else $meta_field_2 = '';
-		if(isset($custom["_meta_field_3"])) $meta_field_3 = $custom["_meta_field_3"][0];else $meta_field_3 = '';
-		if(isset($custom["_meta_field_4"])) $meta_field_4 = $custom["_meta_field_4"][0];else $meta_field_4 = '';
-                ?>
-                    <div>
-                        <table border="0" cellspacing="0" cellpadding="0">
-                        <tr><td class="meta_field"><label>Field One:</label></td>
-                        	<td class="meta_input"><input name="_meta_field_1" value="<?php echo $meta_field_1; ?>" size="60" /></td></tr>
-                        <tr><td class="meta_field"><label>Field Two:</label></td>
-                        	<td class="meta_input"><input name="_meta_field_2" value="<?php echo $meta_field_2; ?>" size="60" /></td></tr>
-                        <tr><td class="meta_field"><label>Field Three:</label></td>
-                        	<td class="meta_input"><input name="_meta_field_3" value="<?php echo $meta_field_3; ?>" size="60" /></td></tr>
-                        <tr><td class="meta_field"><label>Field Four:</label></td>
-                        	<td class="meta_input"><input name="_meta_field_4" value="<?php echo $meta_field_4; ?>" size="60" /></td></tr>
-                        </table>
-                    </div>
-               <?php
-	}//--end meta_options_custompost
 
 
-
-
-//	4. hook meta box
-	function admin_init_custompost(){
-		add_meta_box("custompost-meta", "Meta Box", "meta_options_custompost", "custompost", "normal", "high");
-	}
-	// hook meta box
-	add_action("admin_init", "admin_init_custompost");
-
-
-
-
-//	5. save post
-	function save_details_custompost(){
-
-	// verify if this is an auto save routine.
-	// If it is our form has not been submitted, so we dont want to do anything
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-		return;
-
-	// verify this came from the our screen and with proper authorization,
-	// because save_post can be triggered at other times
-	if ( !wp_verify_nonce( $_POST['custompost_noncename'], plugin_basename( __FILE__ ) ) )
-		return;
-
-	// Check permissions
-	if ( 'page' == $_POST['post_type'] )
-	{
-	  if ( !current_user_can( 'edit_page', $post_id ) )
-		  return;
-	}
-	else
-	{
-	  if ( !current_user_can( 'edit_post', $post_id ) )
-		  return;
-	}
-
-	global $post;
-		update_post_meta($post->ID, "_meta_field_1", $_POST["_meta_field_1"]);
-		update_post_meta($post->ID, "_meta_field_2", $_POST["_meta_field_2"]);
-		update_post_meta($post->ID, "_meta_field_3", $_POST["_meta_field_3"]);
-		update_post_meta($post->ID, "_meta_field_4", $_POST["_meta_field_4"]);
-
-	}//--end save_details_custompost
-
-	//hook save post
-	add_action('save_post', 'save_details_custompost');
-
-
-
-
-//	6. change default title prompt
+//	3. change default title prompt
 	function change_custompost_title( $title ){
 		 $screen = get_current_screen();
 
@@ -244,15 +153,13 @@ CPtag
 
 
 
-//	7. columns for post menu page
+//	4. columns for post menu page
 	function edit_columns($columns) {
 		$columns = array(
 			"cb" => '<input type="checkbox" />',
 			"title" => __( 'CustomPost Title',      'trans' ),
 			"_meta_field_1" => __( 'Field One',      'trans' ),
 			"_meta_field_2" => __( 'Field Two',      'trans' ),
-			"_meta_field_3" => __( 'Field Three',      'trans' ),
-			"_meta_field_4" => __( 'Field Four',      'trans' ),
 			"cptcat" => __( 'CPT Category',      'trans' ),
 		);
 
@@ -268,9 +175,6 @@ CPtag
 			  break;
 			case "_meta_field_2":
 			  echo get_post_meta( $post_id, '_meta_field_2', true);
-			  break;
-			case "_meta_field_3":
-			  echo get_post_meta( $post_id, '_meta_field_3', true);
 			  break;
 			case "cptcat":
 				$cptcats = get_the_terms(0, "cptcategory");
@@ -292,7 +196,7 @@ CPtag
 
 
 
-//	8. taxonomy dropdown filter
+//	5. taxonomy dropdown filter
 	function taxonomy_filter_restrict_manage_posts() { //build drop down
 		global $typenow, $wp_query;
 
@@ -362,24 +266,6 @@ CPtag
 	}
 	add_filter( 'parse_query', 'taxonomy_filter_post_type_request' );
 
-
-
-
-//	9. custom post icon	/ CSS adjust: 6px -16px / 6px 8px
-	function wpt_custompost_icons() {
-		?>
-		<style type="text/css" media="screen">
-			#menu-posts-custompost .wp-menu-image {
-				background: url(<?php bloginfo('template_url') ?>/images/custompost-icon.png) no-repeat 6px -16px !important;
-			}
-		#menu-posts-custompost:hover .wp-menu-image, #menu-posts-custompost.wp-has-current-submenu .wp-menu-image {
-				background-position:6px 8px !important;
-			}
-		#icon-edit.icon32-posts-custompost {background: url(<?php bloginfo('template_url') ?>/images/custompost-32x32.png) no-repeat;}
-		</style>
-	<?php } //--end wpt_custompost_icons
-
-	add_action( 'admin_head', 'wpt_custompost_icons' );
 
 
 
