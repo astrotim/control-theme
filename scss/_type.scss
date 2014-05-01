@@ -1,0 +1,198 @@
+h1 {
+    @include font-size($font-size-h1);
+    // text-transform: uppercase;
+}
+
+h2 {
+    @include font-size($font-size-h2);
+    font-weight: 400;
+}
+
+h3 {
+    @include font-size($font-size-h3);
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+
+h4 {
+    @include font-size($font-size-h4);
+    font-weight: 400;
+}
+
+h5 {
+    @include font-size($font-size-h5);
+    font-weight: 400;
+}
+
+h6 {
+    @include font-size($font-size-h6);
+    font-weight: 400;
+}
+
+h3, h4, h5, h6 {
+    font-family: $museo;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, nav a {
+    opacity: 1;
+    transition: opacity .2s ease;
+
+    .wf-loading & {
+        opacity: 0;
+    }
+}
+
+// font size variations
+.text-large {
+    @include font-size(18px);
+
+    @include breakpoint($bp-mobile, min-width) {
+        @include font-size($font-size-large);
+    }
+}
+
+.text-small {
+    @include font-size($font-size-small);
+}
+
+.text-tiny {
+    @include font-size($font-size-tiny);
+}
+
+.foot-note {
+    @extend .text-tiny;
+    color: $grey-medium;
+}
+
+.article-content {
+    a {
+        border-bottom: 1px dotted #ccc;
+    }
+    a:hover {
+        // text-decoration: underline;
+        border-bottom-color: $link-hover-color;
+    }
+}
+
+.not-phone-number a {
+    color: $text-color !important;
+    underline: none !important;
+}
+
+strong {
+    font-weight: 600;
+}
+
+blockquote {
+    background: $grey-vlight;
+    @include font-size(14px);
+    font-family: $georgia;
+    color: #555;
+    text-shadow: 0 1px 0 white;
+    font-style: italic;
+    max-width: 610px;
+    margin: 1.5em auto 10px;
+    border-left: 5px solid $red;
+
+    @include breakpoint($bp-mobile, min-width) {
+        @include font-size(20px);
+    }
+}
+
+hr {
+    border-top: 1px dashed #ccc;
+}
+
+$spacing-s:   10px;
+$spacing-m:   30px;
+$spacing-l:   60px;
+$outline-color: #ccc;
+
+.page-heading {
+    padding: 25px 0;
+
+    h2 {
+        @include font-size(30px);
+        text-align: center;
+        letter-spacing: $spacing-s;
+        // margin-right: -($spacing-s);
+        padding-left: $spacing-s;
+        // position: relative;
+        // right: -($spacing-s);
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-top: 0;
+        margin-bottom: 0;
+        color: $outline-color;
+    }
+
+    @include breakpoint($bp-mobile, min-width) {
+        h2 {
+            @include font-size(60px);
+            letter-spacing: $spacing-m;
+            // margin-right: -($spacing-m);
+            padding-left: $spacing-m;
+        }
+    }
+
+    @include breakpoint($bp-tablet, min-width) {
+        padding: 40px 0;
+
+        h2 {
+            @include font-size(80px);
+            letter-spacing: $spacing-l;
+            // margin-right: -($spacing-l);
+            // padding-left: $spacing-l;
+            color: white;
+            text-shadow:
+                -1px -1px 0 $outline-color,
+                1px -1px 0 $outline-color,
+                -1px 1px 0 $outline-color,
+                1px 1px 0 $outline-color;
+
+            .no-textshadow & {
+                color: $outline-color;
+            }
+        }
+    }
+}
+
+.article-header {
+
+    h1 {
+        text-align: center;
+        @include font-size(18px);
+        font-weight: 700;
+        margin-bottom: .5em;
+        padding: .5em 1em;
+        border-bottom: 2px dotted #eee;
+
+        @include breakpoint($bp-mobile, min-width) {
+            @include font-size(40px);
+        }
+
+
+        a {
+            // color: $grey-vdark;
+            color: $link-color;
+        }
+        a:hover {
+            color: $red;
+            text-decoration: none;
+        }
+    }
+}
+
+
+section {
+
+    h3 {
+        display: block;
+        text-align: center;
+        font-family: $museo; //$opensans;
+        // font-weight: 400;
+        @include font-size(20px);
+        color: #999;
+        text-shadow: 0 1px 0 #fff;
+    }
+}

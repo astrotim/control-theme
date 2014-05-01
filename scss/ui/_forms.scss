@@ -1,0 +1,58 @@
+.gform_wrapper,
+.gform_confirmation_wrapper {
+    width: 100%;
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 15px;
+    @include font-size(13px);
+}
+
+.form {
+    input {
+        @include font-size(13px);
+    }
+
+    button {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        margin: 1em 0 1em;
+        @include font-size(16px);
+
+        &:focus,
+        &:active {
+            outline: 0;
+        }
+    }
+}
+
+.gform_footer {
+    text-align: center;
+
+    input[type="submit"] {
+        font-family: $museo;
+        background: $red;
+        padding: 10px 20px;
+        @include font-size(20px);
+        text-shadow: 0 -1px 0 shade($red, 30%);
+        border-radius: 5px;
+        -webkit-appearance: none;
+        border: none;
+        border-bottom: 2px solid shade($red, 30%);
+        color: white;
+        display: inline-block;
+        transition: background .2s ease;
+    }
+}
+
+.gform_validation_container,
+.hide-label {
+    display: none;
+}
+
+.gf-add-placeholder {
+    .gfield_label {
+        display: none;
+    }
+}

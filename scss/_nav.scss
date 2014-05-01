@@ -1,31 +1,136 @@
-	/* nav 
-	------------------------------------------------------- */
+// mobile is default
+@include breakpoint($bp-mobile - $bp001) {
 
-nav[role="navigation"] {
+    nav {
+        display: flex;
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: black; //rgba(black, .75);
 
-	
+        a {
+            display: flex;
+            flex: 1;
+            font-family: $museo;
+            font-weight: 500;
+            color: white;
+            justify-content: center;
+            padding: 14px 20px;
+            border-right: 1px solid #444;
 
-}
+            &:last-child {border: none;}
+        }
 
-	/* dropdown 
-	------------------------------------------------------- */
+        transform: translateY(-50px);
+    }
 
-.dropdown:hover ul.dropdown-menu {
-    display: block;    
-}
-.dropdown-menu {
-	display: none;
-	background: #f9f9f9;
-	border: 1px solid #ddd;
-	border-top: none;
-	z-index: 9;
-	
-	&:hover {
-		cursor: pointer;
-	}
+    .nav-toggle {
+        background-image: $nav-icon-svg;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: 24px 24px;
+        display: flex;
+        margin-left: auto;
+        width: 24px;
+        height: 24px;
+        text-indent: -9999em;
+        border: none;
+        outline: none;
+        // position: absolute;
+        // top: 20px;
+        // left: 10px;
+        cursor: pointer;
+    }
 
-	li a {
-		font-weight: normal;
-	}
-}
+    .no-svg .nav-toggle {
+        background-image: $nav-icon-png;
+        background-repeat: no-repeat;
+    }
 
+    @keyframes slideOpen {
+        from {  transform: translateY(0); }
+        to {    transform: translateY(50px); }
+    }
+
+    @keyframes slideClosed {
+        from {  transform: translateY(50px); }
+        to {    transform: translateY(0); }
+    }
+
+    .wrapper {
+        @include custom-animation(slideClosed, .2s, ease);
+    }
+
+    .nav-open .wrapper {
+        @include custom-animation(slideOpen, .35s, ease-out);
+    }
+
+    .loading .wrapper {
+        animation: none;
+    }
+
+}//<600px
+
+
+@include breakpoint($bp-mobile, min-width) {
+
+    nav {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+
+        a {
+            margin-left: 5px;
+            // text-transform: uppercase;
+            font-family: $museo;
+            font-weight: 500;
+            color: $grey-logo;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 2px;
+            width: 85px;
+            text-align: center;
+            background-color: transparent;
+            transition: all .3s ease;
+
+            &:hover {
+                color: white;
+                background-color: $red;
+            }
+
+            &.current-page-item {
+                color: $red;
+            }
+
+            .page-home & {
+                color: white;
+                background-color: rgba(black, .75);
+                box-shadow: 0 0 1px 0 rgba(white, .65);
+
+                &:hover {
+                    background-color: $red;
+                }
+            }
+        }
+
+        .no-flexbox & {
+            float: right;
+            margin-top: 12px;
+        }
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+} //min = 600px
+
+@include breakpoint($bp-tablet, min-width) {
+
+    nav {
+        margin-right: $side-padding;
+    }
+
+}//>800px

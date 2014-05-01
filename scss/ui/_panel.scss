@@ -1,0 +1,39 @@
+.panel {
+    background: $grey-vlight;
+    padding: 10px 1em;
+    margin-bottom: 1.5em;
+    border-radius: $border-radius-large;
+    border: 1px solid $grey-light;
+
+    @media screen and (max-width: $bp-widescreen) {
+        width: percentage(1/3) - 2;
+        float: left;
+        margin-left: 2%;
+    }
+
+    h4 {
+        @include font-size(12px);
+        font-family: sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-bottom: 3px;
+        border-bottom: 1px solid white;
+    }
+
+    &.annual-report {
+        // border: 1px solid $grey-light;
+    }
+
+    .more-info {
+        float: right;
+        color: $text-color;
+        text-decoration: underline;
+        @include font-size(12px);
+    }
+}
+
+.miniquote {
+    text-align: center;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}

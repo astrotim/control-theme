@@ -1,0 +1,78 @@
+.btn {
+}
+
+a.button {
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.button {
+    font-family: $museo;
+    background: $red;
+    padding: 6px 14px;
+    border-radius: 5px;
+    border-bottom: 2px solid shade($red, 30%);
+    color: white;
+    display: inline-block;
+    transition: background .2s ease;
+
+    &:hover,
+    &:active {
+        background: tint($red, 30%);
+    }
+
+    &:active {
+        border-bottom-color: $red;
+    }
+
+    @include breakpoint($bp-mobile) {
+        // border-radius: 3px;
+    }
+
+    .article-content & {
+        border-bottom: 2px solid shade($red, 30%);
+    }
+}
+
+.btn-blue {
+    background: $blue;
+    border-bottom-color: black;
+
+    &:hover,
+    &:active {
+        background: lighten($blue, 20%);
+    }
+
+}
+
+.btn-large {
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
+.button-in-article {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    a {
+        display: inline-block;
+        min-width: 160px;
+        background: tint($red, 30%);
+    }
+}
+
+#respond input[type="submit"] {
+    @extend .button;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

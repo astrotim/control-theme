@@ -1,6 +1,5 @@
 /*!
-Theme Name: CONTROL 
-Description: Custom theme design by Astronaut Web Co
+Theme Name: Astronaut 2014
 Author: Tim Holt
 Author URI: http://astronautweb.co/
 
@@ -12,101 +11,46 @@ Author URI: http://astronautweb.co/
 
 @import 'variables';
 @import 'mixins';
+@import 'breakpoints';
 
-	
-/* #RESET
+
+/* #LIBRARIES
 ================================================== */
 
 @import 'html5-reset';
 @import 'bootstrap/print';
+@import 'bootstrap';
+// @import 'font-awesome';
 
-/* #BOOTSTRAP (v3.0.0)
+
+/* #GENERAL
 ================================================== */
 
-// Core
-@import "bootstrap/scaffolding";
-@import "bootstrap/type";
-@import "bootstrap/code";
-@import "bootstrap/grid";
-@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
+@import 'globals';
+@import 'data-images';
+@import 'type';
 
-// Components
-@import "bootstrap/component-animations";
-@import "bootstrap/glyphicons";
-@import "bootstrap/dropdowns";
-@import "bootstrap/button-groups";
-@import "bootstrap/input-groups";
-@import "bootstrap/navs";
-@import "bootstrap/navbar";
-@import "bootstrap/breadcrumbs";
-@import "bootstrap/pagination";
-@import "bootstrap/pager";
-@import "bootstrap/labels";
-@import "bootstrap/badges";
-@import "bootstrap/jumbotron";
-@import "bootstrap/thumbnails";
-@import "bootstrap/alerts";
-@import "bootstrap/progress-bars";
-@import "bootstrap/media";
-@import "bootstrap/list-group";
-@import "bootstrap/panels";
-@import "bootstrap/wells";
-@import "bootstrap/close";
-
-/* #GLOBAL
+/* #ELEMENTS
 ================================================== */
 
-@import 'global';
+@import 'ui/buttons';
+@import 'ui/images';
+@import 'ui/gravity-forms';
+@import 'ui/forms';
+@import 'ui/code';
+@import 'ui/lists';
+@import 'ui/comments';
 
-/* #TYPOGRAPHY
+/* #LAYOUT
 ================================================== */
-
-@import 'typography';
-
-/* #IMAGES
-================================================== */
-
-@import 'images';
-
-/* HEADER & NAV
-======================================================= */
 
 @import 'header';
 @import 'nav';
-
-/* PAGE
-======================================================= */
-
+@import 'off-canvas';
 @import 'page';
-
-/* POST
-======================================================= */
-
 @import 'post';
-
-/* COMMENTS
-======================================================= */
-
-@import 'comments';
-
-/* SIDEBAR
-======================================================= */
-
-@import 'sidebar';
-
-/* FORMS
-======================================================= */
-
-@import 'forms';
-
-/* FOOTER
-======================================================= */
-
 @import 'footer';
 
-/* MEDIA QUERIES
-======================================================= */
+/* #PAGES
+================================================== */
 
-@import 'media_queries';
