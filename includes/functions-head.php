@@ -1,5 +1,5 @@
-<?php 
-	
+<?php
+
 // <head> FEATURES -------------------------------------------------------------------------------- //
 
 	// css for back end
@@ -9,10 +9,8 @@
 	function control_enqueue_scripts() {
 		if (!is_admin()) {
 
-			if (PRODUCTION) {
 			wp_deregister_script('jquery');
 			wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"), false);
-			}		
 			wp_enqueue_script('jquery'); // **WP default is no-conflict**
 			// wp_enqueue_script('jquery-ui-core');
 
@@ -37,19 +35,17 @@
 	add_action('wp_enqueue_scripts', 'control_enqueue_scripts');
 
 	function control_enqueue_styles() {
-		if (!is_admin()) {
 
-			// wp_register_style( 'bootstrap', CSSPATH . 'bootstrap/bootstrap.css', null, '2.2.2' );
-			// if (BOOTSTRAP) {wp_enqueue_style('bootstrap');}
-			// wp_register_style( 'bootstrap-responsive', CSSPATH . 'bootstrap/responsive.css', null, '2.2.2' );
-			// if (RESPONSIVE) {wp_enqueue_style('bootstrap-responsive');}
+		// auto versioning of style.css by last modified timestamp
+		$ver = filemtime( realpath( get_stylesheet_directory() . '/style.css' ) );
 
-			// auto versioning of file by last modified timestamp
-			wp_enqueue_style( 'style', get_stylesheet_uri(), null, filemtime( realpath(__DIR__ . '/../style.css' ) ) );			
-		}
+        $font_url = '//fonts.googleapis.com/css?family=Open+Sans:400,600,800';
+
+        wp_enqueue_style( 'google-font', $font_url, null, null );
+		wp_enqueue_style( 'style', get_stylesheet_uri(), null, $ver );
 	}
-	// run with priority 1 to load after Gravity Forms forms.css			
-	add_action('wp_head', 'control_enqueue_styles', 1);
+	// run with priority 1 to load after Gravity Forms forms.css
+	add_action('wp_enqueue_scripts', 'control_enqueue_styles', 1);
 
 
 	// typekit
@@ -84,27 +80,3 @@
 		echo $script;
 	}
 	add_action( 'typekit', 'control_load_typekit', 10, 1 );
-
-	// google fonts
-	function control_load_googlefonts($families) {
-		$script = "
-<script>
-  WebFontConfig = {
-    google: { families: [ '" . $families . "' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })(); </script>		
-		";
-		echo $script;
-	}
-	add_action( 'googlefont', 'control_load_googlefonts', 10, 1 );
-
-
-

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // TEMPLATE FEATURES -------------------------------------------------------------------------------- //
 
@@ -37,9 +37,33 @@
 
 
 	// nav menus
-	register_nav_menus( array( 
+	register_nav_menus( array(
 		'primary' => __( 'Primary Navigation', '' ),
 	));
+
+
+	// current class for single-people page
+	/*
+	check for custom post type
+	get taxonomy of current post and extract first term from array
+	if the title of the nav item ($item->title) matches the required string or the taxonomy term
+	add CSS classes
+	*/
+	function parent_type_nav_class($classes, $item) {
+		global $post;
+
+		if (get_post_type($post) == 'cpt') {
+
+			$cpt_terms = wp_get_post_terms($post->ID, 'cpt-taxonomy', array("fields" => "names"));
+			$cpt_term = $cpt_terms[0];
+
+			if ( ($item->title == 'String to Match') || ($item->title == $cpt_term) ) {
+				array_push($classes, 'current_page_parent current-menu-item');
+			}
+		}
+	return $classes;
+	}
+	add_filter('nav_menu_css_class', 'parent_type_nav_class', 10, 2 );
 
 
 	// sub menu items hook
@@ -49,7 +73,7 @@
 	function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 	  if ( isset( $args->sub_menu ) ) {
 	    $root_id = 0;
-	    
+
 	    // find the current menu item
 	    foreach ( $sorted_menu_items as $menu_item ) {
 	      if ( $menu_item->current ) {
@@ -58,7 +82,7 @@
 	        break;
 	      }
 	    }
-	    
+
 	    // find the top level parent
 	    if ( ! isset( $args->direct_parent ) ) {
 	      $prev_root_id = $root_id;
@@ -69,7 +93,7 @@
 	            // don't set the root_id to 0 if we've reached the top of the menu
 	            if ( $prev_root_id != 0 ) $root_id = $menu_item->menu_item_parent;
 	            break;
-	          } 
+	          }
 	        }
 	      }
 	    }
@@ -87,7 +111,7 @@
 	        unset( $sorted_menu_items[$key] );
 	      }
 	    }
-	    
+
 	    return $sorted_menu_items;
 	  } else {
 	    return $sorted_menu_items;
@@ -112,20 +136,20 @@
 	    if ($has_children > 0) array_push($classes,'dropdown');
 	    return $classes;
 	}
-	if(BOOTSTRAP) { 
+	if(BOOTSTRAP) {
 		add_filter( 'nav_menu_css_class', 'control_add_dropdown_class', 10, 2);
 	}
 
 
 
 	// sidebar widgets - template usage: dynamic_sidebar('Widget');
-	function sidebars_init() {		
+	function sidebars_init() {
 		register_sidebar( array(
 			'name' => __( 'Widget', '' ), 'id' => 'widget',
-			'before_widget' => '', 'after_widget' => '', 
+			'before_widget' => '', 'after_widget' => '',
 			'before_title' => '<h3>', 'after_title' => '</h3>',
 		) );
-	}	
+	}
 	add_action( 'widgets_init', 'sidebars_init' );
 
 	// allow shortcodes in text widgets
@@ -144,7 +168,7 @@
 	    add_image_size( 'medium-portrait', 200 );
 	    add_image_size( 'slider', 636, 320, true );
 	}
-	 
+
 	function control_extra_image_sizes($sizes) {
         $addsizes = array(
             "logo" => __( "Logo"),
@@ -155,7 +179,7 @@
         return $newsizes;
 	}
 	add_filter('image_size_names_choose', 'control_extra_image_sizes');
-	
+
 
 	// remove 'Uncategorised' from category link list
 	function control_cat_link() {
@@ -170,11 +194,11 @@
 			}
 		}
 		return substr($new_the_category, 0, strrpos($new_the_category, $separator));
-	} 
+	}
 
 
 	// create a slug from post title
-	function slugify($text) { 
+	function slugify($text) {
 		// replace non letter or digits by -
 		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
 		// trim
@@ -198,65 +222,68 @@
 // CLASSES -------------------------------------------------------------------------------- //
 
 
-	// body class **** TODO add 404 condition for error 'trying to get property of non-object'
-	function control_title_class( $classes ){
+	function ctrl_title_class( $classes ){
+
 		global $post;
-		if (is_singular()) {
-			array_push( $classes, "{$post->post_name}" );
+		if( isset($post) ) {
+		  $classes[] = "page-{$post->post_name}";
 		}
 		return $classes;
 	}
-	
-	add_filter( 'body_class', 'control_title_class' );
-	
+
+	add_filter( 'body_class', 'ctrl_title_class' );
+
+
+
 	// post class
 	function control_group_class( $classes ){
 		global $post;
 		array_push( $classes, "group" );
 		return $classes;
 	}
-	
-	add_filter( 'post_class', 'control_group_class' );
+
+	// add_filter( 'post_class', 'control_group_class' );
+
 
 // -- PRE GET POSTS --------------------------------------------------------------------------- //
 
 
 	function control_get_post_types( $query ) {
 		if (is_admin())
-		return;         
+		return;
 
 		// where query runs
 		if ( is_front_page() && $query->is_main_query() )
-			$query->set( 'post_type', array( 'post', 'page' ) );    
+			$query->set( 'post_type', array( 'post', 'page' ) );
 		return $query;
 	}
 	// add_action( 'pre_get_posts', 'control_get_post_types' );
 
 	function control_exclude_category_query( $query ) {
 		if (is_admin())
-		return;         
+		return;
 
 		// where query runs
 		if ( is_front_page() && $query->is_main_query() )
-			$query->set( 'cat', '-1,-2' );    
+			$query->set( 'cat', '-1,-2' );
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'control_exclude_category_query' );	
+	// add_action( 'pre_get_posts', 'control_exclude_category_query' );
 
 	function control_posts_per_page( $query ) {
 		if (is_admin())
-		return;         
+		return;
 
 		// where query runs
 		if ( is_front_page() && $query->is_main_query() )
 			$query->set( 'posts_per_page', '5' );
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'control_posts_per_page' );	
+	// add_action( 'pre_get_posts', 'control_posts_per_page' );
 
 	function control_query_vars( $query ) {
 		if (is_admin())
-		return;         
+		return;
 
 		// where query runs
 		if ( is_front_page() && $query->is_main_query() )
@@ -264,7 +291,7 @@
 			$query->query_vars['order'] = 'desc';
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'control_query_vars' );	
+	// add_action( 'pre_get_posts', 'control_query_vars' );
 
 
 

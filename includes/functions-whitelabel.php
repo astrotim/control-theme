@@ -70,9 +70,12 @@
 
 // remove unnecessary menus
 		function remove_admin_menus () {
-		global $menu;
+		global $menu, $submenu;
 		// all users
 		$restrict = explode(',', 'Links');
+
+		// sub-menus removed for all users
+		// $restrictsub = explode(',', 'Categories,Tags');
 		
 		// non-administrator users
 		$restrict_user = explode(',', 'Links,Plugins,Users,Tools,Settings');
@@ -90,6 +93,13 @@
 			$v = explode(' ', $menu[$k][0]);
 			if(in_array(is_null($v[0]) ? '' : $v[0] , $restrict)) unset($menu[$k]);
 		}
+		
+		// remove sub-menus
+		// foreach ($submenu as $k => $p) {
+		// 	foreach($submenu[$k] as $j => $s) {
+		// 		if (in_array(is_null($s[0]) ? '' : $s[0] , $restrictsub)) unset($submenu[$k][$j]);
+		// 	}
+		// }		
 	}
 	add_action('admin_menu', 'remove_admin_menus');
 
