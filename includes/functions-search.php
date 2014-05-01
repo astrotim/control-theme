@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 // SEARCH  --------------------------------------------------------------------------- //
 
 if(SEARCH) {
 
-     function control_search_form( $form ) {
+     function ctrl_search_form( $form ) {
 
          $form = '<form class="navbar-search pull-right" role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
          <input type="search" name="s" id="s" class="search-query" placeholder="Search this site..." />
@@ -14,10 +14,10 @@ if(SEARCH) {
          return $form; // template usage: get_search_form()
      }
 
-     add_filter( 'get_search_form', 'control_search_form' );
+     add_filter( 'get_search_form', 'ctrl_search_form' );
 
 
-	// search all taxonomies, based on: 
+	// search all taxonomies, based on:
 	// http://projects.jesseheap.com/all-projects/wordpress-plugin-tag-search-in-wordpress-23
 	function atom_search_where($where){
 	  global $wpdb;

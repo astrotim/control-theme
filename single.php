@@ -2,7 +2,7 @@
 
 <div id="body-content">
 
-	<?php control_load_partial('loop-single'); ?>
+	<?php ctrl_load_partial('loop-single'); ?>
 
 </div> <!-- #body-content -->
 

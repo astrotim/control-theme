@@ -1,12 +1,12 @@
-<?php  
+<?php
 
 // hide "Events Calendar" toolbar links
 // define('TRIBE_DISABLE_TOOLBAR_ITEMS', true);
 
 
 // remove WP SEO options
-	// hides drop down on all posts admin page 
-	add_filter( 'wpseo_use_page_analysis', '__return_false' ); 
+	// hides drop down on all posts admin page
+	add_filter( 'wpseo_use_page_analysis', '__return_false' );
 	// not sure what this one does ??
 	// add_filter( 'wpseo_options', '__return_false' );
 
@@ -14,15 +14,15 @@
 	function no_update_notification() {
 		remove_action('admin_notices', 'update_nag', 3);
 	}
-	if (!current_user_can('activate_plugins')) { 
-		add_action('admin_notices', 'no_update_notification', 1); 
+	if (!current_user_can('activate_plugins')) {
+		add_action('admin_notices', 'no_update_notification', 1);
 	}
 
 // client logo on login page
 	function change_admin_logo() { ?>
 		<style>
 		body.login {
-			background: #fff url(<?php bloginfo('template_directory') ?>/images/cross.jpg); 
+			background: #fff url(<?php bloginfo('template_directory') ?>/images/cross.jpg);
 		}
 		#login {
 			padding-top: 20px;
@@ -33,7 +33,7 @@
 			/*width: 300px;*/
 			height: 135px;
 		}
-		</style> <?php 
+		</style> <?php
 	}
 	add_action("login_head", "change_admin_logo");
 
@@ -62,11 +62,11 @@
 		.posts_page_to-interface-post #cpt_info_box,
 		.settings_page_cpto-options #cpt_info_box {
 			display: none;
-		}		
-		</style> <?php 
+		}
+		</style> <?php
 	}
 	add_action("admin_head", "hide_plugin_ads");
-	
+
 
 // remove unnecessary menus
 		function remove_admin_menus () {
@@ -76,7 +76,7 @@
 
 		// sub-menus removed for all users
 		// $restrictsub = explode(',', 'Categories,Tags');
-		
+
 		// non-administrator users
 		$restrict_user = explode(',', 'Links,Plugins,Users,Tools,Settings');
 		// WP localization
@@ -93,13 +93,13 @@
 			$v = explode(' ', $menu[$k][0]);
 			if(in_array(is_null($v[0]) ? '' : $v[0] , $restrict)) unset($menu[$k]);
 		}
-		
+
 		// remove sub-menus
 		// foreach ($submenu as $k => $p) {
 		// 	foreach($submenu[$k] as $j => $s) {
 		// 		if (in_array(is_null($s[0]) ? '' : $s[0] , $restrictsub)) unset($submenu[$k][$j]);
 		// 	}
-		// }		
+		// }
 	}
 	add_action('admin_menu', 'remove_admin_menus');
 
@@ -120,7 +120,7 @@
 		unregister_widget( 'WP_Widget_Recent_Posts' );
 		unregister_widget( 'WP_Widget_RSS' );
 		unregister_widget( 'WP_Widget_Search' );
-		unregister_widget( 'WP_Widget_Tag_Cloud' );	
+		unregister_widget( 'WP_Widget_Tag_Cloud' );
 		unregister_widget( 'WP_Nav_Menu_Widget' ); /* different to rest of naming convention */
 	}
 	add_action( 'widgets_init', 'my_unregister_widgets' );
@@ -129,7 +129,7 @@
 // remove default dashboard widgets and register custom widgets
 	function custom_dashboard_widgets() {
 		global $wp_meta_boxes;
-			// remove default widgets	
+			// remove default widgets
 			unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
 			unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 			unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
@@ -166,17 +166,17 @@
 
 
 	// remove author column and comments column from pages
-	function control_custom_pages_columns( $columns ) {
+	function ctrl_custom_pages_columns( $columns ) {
 		unset(
 			// $columns['author'],
 			$columns['comments']
 		);
 		return $columns;
 	}
-	add_filter( 'manage_pages_columns', 'control_custom_pages_columns' ) ;
+	add_filter( 'manage_pages_columns', 'ctrl_custom_pages_columns' ) ;
 
 	// remove author column and comments column from posts
-	function control_custom_posts_columns( $columns ) {
+	function ctrl_custom_posts_columns( $columns ) {
 		unset(
 			$columns['author'],
 			$columns['comments'],
@@ -185,7 +185,7 @@
 		);
 		return $columns;
 	}
-	// add_filter( 'manage_posts_columns', 'control_custom_posts_columns' ) ;
+	// add_filter( 'manage_posts_columns', 'ctrl_custom_posts_columns' ) ;
 
 	// remove page/post meta boxes, except for full admins
 	function customize_page_meta_boxes() {
@@ -197,7 +197,7 @@
 		// remove_meta_box('authordiv','page','normal');
 		remove_meta_box('trackbacksdiv','post','normal');
 	}
-	add_action('admin_init','customize_page_meta_boxes');  
+	add_action('admin_init','customize_page_meta_boxes');
 	// revisionsdiv authordiv postexcerpt postimagediv formatdiv tagsdiv-post_tag categorydiv pageparentdiv
 
 
@@ -231,7 +231,7 @@
 
 // remove user profile contact methods
 	function trim_user_profile_admin( $contactmethods ) {
-		$contactmethods = array(); 
+		$contactmethods = array();
 		return $contactmethods;
 	}
 	add_filter('user_contactmethods','trim_user_profile_admin',10,1);
@@ -245,8 +245,8 @@
 			#profile-page .form-table label[for='url'],
 			#profile-page .form-table input#url {
 				display: none;
-			}			
-		</style> <?php 
+			}
+		</style> <?php
 	}
 
 	add_action("admin_head", "hide_website_field");

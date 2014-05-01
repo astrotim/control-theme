@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // CONSTANTS -------------------------------------------------------------------------------- //
 
@@ -18,8 +18,8 @@ define( "JSPATH"	, 	get_bloginfo('template_directory') . '/js/' 	);
 
 // INCLUDES -------------------------------------------------------------------------------- //
 
-	if ( ! function_exists('control_control_setup') ) :
-	function control_control_setup() {
+	if ( ! function_exists('ctrl_ctrl_setup') ) :
+	function ctrl_ctrl_setup() {
 		include(get_template_directory() . '/includes/functions-head.php');
 		include(get_template_directory() . '/includes/functions-template.php');
 		include(get_template_directory() . '/includes/functions-excerpts.php');
@@ -34,8 +34,8 @@ define( "JSPATH"	, 	get_bloginfo('template_directory') . '/js/' 	);
 	}
 	endif;
 	// runs before 'init' hook
-	add_action( 'after_setup_theme', 'control_control_setup' );
-	
+	add_action( 'after_setup_theme', 'ctrl_ctrl_setup' );
+
 
 
 

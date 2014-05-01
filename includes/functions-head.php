@@ -6,7 +6,7 @@
 	// add_editor_style('css/editor-style.css');
 
 	// JS
-	function control_enqueue_scripts() {
+	function ctrl_enqueue_scripts() {
 		if (!is_admin()) {
 
 			wp_deregister_script('jquery');
@@ -32,9 +32,9 @@
 			// }
 		}
 	}
-	add_action('wp_enqueue_scripts', 'control_enqueue_scripts');
+	add_action('wp_enqueue_scripts', 'ctrl_enqueue_scripts');
 
-	function control_enqueue_styles() {
+	function ctrl_enqueue_styles() {
 
 		// auto versioning of style.css by last modified timestamp
 		$ver = filemtime( realpath( get_stylesheet_directory() . '/style.css' ) );
@@ -45,11 +45,11 @@
 		wp_enqueue_style( 'style', get_stylesheet_uri(), null, $ver );
 	}
 	// run with priority 1 to load after Gravity Forms forms.css
-	add_action('wp_enqueue_scripts', 'control_enqueue_styles', 1);
+	add_action('wp_enqueue_scripts', 'ctrl_enqueue_styles', 1);
 
 
 	// typekit
-	function control_load_typekit($id) {
+	function ctrl_load_typekit($id) {
 		$script = "
 <script>
 	TypekitConfig = {
@@ -79,4 +79,4 @@
 		";
 		echo $script;
 	}
-	add_action( 'typekit', 'control_load_typekit', 10, 1 );
+	add_action( 'typekit', 'ctrl_load_typekit', 10, 1 );

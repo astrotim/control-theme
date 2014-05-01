@@ -22,7 +22,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-<?php // control_load_typekit('XXXXXX'); ?>
+<?php // ctrl_load_typekit('XXXXXX'); ?>
 
 </head>
 <body <?php body_class('loading'); ?>>

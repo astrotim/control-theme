@@ -3,7 +3,7 @@
 // TEMPLATE FEATURES -------------------------------------------------------------------------------- //
 
 
-	// function control_load_partial($filename) {
+	// function ctrl_load_partial($filename) {
 	// 	$file = get_template_directory() . '/partials/' . $filename . '.php';
 	// 	if (file_exists($file)) {
 	// 		include($file);
@@ -12,7 +12,7 @@
 	// 	}
 	// }
 
-	// function control_load_partial($filename, $dir = '/partials/') {
+	// function ctrl_load_partial($filename, $dir = '/partials/') {
 	// 	$file = get_template_directory() . $dir . $filename . '.php';
 	// 	if (file_exists($file)) {
 	// 		include($file);
@@ -21,7 +21,7 @@
 	// 	}
 	// }
 
-	// function control_locate_partial($filename) {
+	// function ctrl_locate_partial($filename) {
 	// 	// $file = 'partials/' . $filename . '.php';
 	// 	// locate_template( array($file), true, false );
 	// 	$files = array();
@@ -29,7 +29,7 @@
 	// 	locate_template($files, true, false);
 	// }
 
-	function control_load_partial($filename, $dir = 'partials') {
+	function ctrl_load_partial($filename, $dir = 'partials') {
 		$files = array();
 		$files[] = "{$dir}/{$filename}.php";
 		locate_template($files, true, false);
@@ -124,7 +124,7 @@
 
 	// use walker instead ***
 	// add dropdown class for bootstrap
-	function control_add_dropdown_class($classes, $item) {
+	function ctrl_add_dropdown_class($classes, $item) {
 	    global $wpdb;
 	    $has_children = $wpdb->get_var("
 	            SELECT COUNT(meta_id)
@@ -137,7 +137,7 @@
 	    return $classes;
 	}
 	if(BOOTSTRAP) {
-		add_filter( 'nav_menu_css_class', 'control_add_dropdown_class', 10, 2);
+		add_filter( 'nav_menu_css_class', 'ctrl_add_dropdown_class', 10, 2);
 	}
 
 
@@ -169,7 +169,7 @@
 	    add_image_size( 'slider', 636, 320, true );
 	}
 
-	function control_extra_image_sizes($sizes) {
+	function ctrl_extra_image_sizes($sizes) {
         $addsizes = array(
             "logo" => __( "Logo"),
             "medium-portrait" => __( "Medium Portrait"),
@@ -178,11 +178,11 @@
         $newsizes = array_merge($sizes, $addsizes);
         return $newsizes;
 	}
-	add_filter('image_size_names_choose', 'control_extra_image_sizes');
+	add_filter('image_size_names_choose', 'ctrl_extra_image_sizes');
 
 
 	// remove 'Uncategorised' from category link list
-	function control_cat_link() {
+	function ctrl_cat_link() {
 		$exclude = array("Uncategorized");
 		$separator = " / ";
 		$new_the_category = '';
@@ -236,19 +236,19 @@
 
 
 	// post class
-	function control_group_class( $classes ){
+	function ctrl_group_class( $classes ){
 		global $post;
 		array_push( $classes, "group" );
 		return $classes;
 	}
 
-	// add_filter( 'post_class', 'control_group_class' );
+	// add_filter( 'post_class', 'ctrl_group_class' );
 
 
 // -- PRE GET POSTS --------------------------------------------------------------------------- //
 
 
-	function control_get_post_types( $query ) {
+	function ctrl_get_post_types( $query ) {
 		if (is_admin())
 		return;
 
@@ -257,9 +257,9 @@
 			$query->set( 'post_type', array( 'post', 'page' ) );
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'control_get_post_types' );
+	// add_action( 'pre_get_posts', 'ctrl_get_post_types' );
 
-	function control_exclude_category_query( $query ) {
+	function ctrl_exclude_category_query( $query ) {
 		if (is_admin())
 		return;
 
@@ -268,9 +268,9 @@
 			$query->set( 'cat', '-1,-2' );
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'control_exclude_category_query' );
+	// add_action( 'pre_get_posts', 'ctrl_exclude_category_query' );
 
-	function control_posts_per_page( $query ) {
+	function ctrl_posts_per_page( $query ) {
 		if (is_admin())
 		return;
 
@@ -279,9 +279,9 @@
 			$query->set( 'posts_per_page', '5' );
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'control_posts_per_page' );
+	// add_action( 'pre_get_posts', 'ctrl_posts_per_page' );
 
-	function control_query_vars( $query ) {
+	function ctrl_query_vars( $query ) {
 		if (is_admin())
 		return;
 
@@ -291,7 +291,7 @@
 			$query->query_vars['order'] = 'desc';
 		return $query;
 	}
-	// add_action( 'pre_get_posts', 'control_query_vars' );
+	// add_action( 'pre_get_posts', 'ctrl_query_vars' );
 
 
 
