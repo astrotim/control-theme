@@ -1,19 +1,12 @@
 <?php
 
-// CONSTANTS -------------------------------------------------------------------------------- //
-
-define( "PRODUCTION"	, 	false 	);
-define( "BOOTSTRAP"		, 	true 	);
-define( "RESPONSIVE"	, 	true 	);
-define( "FLEXSLIDER"	, 	true 	);
-define( "THEMEOPTIONS"	, 	false 	);
-define( "SEARCH"		, 	true 	);
-
 // PATHS -------------------------------------------------------------------------------- //
 
-define( "THEMEPATH"	, 	get_bloginfo('template_directory') );
-define( "CSSPATH"	, 	get_bloginfo('template_directory') . '/css/'	);
-define( "JSPATH"	, 	get_bloginfo('template_directory') . '/js/' 	);
+define( "THEME_DIR"	, 	get_template_directory_uri() );
+define( "CSS_DIR"	, 	get_template_directory_uri() . '/css/'	);
+define( "JS_DIR"	, 	get_template_directory_uri() . '/js/' 	);
+define( "INCPATH"	, 	'includes/' 	);
+define( "PLUGINS"	, 	'plugins/' 	);
 
 
 // INCLUDES -------------------------------------------------------------------------------- //
@@ -37,10 +30,20 @@ define( "JSPATH"	, 	get_bloginfo('template_directory') . '/js/' 	);
 	add_action( 'after_setup_theme', 'ctrl_ctrl_setup' );
 
 
+// ADVANCED CUSTOM FIELDS ------------------------------------------------------------------ //
 
+	if ( ! function_exists('ctrl_acf_setup') ) :
+	function ctrl_acf_setup() {
+		// define( 'ACF_LITE' , true );
+		include_once( 'acf/acf-register-fields.php' );
+	}
+	endif;
+	// runs before 'init' hook
+	if(!IS_DEV) {
+	add_action( 'after_setup_theme', 'ctrl_acf_setup' );
+	}
 
-
-
-
-
-
+	function ctrl_acf_admin_style() {
+	    wp_enqueue_style( 'ctrl_acf_admin_style', get_template_directory_uri() . '/acf/acf-admin-style.css' );
+	}
+	add_action( 'admin_enqueue_scripts', 'ctrl_acf_admin_style' );
