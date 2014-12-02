@@ -1,5 +1,5 @@
 <?php
-/*  
+/*
 CustomPost custom post type definition
 */
 
@@ -16,7 +16,7 @@ CustomPost custom post type definition
 			'view_item' => __('View CustomPost Page'),
 			'search_items' => __('Search CustomPosts'),
 			'not_found' =>  __('No custompost found'),
-			'not_found_in_trash' => __('No custompost found in Trash'), 
+			'not_found_in_trash' => __('No custompost found in Trash'),
 			'parent_item_colon' => ''
 		);
 		$args = array (
@@ -25,7 +25,7 @@ CustomPost custom post type definition
 			'show_ui' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
-			'_builtin' => false, 
+			'_builtin' => false,
 			'_edit_link' => 'post.php?post=%d',
 			'capability_type' => 'post',
 			'hierarchical' => false,
@@ -35,11 +35,12 @@ CustomPost custom post type definition
 			'menu_position' => 20,
 			'taxonomies' => array( 'post_tag', 'category' ),
 			'supports' => array('title' , 'editor', 'excerpt', 'thumbnail', 'revisions'),
+			'menu_icon' => 'dashicons-media-document',
 		);
-	register_post_type( 'custompost', $args); 
-	
+	register_post_type( 'custompost', $args);
+
 }//--end create_post_type_custompost
-	
+
 	//--hook CPT to init
 	add_action('init', 'create_post_type_custompost');
 
@@ -56,21 +57,21 @@ CustomPost custom post type definition
 //	Title prompt
 	function change_custompost_title( $title ){
 		 $screen = get_current_screen();
-	 
+
 		 if  ( 'custompost' == $screen->post_type ) {
 			  $title = 'Enter CustomPost Name';
 		 }
-	 
+
 		 return $title;
 	}
-	
+
 	// hook filter
 	add_filter( 'enter_title_here', 'change_custompost_title' );
 
 
 
 
-//	Custom icon	 
+//	Custom icon
 	function wpt_custompost_icons() {
 		?>
 		<style type="text/css" media="screen">
