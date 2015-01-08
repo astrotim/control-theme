@@ -46,10 +46,12 @@
     include(get_template_directory() . '/functions/fn-acf.php');
     include(get_template_directory() . '/functions/fn-whitelabel.php');
     include(get_template_directory() . '/functions/fn-remove-stuff.php');
+
+    include(get_template_directory() . '/includes/cpt-blank.php');
   }
   endif;
 
-  add_action( 'after_setup_theme', 'ctrl_setup' ); // runs before 'init' hook
+  add_action( 'after_setup_theme', 'ctrl_setup' );
 
 
   /**
@@ -66,6 +68,6 @@
 
   $test_acf_php = 0;
   if((!IS_DEV) || ($test_acf_php)) {
-    add_action( 'after_setup_theme', 'ctrl_acf_setup' ); // runs before 'init' hook
+    add_action( 'after_setup_theme', 'ctrl_acf_setup' );
   }
 
