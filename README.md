@@ -10,11 +10,11 @@ Use them, abuse them, improve them, or not.
 
 I aim to keep the files structured in the most manageable way, and I have embraced the concept of 'partials' - breaking up larger files into smaller partial files which group together related code.
 
- - /scss/ contains Sass partials
- - /functions/ contains partials of the functions.php file
- - /includs/ contains additional config files
- - /partials/ contains template partials
- - /acf/ contains Advanced Custom Fields files for each registered field group
+ - /scss/ for Sass partials
+ - /functions/ for partials of the functions.php file
+ - /includes/ for additional config files
+ - /partials/ for WordPress template partials
+ - /acf/ for Advanced Custom Fields files for each registered field group
 
 
 Jan 2015
