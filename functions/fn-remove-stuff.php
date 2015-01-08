@@ -134,8 +134,8 @@
    */
 	function ctrl_custom_pages_columns( $columns ) {
 		unset(
-			// $columns['author'],
-			// $columns['comments']
+			$columns['author'],
+			$columns['comments']
 		);
 		return $columns;
 	}
