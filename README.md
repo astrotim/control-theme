@@ -16,6 +16,13 @@ I aim to keep the files structured in the most manageable way, and I have embrac
  - /partials/ for WordPress template partials
  - /acf/ for Advanced Custom Fields files for each registered field group
 
+Coding styles
+--------------
+
+ - Code indentation as spaces (not tabs); 'tab' width of 2 spaces
+ - No IDs used in CSS; primarily use class names
+ - No vendor prefixing in Sass source files; Autoprefixer adds these in build process
+
 
 Jan 2015
 --------------
