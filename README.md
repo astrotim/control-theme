@@ -11,12 +11,24 @@ Use them, abuse them, improve them, or not.
 I aim to keep the files structured in the most manageable way, and I have embraced the concept of 'partials' - breaking up larger files into smaller partial files which group together related code.
 
  - /scss/ contains Sass partials
- - /includes/ contains partials of the functions.php file
+ - /functions/ contains partials of the functions.php file
+ - /includs/ contains additional config files
  - /partials/ contains template partials
  - /acf/ contains Advanced Custom Fields files for each registered field group
 
 
-Latest
+Jan 2015
+--------------
+
+ - reorganised functions.php partial files in /functions/ directory
+ - reorganised /scss/ into sub directories
+ - updates /js/ libraries and plugins
+ - better structure and commenting in project.js
+ - implemented development file structure for CSS and JS with Grunt build process to concatenate and minify for production
+ - removed a bunch of bloat
+
+
+May 2014
 --------------
 
  - Added GruntJS tasks for compiled Sass with libsass, autoprefixer and JS Hint
@@ -25,46 +37,3 @@ Latest
  - Reference directory for storing documentation files
  - functions.php split up into partial files
 
-Style features
---------------
-
- - Sass - compiled with libsass via Grunt
- - Bootstrap (in Sass format)
- - Bourbon mixin library
- - UI directory for Sass partials like buttons, lists, forms, tables, images
- - Font Awesome
-
-
-Utility features
-----------------
-
- - Modernizr & Conditionizr
- - Bootstrap JS
- - Flexslider
- - jQuery HoverIntent
- - jQuery Lazy Load
- - modal.js
-
-WordPress features
-------------------
-
- - functions.php with many well commented options
- - 'whitelabel' functions file for removing WordPress junk
- - [googlemap] shortcode plugin for loading Google Maps API
- - editor-style.css for TinyMCE
- - embed widget plugin
- - custom post type plugin template
-
-functions.php features
-----------------------
-
- - style.css auto-versioning: automatically append timestamp of latest change to file as version number
- - Load style.css after plugin CSS via wp_head action priority
- - [youtube] shortcode (with video class for responsive resizing)
- - Typekit web fonts async loading script
- - Custom walker for WP nav to add Bootstrap drop down class
- - custom excerpt length and 'read more' function
- - optional WP custom header and background theme options
- - search form function code
- - search all taxonomies
- - pagination function with Bootstrap style class
