@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     sass: {
       compile: {
         files: {
-          'style.css': 'scss/style.scss'
+          'style.dev.css': 'scss/style.scss'
         }
       }
     },
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     autoprefixer: {
       options: {},
       no_dest: {
-        src: 'style.css',
+        src: 'style.dev.css',
       }
     },
     // JSHint
@@ -35,9 +35,23 @@ module.exports = function(grunt) {
       options: {
         strict: false,
         laxcomma: true,
+        loopfunc: true,
         evil: true // suppresses 'eval can be harmful' error thrown by Conditionizr IE tests
       },
       all: ['GruntFile.js', 'js/project.js']
+    },
+    browserSync: {
+      dev: {
+        bsFiles: {
+          src : ['style.dev.css']
+        },
+        options: {
+          watchTask: true,
+          notify: false,
+          host: '192.168.1.15',
+          proxy: "dev.control"
+        }
+      }
     },
     svgmin: {
       options: {
@@ -54,9 +68,9 @@ module.exports = function(grunt) {
       dist: {
           files: [{
               expand: true,
-              cwd: 'images',
+              cwd: 'images/svg',
               src: ['**/*.svg'],
-              dest: 'images',
+              dest: 'images/svg',
               ext: '.min.svg'
           }]
       }
@@ -65,11 +79,43 @@ module.exports = function(grunt) {
       icons: {
         files: [{
           expand: true,
-          cwd: 'images/icons/source',
+          cwd: 'images/source',
           src: ['*.svg', '*.png'],
-          dest: "images/icons/output"
+          dest: "images/output"
         }],
         options: {
+        }
+      }
+    },
+    cssmin: {
+      minify: {
+        options: {
+          banner: '/*updated '+ new Date() +' */'
+        },
+        files: {
+          'style.css': ['style.dev.css']
+        }
+      }
+    },
+    concat: {
+      options: {
+      },
+      basic: {
+        src: [
+          'js/modernizr.min.js',
+          'js/conditionizr.min.js',
+          'js/lazyload.js',
+          'js/jquery.instagram.min.js',
+          'js/utilities.js',
+          'js/project.js'
+        ],
+        dest: 'js/concat.js'
+      }
+    },
+    uglify: {
+      my_target: {
+        files: {
+          'js/project.min.js': 'js/concat.js'
         }
       }
     }
@@ -78,12 +124,20 @@ module.exports = function(grunt) {
   // Plugins
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-svgmin');
-  grunt.loadNpmTasks('grunt-grunticon');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-svgmin');
+  grunt.loadNpmTasks('grunt-grunticon');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-newer');
 
   // Tasks
-  grunt.registerTask('default', ['watch', 'jshint', 'grunticon', 'svgmin']);
+  grunt.registerTask('default', ['browserSync','watch']);
+  grunt.registerTask('css', ['sass']);
+  grunt.registerTask('prefix', ['autoprefixer']);
+  grunt.registerTask('build', ['cssmin','newer:concat','newer:uglify']);
 
 };
