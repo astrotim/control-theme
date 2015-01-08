@@ -1,3 +1,12 @@
+/**
+ * Modal pop up
+ *
+ * includes CSS3 animation for slide in from left
+ * includes styles for a Gravity Forms form
+ *
+ */
+
+
 .modal-wrapper,
 .modal-overlay {
   position: fixed;
@@ -26,9 +35,6 @@
 
 .form-subscribe-modal {
   max-width: 330px;
-  // background-color: $blue-sky;
-  background-image: url("images/bg-grid-pattern-square.jpg");
-  // border: 10px solid white;
   position: relative;
   box-shadow: 1px 1px 5px 0 rgba(black, .4);
   padding: 10px 15px;
@@ -86,17 +92,6 @@
 
 }
 
-.modal-logo {
-  display: block;
-  width: 102px;
-  height: 80px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  @include center;
-  background-image: url("images/modal-logo.png");
-  background-size: 102px 80px;
-}
-
 .modal-close {
   position: absolute;
   top: 2px;
@@ -149,19 +144,3 @@
     opacity: 0;
   }
 }
-
-// .modal-wrapper,
-// .modal-overlay {
-//     &.hidden {
-//         display: none;
-//     }
-// }
-
-// .modal-overlay {
-//     opacity: 0;
-//     transition: opacity 1s ease-out;
-
-//     &.fade-in {
-//         opacity: 1;
-//     }
-// }

@@ -1,4 +1,10 @@
-// https://gist.github.com/spigists/6796258
+/**
+ * Gravity Forms - WordPress plugin
+ *
+ * @link https://gist.github.com/spigists/6796258
+ * @todo refactor with Sass syntax
+ *
+ */
 
 .gform_wrapper ul {
   padding-left: 0;
@@ -71,8 +77,8 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
   white-space: nowrap;
   user-select: none;
   color: #fff;
-  background-color: $green;
-  border-color: $green;
+  background-color: $button-color;
+  border-color: $button-color-hover;
 }
 
 .gform_button:focus {
@@ -154,7 +160,7 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
 // #gforms_confirmation_message,
 .gform_confirmation_wrapper {
   padding: 15px;// 60px 15px;
-  // background-color: $green;
+  // background-color: $button-color;
   // color: white;
   // border: 1px solid transparent;
   // border-radius: 4px;
@@ -234,7 +240,7 @@ figure.alignnone {
   .mailing-list-side & {
     font-size: 13px;
     line-height: 1.3;
-    background-color: $green;
+    background-color: $button-color;
     color: white;
     border: 1px solid transparent;
   }

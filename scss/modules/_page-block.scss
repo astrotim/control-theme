@@ -2,13 +2,6 @@
  * Page Blocks
  *
  */
-.page-block {
-
-  :last-child {
-    margin-bottom: 0;
-  }
-}
-
 
 .block-image-left {
 
@@ -55,5 +48,13 @@
 
   img {
     border-radius: $border-radius-small;
+  }
+}
+
+// remove margin from last element in block
+.page-block {
+
+  :last-child {
+    margin-bottom: 0;
   }
 }

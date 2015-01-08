@@ -1,5 +1,8 @@
-  /* pagination
-  ------------------------------------------------------- */
+/**
+ * Pagination
+ *
+ * includes Font Awesome icon usage
+ */
 
 .pagination {
   text-align: center;
@@ -13,7 +16,7 @@
     &> a,
     &> span {
       color: $pagination-color;
-      padding: 0; // 0 12px;
+      padding: 0;
       line-height: 30px;
       @include font-size(14px);
       width: 36px;

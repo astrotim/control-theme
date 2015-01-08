@@ -1,3 +1,9 @@
+/**
+ * Site footer
+ *
+ */
+
+
 .site-footer {
 }
 
@@ -15,12 +21,12 @@
   margin-right: 1em;
 
   a {
-    @include logo($logo-svg, $logo-w/3, $logo-h/3);
+    @include logo($footer-logo-svg, $footer-logo-w, $footer-logo-h);
   }
 }
 
 .footer-contact-details {
-  color: white; //black;
+  color: white;
 
   a {
     color: white;
@@ -50,8 +56,8 @@
 .footer-mailing-list {
 
   .gform_wrapper {
-    background-color: rgba(white, .2); //transparent;
-    padding: 6px 6px 8px; // 10px;
+    background-color: rgba(white, .2);
+    padding: 6px 6px 8px;
     margin-bottom: 20px;
   }
 
@@ -61,7 +67,7 @@
     margin-left: 3px;
     margin-bottom: 8px;
     font-weight: 600;
-    color: white; //black;
+    color: white;
   }
 
   .subscribe-input,
@@ -81,24 +87,11 @@
   }
 }
 
-.footer-tagline {
-
-  em {
-    @include logo(url("images/your-local-bloke.png"), 420px, 100px);
-    @include center;
-  }
-}
-
 .footer-links {
 
   li {
     margin-bottom: 8px;
   }
-}
-
-.join-crt {
-  @include font-size(16px);
-  font-weight: 600;
 }
 
 .footer-sub {

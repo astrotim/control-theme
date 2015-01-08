@@ -1,6 +1,8 @@
 /**
- * header
+ * Site header
+ *
  */
+
 .site-header {
 
   .header-top {
@@ -10,23 +12,4 @@
     padding-bottom: 10px;
   }
 
-}
-
-.header-rhs {
-  max-width: convertToEm(480px);
-  flex-grow: 1;
-  margin-left: auto;
-}
-
-.nav-search-social {
-  background-color: $navbar-top-bg;
-  border-radius: 0 0 4px 4px;
-  padding-right: 110px;
-  // padding-top: 3px;
-  padding-bottom: 1px;
-  display: flex;
-  // align-items: center;
-  // justify-content: space-between;
-  position: relative;
-  margin-bottom: 15px;
 }

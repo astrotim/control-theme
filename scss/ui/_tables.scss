@@ -1,6 +1,12 @@
+/**
+ * Table
+ *
+ * extends Bootstrap table styles
+ */
+
 .table {
-    th{
-        color: $green;
-        background-color: #eee;
-    }
+  th{
+    color: $table-header-text;
+    background-color: $table-header-bg;
+  }
 }

@@ -1,5 +1,6 @@
 /**
  * Heading elements
+ *
  */
 
 h1, h2, h3, h4, h5, h6 {
@@ -110,12 +111,6 @@ blockquote {
   span {
     display: block;
     position: relative;
-
-    // &:before {
-    //   @include font-awesome($fa-var-quote-left, 60px, $blue-dark);
-    //   left: -70px;
-    //   top: -12px;
-    // }
   }
 }
 
@@ -126,26 +121,10 @@ blockquote {
  */
 
 .page-heading {
-  // margin-top: 1.5em;
+  margin-top: 10px;
   margin-bottom: 1.5em;
 
   h1, h2 {
-    // @include font-size(24px);
-    // border-bottom: 1px dashed #ddd;
-    // padding-bottom: .25em;
     margin-top: 0;
   }
 }
-
-// .post-heading {
-//   h1 {
-//     margin-top: 0;
-//   }
-// }
-
-// .section-heading {
-// }
-
-// .first-section h2 {
-//   margin-top: 0;
-// }
