@@ -1,78 +1,153 @@
-.btn {
-}
-
 a.button {
-    text-decoration: none;
+  text-decoration: none;
+  outline: 0;
 
-    &:hover {
-        color: white;
-    }
+  &:hover {
+    color: white;
+  }
 }
 
 .button {
-    font-family: $museo;
-    background: $red;
-    padding: 6px 14px;
-    border-radius: 5px;
-    border-bottom: 2px solid shade($red, 30%);
+  background-color: $button-color;
+  padding: 7px 14px 6px;
+  border: none;
+  border-bottom: 2px solid $button-color-hover;
+  color: white;
+  font-family: $button-font;
+  @include font-size(13px);
+  display: inline-block;
+  transition: background .2s ease;
+  -webkit-appearance: none;
+  border-radius: 4px;
+
+  &:hover,
+  &:active {
+    background-color: $button-color-hover;
+  }
+
+  &:active {
+    transition: transformY(1px);
+  }
+
+  .btn-group & {
+    font-family: $button-font;
+    @include font-size(13px);
+  }
+
+  .alert & {
     color: white;
-    display: inline-block;
-    transition: background .2s ease;
+  }
+}
+
+
+@mixin button-reset {
+  background: none;
+  padding: 0;
+  border: none;
+  transition: none;
+
+  &:active {
+    margin: 0;
+    top: auto;
+  }
+}
+
+.btn-white {
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #e9e9e9;
+
+  &:hover,
+  &:active {
+    background: #eee;
+  }
+}
+
+.btn-green {
+    background: $green;
+    border-bottom-color: $green-shade;
 
     &:hover,
     &:active {
-        background: tint($red, 30%);
-    }
-
-    &:active {
-        border-bottom-color: $red;
-    }
-
-    @include breakpoint($bp-mobile) {
-        // border-radius: 3px;
-    }
-
-    .article-content & {
-        border-bottom: 2px solid shade($red, 30%);
+        background: $green-shade;
     }
 }
 
 .btn-blue {
     background: $blue;
-    border-bottom-color: black;
+    border-bottom-color: $blue-shade;
 
     &:hover,
     &:active {
-        background: lighten($blue, 20%);
+        background: $blue-shade;
     }
+}
 
+.btn-orange {
+    background: $orange;
+    border-bottom-color: $orange-shade;
+
+    &:hover,
+    &:active {
+        background: $orange-shade;
+    }
+}
+
+.btn-aqua {
+    background: $aqua;
+    border-bottom-color: $aqua-shade;
+
+    &:hover,
+    &:active {
+        background: $aqua-shade;
+    }
+}
+
+
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid $button-color;
+  color: $button-color;
+}
+
+.btn-small {
+  @include font-size(14px);
+  padding: 4px 12px 3px;
 }
 
 .btn-large {
-    padding: 10px 20px;
-    font-size: 20px;
+  padding: 10px 20px;
+  @include font-size(20px);
 }
 
 .btn-full {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
-.button-in-article {
-    text-align: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
+.btn-arrow {
+  position: relative;
+  padding-right: 40px;
 
-    a {
-        display: inline-block;
-        min-width: 160px;
-        background: tint($red, 30%);
+  &:after {
+    @include font-awesome($fa-var-angle-right, 24px, white);
+    right: 15px;
+    top: -1px;
+  }
+
+  &.btn-large:after {
+    font-size: 30px;
+    top: 3px;
+  }
+
+  &.btn-small {
+    padding-right: 26px;
+
+    &:after {
+      right: 10px;
+      top: -1px;
     }
+  }
 }
 
-#respond input[type="submit"] {
-    @extend .button;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}

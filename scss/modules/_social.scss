@@ -1,0 +1,24 @@
+.socials {
+  float: left;
+  position: relative;
+  top: 4px;
+  opacity: 0;
+  transition: opacity .2s ease;
+  height: 0;
+
+  &.fb-loaded {
+    opacity: 1;
+    height: auto;
+  }
+
+  > div {
+    display: inline-block !important;
+    width: auto !important;
+    margin-right: 5px;
+  }
+}
+
+.fb-like,
+.fb-share-button {
+  top: -5px;
+}

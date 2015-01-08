@@ -1,0 +1,121 @@
+/**
+ * Em values
+ */
+
+@function convertToEm($bp) {
+  $emSize: $bp / $font-size-base;
+  @return $emSize * 1em;
+}
+
+$bp-widescreen:         convertToEm(1200px);
+$bp-desktop:            convertToEm(1000px);
+$bp-header:             convertToEm(960px);
+$bp-tablet:             convertToEm(800px);
+$bp-ipad-landscape:     convertToEm(1024px);
+$bp-ipad-portrait:      convertToEm(768px);
+$bp-mobile:             convertToEm(600px);
+$bp-mobile-small:       convertToEm(480px);
+$bp-1080:               convertToEm(1080px);
+$bp-480:                convertToEm(480px);
+$bp-320:                convertToEm(320px);
+$bp001:                .001em;
+
+/**
+ * Pixel values
+ */
+// $bp-widescreen:         1200px;
+// $bp-desktop:            1000px;
+// $bp-header:             960px;
+// $bp-tablet:             800px;
+// $bp-ipad-landscape:     1024px;
+// $bp-ipad-portrait:      768px;
+// $bp-mobile:             600px;
+// $bp-mobile-small:       480px;
+// $bp-1080:               1080px;
+// $bp-480:                480px;
+// $bp-320:                320px;
+// $bp001:                 1px;
+
+
+// // for when maps works
+// $breakpoints: ( mobile: $bp-mobile,
+//                 tablet: $bp-tablet,
+//                 desktop: $bp-desktop,
+//                 widescreen: $bp-widescreen,
+//                 ipad-ls: $bp-ipad-landscape,
+//                 ipad-pt: $bp-ipad-portrait
+//               );
+
+@mixin media-min-width($breakpoint) {
+
+  // for when maps works
+  // @if not map-contains($breakpoints, $breakpoint) {
+  //   @media only screen and (min-width: em($breakpoint)) { @content; }
+  // }
+  // @else {
+  //   @media only screen and (min-width: #{map-get($breakpoints, $breakpoint)}) { @content; }
+  // }
+
+  @if($breakpoint == mobile) {
+    @media only screen and (min-width: $bp-mobile) { @content; }
+  }
+  @elseif($breakpoint == mobileSmall) {
+    @media only screen and (min-width: $bp-mobile-small) { @content; }
+  }
+  @elseif($breakpoint == tablet) {
+    @media only screen and (min-width: $bp-tablet) { @content; }
+  }
+  @elseif($breakpoint == desktop) {
+    @media only screen and (min-width: $bp-desktop) { @content; }
+  }
+  @elseif($breakpoint == widescreen) {
+    @media only screen and (min-width: $bp-widescreen) { @content; }
+  }
+  @elseif($breakpoint == ipadLandscape) {
+    @media only screen and (min-width: $bp-ipad-landscape) { @content; }
+  }
+  @elseif($breakpoint == ipadPortrait) {
+    @media only screen and (min-width: $bp-ipad-portrait) { @content; }
+  }
+  @elseif($breakpoint == bpHeader) {
+    @media only screen and (min-width: $bp-header) { @content; }
+  }
+  @else {
+    @media only screen and (min-width: convertToEm($breakpoint)) { @content; }
+    // @media only screen and (min-width: $breakpoint) { @content; }
+  }
+
+}
+
+@mixin media-max-width($breakpoint) {
+
+  @if($breakpoint == mobile) {
+    @media only screen and (max-width: $bp-mobile - $bp001) { @content; }
+  }
+  @elseif($breakpoint == mobileSmall) {
+    @media only screen and (max-width: $bp-mobile-small - $bp001) { @content; }
+  }
+  @elseif($breakpoint == tablet) {
+    @media only screen and (max-width: $bp-tablet - $bp001) { @content; }
+  }
+  @elseif($breakpoint == desktop) {
+    @media only screen and (max-width: $bp-desktop - $bp001) { @content; }
+  }
+  @elseif($breakpoint == widescreen) {
+    @media only screen and (max-width: $bp-widescreen - $bp001) { @content; }
+  }
+  @elseif($breakpoint == ipadLandscape) {
+    @media only screen and (max-width: $bp-ipad-landscape - $bp001) { @content; }
+  }
+  @elseif($breakpoint == ipadPortrait) {
+    @media only screen and (max-width: $bp-ipad-portrait - $bp001) { @content; }
+  }
+  @elseif($breakpoint == bpHeader) {
+    @media only screen and (max-width: $bp-header) { @content; }
+  }
+  @else {
+    @media only screen and (max-width: convertToEm($breakpoint) - $bp001) { @content; }
+    // @media only screen and (max-width: $breakpoint - $bp001) { @content; }
+  }
+
+}

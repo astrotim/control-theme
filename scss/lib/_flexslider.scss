@@ -1,0 +1,211 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ *
+ * CSS rewritten into SCSS: Tyce Clee (@iamtyce) 6/11/12
+ */
+
+$flexslider:  flexslider;
+$slides:      slides;
+$li:          slide;
+
+/* Browser Resets */
+
+.flex-container a:active,
+.#{$flexslider} a:active,
+.flex-container a:focus,
+.#{$flexslider} a:focus {
+  outline: none;
+}
+
+.#{$slides},
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+
+.#{$flexslider} {
+	margin: 0;
+	padding: 0;
+
+	.#{$slides} {
+
+		> #{$li} {
+			display: none;
+			-webkit-backface-visibility: hidden;
+		}
+
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
+}
+
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+
+/* Clearfix for the .#{$slides} element */
+
+.#{$slides}:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+html[xmlns] .#{$slides} {
+  display: block;
+}
+
+* html .#{$slides} {
+  height: 1%;
+}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+
+.no-js .#{$slides} > #{$li}:first-child {
+  display: block;
+}
+
+/* FlexSlider Default Theme
+*********************************/
+
+.#{$flexslider} {
+  margin: 0;
+  background: #fff;
+  position: relative;
+  zoom: 1;
+}
+
+.flex-viewport {
+  max-height: 2000px;
+  transition: all 1s ease;
+}
+
+// .loading .flex-viewport {
+//   max-height: 300px;
+// }
+
+.#{$flexslider} .#{$slides} {
+  zoom: 1;
+}
+
+/* Direction Nav */
+
+$arrow-offset: 65px;
+// $arrow-offset-hover: $arrow-offset - 10px;
+
+.flex-direction-nav {
+  *height: 0;
+
+  a {
+    width: 35px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0; //50%;
+    z-index: 20;
+    cursor: pointer;
+    font-size: 0;
+    text-decoration: none;
+    opacity: 0; .ie-old & {visibility: hidden;}
+    transition: all .3s ease;
+
+    pointer-events: none;
+    .flexslider:hover & {pointer-events: auto;}
+
+  	&:before {
+  		@include font-awesome($fa-var-chevron-left, 40px, $orange);
+      line-height: 1.1;
+
+      display: block;
+      width: 28px;
+      height: 40px;
+  		top: 50%;
+  		margin-top: -20px;
+  	}
+
+    &.flex-next {
+      right: -($arrow-offset);
+
+	    &:before {
+	    	content: $fa-var-chevron-right;
+        left: 0;
+	    }
+  	}
+
+  	&.flex-prev {
+      left: -($arrow-offset);
+
+      &:before {
+        content: $fa-var-chevron-left;
+        right: 0;
+      }
+  	}
+  }
+}
+
+
+.#{$flexslider}:hover {
+  .flex-next {
+    opacity: 0.8; .ie-old & {visibility: visible;}
+    right: 0;
+  }
+  .flex-prev {
+    opacity: 0.8; .ie-old & {visibility: visible;}
+    left: 0;
+  }
+  .flex-next:hover, .flex-prev:hover {
+    opacity: 1; .ie-old & {visibility: visible;}
+
+    &:before {
+    	// color: $blue-sky;
+    }
+  }
+}
+
+.flex-direction-nav .flex-disabled {
+  opacity: .3!important;
+  filter: alpha(opacity = 30);
+  cursor: default;
+}
+
+@include media-max-width(tablet) {
+
+  .flex-direction-nav {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav {
+    .flex-prev {
+      opacity: 1;
+      left: 0;
+    }
+    .flex-next {
+      opacity: 1;
+      right: 0;
+    }
+  }
+}

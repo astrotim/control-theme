@@ -1,0 +1,32 @@
+/**
+ *  hamburger nav icon button
+ *
+ */
+
+$nav-icon-svg:  url("images/icon-nav.svg");
+$nav-icon-png:  url("images/icon-nav.png");
+$nav-icon-w:    24px;
+
+.nav-toggle {
+  @include hide-text;
+  display: inline-block;
+  width: $nav-icon-w;
+  height: $nav-icon-w;
+  background: none;
+  border: none;
+  padding: 0;
+  // background-image: $nav-icon-svg;
+  background-size: $nav-icon-w $nav-icon-w;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  // .android & {
+  //     background-image: $nav-icon-png;
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  // }
+
+  @include media-min-width(tablet) {
+    display: none;
+  }
+}

@@ -1,0 +1,32 @@
+/**
+ * top navigation
+ *
+ *
+ */
+
+.nav-top {
+  flex-grow: 1;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 0;
+  }
+
+  li {
+    // margin-right: 2px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    @include font-size(14px);
+    color: white;
+    height: 32px;
+    padding: 0 10px;
+    // background-color: rgba(white, .2);
+  }
+
+}

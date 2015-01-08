@@ -1,0 +1,83 @@
+/**
+ * Base
+ */
+
+html {
+  font-size: $font-size-base;
+}
+
+html, body, .wrapper, .off-canvas-wrapper {
+  min-height: 100%;
+  min-height: 100vh;
+  //only works in IE with height set to 100vh (min-height doesnt work)
+}
+
+body {
+  background-color: $site-bg;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreen {
+  min-height: 98vh;
+  background-image: linear-gradient(rgba(144, 202, 249, 0.8) 0%, transparent 600px);
+}
+
+.main {
+  flex-grow: 1;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+.sidebar-fixed-width {
+  display: flex;
+
+  @include media-max-width(tablet) {
+    flex-direction: column;
+  }
+}
+
+.main-column {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background-color: $transparent-white;
+
+  @include media-min-width(tablet) {
+    flex-grow: 1;
+  }
+
+  .ie-old &, .no-flexbox & {
+    // width: 852px;
+    float: left;
+  }
+}
+
+.main-column-inner {
+  background-color: #FFF;
+  padding: 25px 35px;
+}
+
+.side-column {
+  @include media-max-width(tablet) {
+    margin-top: 2em;
+    margin-bottom: 4em;
+  }
+
+  @include media-min-width(tablet) {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: $sidebar-small-w;
+  }
+  @include media-min-width(ipadLandscape) {
+    flex-basis: $sidebar-w;
+  }
+
+  .ie-old &, .no-flexbox & {
+    // width: 286px;
+    float: right;
+  }
+}

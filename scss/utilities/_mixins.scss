@@ -1,0 +1,169 @@
+@mixin image-replace ($file, $width, $height) {
+  @include hide-text;
+  background: url($file) no-repeat;
+  width: $width;
+  height: $height;
+}
+
+@mixin logo ($logo, $width, $height) {
+  @include hide-text;
+  display: block;
+  background-image: $logo;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  width: $width;
+  height: $height;
+}
+
+@mixin svg-logo ($logo, $width, $height) {
+  display: block;
+  @include hide-text;
+  @include background-image($logo, $width $height);
+  width: $width;
+  height: $height;
+}
+
+@mixin font-awesome ($icon, $size, $color) {
+  content: "#{$icon}";
+  font-family: FontAwesome;
+  font-size: $size;
+  font-style: normal;
+  font-weight: normal;
+  color: $color;
+  position: absolute;
+  text-decoration: inherit;
+}
+
+@mixin center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin clearfix {
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// responsive scalable box
+@mixin scale-box ($width, $height) {
+  position: relative;
+  padding-bottom: percentage($height/$width);
+  height: 0;
+  overflow: hidden;
+}
+
+// https://github.com/csswizardry/CSS-Guidelines#sizing-uis
+@mixin font-size($font-size){
+  font-size:$font-size;
+  font-size:$font-size / $font-size-base +rem;
+}
+
+@mixin offset-padding($padding: $grid-gutter-width / 2) {
+  margin-left: -($padding);
+  margin-right: -($padding);
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin vertical-align-middle($width, $height) {
+  display: table-cell;
+  vertical-align: middle;
+  width: $width;
+  height: $height;
+}
+
+
+@mixin custom-animation($name, $duration, $delay, $timing: ease-out, $fill-mode: forwards) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill-mode;
+  backface-visibility: hidden;
+  animation-delay: $delay;
+}
+
+@mixin icon-button($icon) {
+  border-width: 0 0 2px 0;
+  font-size: 0;
+  padding: 5px 6px;
+  line-height: 1;
+
+  &:before {
+    @include font-awesome($icon, 17px, white);
+    position: relative;
+    opacity: .8;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+}
+
+// http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox
+// usage: @include background-image('logo', $logo-w $logo-h);
+$image-path: 'images' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+
+@mixin background-image($name, $size:false){
+  background-image: url(#{$image-path}/#{$name}.svg);
+  @if($size){
+    background-size: $size;
+  }
+  .no-svg &{
+    background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin reset-bullet-list {
+  margin-left: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+
+  &:before {
+    content: none;
+  }
+}
+
+
+
+/**
+ * Mixin scrollbar
+ */
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $primary;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $secondary;
+  }
+
+  // For Internet Explorer
+  // body {
+  //   scrollbar-face-color: $primary;
+  //   scrollbar-track-color: $secondary;
+  // }
+}

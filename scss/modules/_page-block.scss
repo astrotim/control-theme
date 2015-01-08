@@ -1,0 +1,59 @@
+/**
+ * Page Blocks
+ *
+ */
+.page-block {
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+.block-image-left {
+
+  display: flex;
+  margin-bottom: 2em;
+
+  @include media-max-width(tablet) {
+    flex-direction: column;
+  }
+
+  .block-image {
+    margin-bottom: 1em;
+    max-width: 170px;
+
+    img {
+      border-radius: $border-radius-small;
+    }
+
+    @include media-min-width(tablet) {
+      margin-top: 4px;
+      margin-right: 2em;
+      flex-shrink: 0;
+      flex-basis: 33%;
+      max-width: 220px;
+    }
+  }
+
+  .block-content {
+    flex-grow: 1;
+    border-bottom: 1px dashed $grey-medium;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+}
+
+.block-image-only {
+  margin-bottom: 3em;
+  padding: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+
+  img {
+    border-radius: $border-radius-small;
+  }
+}

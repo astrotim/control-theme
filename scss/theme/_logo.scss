@@ -1,0 +1,24 @@
+/**
+ * logo
+ */
+
+$logo-svg:    url("images/logo.svg");
+$logo-w:      144px; //240px*.75;
+$logo-h:      132px; //220px*.75;
+
+h1.logo {
+  margin: 10px 0 0;
+}
+
+.logo {
+
+  a {
+    @include logo($logo-svg, $logo-w, $logo-h);
+    opacity: 1;
+    transition: opacity .2s ease;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}

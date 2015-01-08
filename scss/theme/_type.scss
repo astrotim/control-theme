@@ -1,0 +1,151 @@
+/**
+ * Heading elements
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+h1 {
+  @include font-size($font-size-h1);
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  @include font-size($font-size-h2);
+  font-weight: 600;
+}
+
+h3 {
+  @include font-size($font-size-h3);
+  font-weight: 600;
+}
+
+h4 {
+  @include font-size($font-size-h4);
+  font-weight: 600;
+}
+
+h5 {
+  @include font-size($font-size-h5);
+  font-weight: 600;
+}
+
+h6 {
+  @include font-size($font-size-h6);
+  font-weight: 600;
+}
+
+
+/**
+ * Font size variations
+ */
+
+.text-large {
+  @include font-size($font-size-large);
+  font-weight: $bold-weight;
+}
+
+.text-small {
+  @include font-size($font-size-small);
+}
+
+.text-tiny {
+  @include font-size($font-size-tiny);
+}
+
+
+/**
+ * Body copy
+ */
+
+p {
+  margin-bottom: 1.25em;
+}
+
+a {
+  transition: color .3s ease-out;
+
+  .alert & {
+  }
+}
+
+em {
+  font-size: .95em;
+}
+
+.main-content strong {
+  font-weight: $bold-weight;
+  color: #222;
+}
+
+hr {
+  @include center;
+  border-top: 1px dashed #ddd;
+}
+
+.has-icon .fa {
+  @include font-size(14px);
+  padding-left: 5px;
+  position: relative;
+  top: 1px;
+}
+
+blockquote {
+  clear: both;
+  font-weight: 300;
+  font-style: italic;
+  margin: 1.5em auto;
+  color: white;
+  background-color: $orange-light;
+  border: none;
+  border-left: 10px solid $orange-shade;
+  max-width: 600px;
+  padding-left: 80px;
+  @include center;
+
+  span {
+    display: block;
+    position: relative;
+
+    // &:before {
+    //   @include font-awesome($fa-var-quote-left, 60px, $blue-dark);
+    //   left: -70px;
+    //   top: -12px;
+    // }
+  }
+}
+
+
+
+/**
+ * Page and section headings
+ */
+
+.page-heading {
+  // margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+  h1, h2 {
+    // @include font-size(24px);
+    // border-bottom: 1px dashed #ddd;
+    // padding-bottom: .25em;
+    margin-top: 0;
+  }
+}
+
+// .post-heading {
+//   h1 {
+//     margin-top: 0;
+//   }
+// }
+
+// .section-heading {
+// }
+
+// .first-section h2 {
+//   margin-top: 0;
+// }

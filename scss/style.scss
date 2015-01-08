@@ -1,56 +1,83 @@
 /*!
-Theme Name: Astronaut 2014
+Theme Name: Control
 Author: Tim Holt
 Author URI: http://astronautweb.co/
-
 */
 
-@import 'bootstrap/variables';
-@import 'bootstrap/mixins';
-@import 'bourbon/bourbon';
 
-@import 'variables';
-@import 'mixins';
-@import 'breakpoints';
+@import "lib/bootstrap/variables";
+@import "lib/bootstrap/mixins";
+@import "lib/bourbon/bourbon";
+@import "lib/colors-material-design";
 
 
-/* #LIBRARIES
+/* Theme Variables & Mixins
 ================================================== */
 
-@import 'html5-reset';
-@import 'bootstrap/print';
-@import 'bootstrap';
-// @import 'font-awesome';
+@import "theme/variables";
+@import "utilities/mixins";
+@import "utilities/breakpoints";
+@import "utilities/data-images";
 
 
-/* #GENERAL
+/* 3rd-party libraries
 ================================================== */
 
-@import 'globals';
-@import 'data-images';
-@import 'type';
+@import "theme/html5-reset";
+// @import "lib/bootstrap/print";
+@import "lib/bootstrap";
+@import "lib/font-awesome";
+@import "lib/flexslider";
 
-/* #ELEMENTS
+
+/* Global Styles
 ================================================== */
 
-@import 'ui/buttons';
-@import 'ui/images';
-@import 'ui/gravity-forms';
-@import 'ui/forms';
-@import 'ui/code';
-@import 'ui/lists';
-@import 'ui/comments';
+@import "theme/globals";
+@import "theme/type";
 
-/* #LAYOUT
+
+/* UI
 ================================================== */
 
-@import 'header';
-@import 'nav';
-@import 'off-canvas';
-@import 'page';
-@import 'post';
-@import 'footer';
+@import "ui/guide";
+@import "ui/buttons";
+@import "ui/forms";
+// @import "ui/gravity-forms";
+@import "ui/images";
+@import "ui/lists";
+// @import "ui/pagination";
+@import "ui/tables";
+@import "ui/icons";
+@import "ui/nav-toggle";
+// @import "ui/guide";
 
-/* #PAGES
+
+/* Theme
 ================================================== */
+
+@import "theme/header";
+@import "theme/logo";
+@import "theme/navigation";
+@import "theme/navigation-top";
+@import "theme/page";
+@import "theme/footer";
+@import "theme/grid";
+@import "theme/post-index";
+@import "theme/homepage";
+@import "theme/page-block";
+// @import "side-nav";
+// @import "sidebar";
+// @import "off-canvas";
+// @import "page";
+// @import "post";
+// @import "search-results";
+// @import "features";
+// @import "footer";
+
+
+
+/* Modules
+================================================== */
+
 

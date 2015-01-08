@@ -1,43 +1,67 @@
-ul, dl {
-    margin-bottom: 2em;
+.post-content ul,
+.block-content ul,
+.post-content ol {
+  margin-bottom: 1.5em;
+  display: inline-block;
 }
 
-.article-content li,
-.bullet-list li {
-    position: relative;
-    padding-left: 1em;
-    margin-bottom: 8px;
+.bullet-list li,
+.content ul li,
+.block-content ul li,
+.post-content ul li {
+  margin-left: 1em;
+  position: relative;
+  padding-left: 1em;
+  padding-bottom: .25em;
 
-    a {
-        color: $link-hover-color;
-        border-bottom: none;
-        text-decoration: underline;
-
-        &:hover {
-            color: $link-color;
-        }
-    }
-
-    &:before {
-        content: "";
-        display: block;
-        background-color: $link-hover-color;
-        width: 6px;
-        height: 6px;
-        border-radius: 6px;
-        position: absolute;
-        left: 0;
-        top: 11px;
-        margin-top: -3px;
-    }
+  &:before {
+    content: "";
+    display: block;
+    background-color: $green;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 8px;
+  }
 }
 
-.tag-list {
-    li {
-        display: inline-block;
-        background-color: #ddd;
-        color: #111;
-        padding: 2px 8px;
-        @include font-size(12px);
-    }
+.post-content ol li {
+  margin-left: 2em;
+  margin-bottom: .5em;
+
+  .single-competition & {
+    @include font-size(12px);
+  }
+}
+
+.number-list {
+
+  li {
+    margin-left: 1.5em;
+  }
+}
+
+
+dl {
+  margin: 0 2px;
+
+  dt, dd {
+    display: inline-block;
+    margin: 0 -2px;
+    padding: .625em .625em .625em 1em;
+    vertical-align: top;
+
+  }
+  dt {
+    width: percentage(25/100);
+  }
+  dd {
+    width: percentage(55/100);
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
 }

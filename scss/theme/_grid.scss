@@ -1,0 +1,22 @@
+/**
+ * Grid
+ *
+ */
+
+.grid {
+
+}
+
+.grid-item {
+  // float: left;
+  display: inline-block;
+  vertical-align: top;
+  width: 248px;
+  width: calc(33.333333% - 10px);
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.grid-item:nth-child(3n) {
+  margin-right: 0;
+}

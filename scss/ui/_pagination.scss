@@ -1,0 +1,59 @@
+  /* pagination
+  ------------------------------------------------------- */
+
+.pagination {
+  text-align: center;
+
+  ul {
+    border-radius: 0;
+  }
+
+  ul > li {
+
+    &> a,
+    &> span {
+      color: $pagination-color;
+      padding: 0; // 0 12px;
+      line-height: 30px;
+      @include font-size(14px);
+      width: 36px;
+      transition: none;
+    }
+
+    &> a.prev,
+    &> a.next {
+      font-size: 0;
+      width: 33px;
+      background-color: $grey-vlight;
+
+      &:before {
+        @include font-awesome($fa-var-chevron-right, 16px, $pagination-color);
+        top: 1px;
+      }
+
+      &:hover {
+        background-color: $pagination-hover-bg;
+      }
+
+      &:hover:before {
+        color: $pagination-hover-color;
+      }
+    }
+
+    &> a.prev:before {
+      content: $fa-var-chevron-left;
+      left: 9px;
+    }
+    &> a.next:before {
+      right: 9px;
+    }
+
+    &:first-child,
+    &:last-child {
+      > span, > a {
+        border-radius: 0;
+      }
+    }
+
+  }
+}

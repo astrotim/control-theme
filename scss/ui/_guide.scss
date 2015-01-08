@@ -1,0 +1,255 @@
+.page-style-guide {
+  background-image: none;
+  background-color: #FFF;
+
+  .wrapper {
+    max-width: 940px;
+    @include center;
+    padding: 1em;
+  }
+
+  .logo {
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  section {
+    margin-bottom: 6em;
+  }
+
+  .section-heading {
+    text-transform: uppercase;
+    color: $grey-dark;
+    font-size: 13px;
+    font-weight: 600;
+    // border-top: 1px dashed #ddd;
+    @include font-size(13px);
+    margin-bottom: 2em;
+    padding: .5em 10px;
+    text-align: center;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 43%;
+      border-top: 1px dashed #ddd;
+      top: 14px;
+    }
+    &:before {
+      left: 57%;
+    }
+    &:after {
+      right: 57%;
+    }
+  }
+
+  .layout .row > div {
+    text-align: justify;
+  }
+
+  .buttons {
+    ul {
+      text-align: center;
+      margin-bottom: 2em;
+
+      li {
+        display: inline-block;
+      }
+    }
+
+    ul:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  .icons {
+
+    ul {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
+    ul:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+  }
+
+  .icon-list {
+    // margin: 0 -10px 2em;
+
+    li {
+      margin: 0 10px;
+    }
+
+    span {
+      color: $blue;
+      @include font-size(20px);
+    }
+
+    .fa-facebook-square {color: #3b5999;}
+    .fa-twitter {color: #00ACED;}
+    .fa-instagram {color: #517FA4;}
+    .fa-youtube-square {color: #e52d27;}
+    .fa-rss {color: $orange;}
+
+  }
+
+  .icon-large {
+    span {
+      @include font-size(80px);
+    }
+  }
+
+  .icon-medium {
+    span {
+      @include font-size(40px);
+    }
+  }
+
+  .icon-green {
+    padding-top: 1em;
+
+    span {
+      color: $green;
+    }
+  }
+
+  .icon-orange {
+    span {
+      color: $orange;
+    }
+  }
+
+  .icon-blue-light {
+    span {
+      color: $blue-light;
+    }
+  }
+
+
+
+  .palette {
+    font-size: 0;
+
+    > div {
+      background-color: #ddd;
+      height: 200px;
+      width: percentage(1/5);
+      display: inline-block;
+      vertical-align: top;
+      border-bottom: 20px solid;
+
+      &:before {
+        content: 'colour';
+        color: white;
+        font-size: 13px;
+        padding-left: 5px;
+        font-family: $sans;
+      }
+    }
+
+    .greys {
+      width: percentage(1/5);
+      border-bottom: none;
+
+      &:before {
+        content: none;
+      }
+
+      > div {
+        display: block;
+        height: 50px;
+        border-right: 20px solid;
+
+        &:before {
+          content: 'colour';
+          color: white;
+          font-size: 13px;
+          padding-left: 5px;
+          font-family: $sans;
+        }
+      }
+
+    }
+
+    .color-orange {
+        background-color: $orange;
+        border-bottom-color: $orange-shade;
+        &:before {content: 'orange'}
+    }
+    .color-green {
+        background-color: $green;
+        border-bottom-color: $green-shade;
+        &:before {content: 'green'}
+    }
+    .color-aqua {
+        background-color: $aqua;
+        border-bottom-color: $aqua-shade;
+        &:before {content: 'aqua'}
+    }
+    .color-blue {
+        background-color: $blue;
+        border-bottom-color: $blue-shade;
+        &:before {content: 'blue'}
+    }
+    .color-purple {
+        background-color: $purple;
+        border-bottom-color: $purple-shade;
+        &:before {content: 'purple'}
+    }
+
+    .greys {
+      .color-grey-vdark {
+          background-color: $grey-vdark;
+          border-right-color: shade($grey-vdark, 20%);
+          &:before {content: 'very dark grey'}
+      }
+      .color-grey-dark {
+          background-color: $grey-dark;
+          border-right-color: shade($grey-dark, 20%);
+          &:before {content: 'dark grey'}
+      }
+      .color-grey-medium {
+          background-color: $grey-medium;
+          border-right-color: shade($grey-medium, 20%);
+          &:before {content: 'medium grey'; color: $grey-vdark;}
+      }
+      .color-grey-light {
+          background-color: $grey-light;
+          border-right-color: shade($grey-light, 20%);
+          &:before {content: 'light grey'; color: $grey-vdark;}
+      }
+
+    }
+  }
+
+
+  .sidenav {
+    .col-md-9 {
+      padding-right: 4em;
+    }
+  }
+
+
+  .post-index {
+    margin-top: 4em;
+    max-width: 760px;
+  }
+
+  .block-contact {
+    margin-top: 4em;
+    max-width: 460px;
+    @include center;
+  }
+
+}
